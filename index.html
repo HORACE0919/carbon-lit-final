@@ -2,32 +2,534 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>碳治理文献日报 · 等待首次更新</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>碳治理文献日报 · 2026-06-21</title>
 <style>
-body{font-family:'PingFang SC',-apple-system,sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;background:#fafaf8}
-.box{text-align:center;padding:48px 32px;max-width:460px}
-h1{font-size:22px;margin-bottom:14px;color:#2d5a27;font-weight:600}
-p{font-size:13px;color:#555;line-height:1.9;margin-bottom:6px}
-.badge{display:inline-block;background:#e8f0e6;color:#2d5a27;font-size:11px;padding:4px 14px;border-radius:20px;margin-top:14px;border:1px solid #c5dcc2}
-.steps{margin:20px 0;text-align:left;background:white;border:1px solid #ddd9d0;border-radius:8px;padding:16px 20px}
-.step{font-size:12px;color:#555;padding:4px 0;border-bottom:1px solid #f0ede6}
-.step:last-child{border-bottom:none}
-.step b{color:#1a1a1a}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1a1a1a;--m:#555;--f:#999;--s:#fafaf8;--sa:#f0ede6;--b:#ddd9d0;
+  --a:#2d5a27;--al:#e8f0e6;--aw:#8b6914;--awl:#fdf5e0;
+  --bl:#1e3a5f;--blb:#e8f0f8;--gl:#1a4d1a;--glb:#e6f4e6;
+  --r:4px;--rl:8px
+}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--s);color:var(--ink);font-size:14px;line-height:1.6;min-height:100vh}
+.mast{border-bottom:2px solid var(--ink);padding:14px 28px 11px;display:flex;align-items:baseline;gap:16px;background:white;flex-wrap:wrap}
+.mast-t{font-family:'Noto Serif SC',serif;font-size:20px;font-weight:600;letter-spacing:.04em}
+.mast-s{font-size:11px;color:var(--f);letter-spacing:.05em;text-transform:uppercase;border-left:1px solid var(--b);padding-left:14px}
+.mast-d{margin-left:auto;font-size:11px;color:var(--m);font-family:'JetBrains Mono',monospace}
+.ubar{background:var(--a);color:white;padding:8px 28px;font-size:11px;display:flex;flex-wrap:wrap;gap:16px}
+.tbar{background:var(--ink);padding:0 28px;display:flex;overflow-x:auto}
+.tbar::-webkit-scrollbar{height:0}
+.tbtn{background:none;border:none;color:rgba(255,255,255,.45);font-size:11px;font-family:'Inter',sans-serif;font-weight:500;letter-spacing:.05em;text-transform:uppercase;padding:9px 14px;cursor:pointer;border-bottom:2px solid transparent;transition:color .15s;white-space:nowrap}
+.tbtn:hover{color:white}.tbtn.active{color:white;border-bottom-color:#7cbf70}
+.wrap{max-width:1100px;margin:0 auto;padding:22px 28px;display:grid;grid-template-columns:1fr 265px;gap:28px}
+.shdr{display:flex;align-items:center;margin-bottom:14px;border-bottom:1px solid var(--b);padding-bottom:8px}
+.sl{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--f)}
+.sc2{font-size:10px;color:var(--f);margin-left:auto}
+.lc{background:white;border:1px solid var(--b);border-radius:var(--rl);padding:16px 18px;margin-bottom:12px;transition:box-shadow .15s}
+.lc:hover{box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.lc.top-pick{border-top:3px solid var(--a)}
+.ch{display:flex;align-items:flex-start;gap:9px;margin-bottom:7px}
+.ci{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--f);margin-top:2px;min-width:20px}
+.ct2{font-size:14px;font-weight:600;line-height:1.4;flex:1}
+.cm2{display:flex;flex-wrap:wrap;gap:4px;margin:6px 0 8px 29px}
+.chip{font-size:10px;padding:2px 8px;border-radius:20px;font-weight:500}
+.cj{background:var(--blb);color:var(--bl)}.cd{background:var(--sa);color:var(--m)}
+.ct{background:var(--glb);color:var(--gl)}
+.cp{background:#f3e8ff;color:#5b21b6;font-weight:600}
+.oa-open{background:#dcfce7;color:#166534}.oa-lock{background:#fef9c3;color:#854d0e}
+.ca{font-size:11px;color:var(--f);margin:0 0 9px 29px;font-style:italic}
+.csu{margin:0 0 8px 29px;padding:10px 13px;background:var(--sa);border-left:3px solid var(--a);border-radius:0 var(--r) var(--r) 0}
+.csl{font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--a);margin-bottom:3px}
+.cst{font-size:12px;color:var(--m);line-height:1.6}
+.creason{margin:0 0 0 29px;padding:8px 13px;background:var(--awl);border-left:3px solid var(--aw);border-radius:0 var(--r) var(--r) 0}
+.crl{font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--aw);margin-bottom:3px}
+.crt{font-size:12px;color:#5a3e0a;line-height:1.6}
+.cft{margin:10px 0 0 29px;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.cl{font-size:10px;color:var(--a);text-decoration:none;font-weight:500;border:1px solid #c5dcc2;padding:2px 8px;border-radius:var(--r)}
+.cl:hover{background:var(--al)}
+.rb{margin-left:auto;display:flex;align-items:center;gap:4px}
+.rl2{font-size:9px;color:var(--f)}
+.dots{display:flex;gap:2px}.dot{width:5px;height:5px;border-radius:50%;background:var(--b)}.dot.on{background:var(--a)}
+.sdc{background:white;border:1px solid var(--b);border-radius:var(--rl);padding:14px 15px;margin-bottom:12px}
+.sdt{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--f);margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--b)}
+.ti{padding:7px 0;border-bottom:1px solid var(--sa)}.ti:last-child{border-bottom:none;padding-bottom:0}
+.tn{font-size:9px;font-weight:600;color:var(--a);letter-spacing:.06em;margin-bottom:2px}
+.tnm{font-size:11px;font-weight:500;line-height:1.35;margin-bottom:2px}
+.tm{font-size:10px;color:var(--f)}
+.str{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--sa);font-size:11px}
+.str:last-child{border-bottom:none}.stl{color:var(--m)}.stv{font-weight:600}
+.fstep{display:flex;align-items:center;gap:8px;padding:4px 0;font-size:11px;color:var(--m)}
+.fn{font-weight:600;color:var(--ink);min-width:55px}
+.fb{color:var(--a);font-weight:600;margin-left:auto}
+@media(max-width:800px){.wrap{grid-template-columns:1fr;padding:14px}}
 </style>
 </head>
 <body>
-<div class="box">
-  <h1>📚 碳治理文献日报</h1>
-  <p>四级漏斗精准筛选系统</p>
-  <p>正在等待首次自动更新…</p>
-  <div class="steps">
-    <div class="step"><b>第1级</b> CrossRef 免费海选 ~80篇</div>
-    <div class="step"><b>第2级</b> 多维打分初筛 12篇</div>
-    <div class="step"><b>第3级</b> AI 分级精读（OA文献）</div>
-    <div class="step"><b>第4级</b> 新锐分区顶刊终选 3篇</div>
-  </div>
-  <p>请在 GitHub Actions 中手动触发「每日文献更新」<br>或等待每天北京时间 08:00 自动运行</p>
-  <div class="badge">区域低碳治理 · 林业碳汇 · 博士助手</div>
+<div class="mast">
+  <div class="mast-t">碳治理文献日报</div>
+  <div class="mast-s">区域低碳治理 · 林业碳汇 · 四级漏斗精选</div>
+  <div class="mast-d">2026-06-21</div>
 </div>
+<div class="ubar">
+  <span>✅ 已自动更新 · 2026年06月21日 09:45</span>
+  <span>📊 海选→初筛12篇→终选3篇顶刊</span>
+  <span>🔓 OA可精读 12 篇 &nbsp;🔒 需校园下载 0 篇</span>
+  <span>⏰ 每天北京时间 08:00 自动刷新</span>
+</div>
+<div class="tbar">
+  <button class="tbtn active" onclick="swT(this,'all','top')">⭐ 今日精选</button>
+  <button class="tbtn" onclick="swT(this,'all','all')">初筛全部</button>
+  <button class="tbtn" onclick="swT(this,'policy','all')">政策评估</button>
+  <button class="tbtn" onclick="swT(this,'mrio','all')">投入产出·隐含碳</button>
+  <button class="tbtn" onclick="swT(this,'forest','all')">林业碳汇·CCER</button>
+  <button class="tbtn" onclick="swT(this,'governance','all')">碳市场·治理</button>
+</div>
+<div class="wrap">
+  <div>
+    <div class="shdr">
+      <span class="sl" id="feed-label">今日精选文献</span>
+      <span class="sc2" id="rcn">3 篇（分区优先）</span>
+    </div>
+    <div id="top-feed">
+<div class="lc top-pick" data-topics="mrio">
+  <div class="ch">
+    <span class="ci">01</span>
+    <div class="ct2">Carbon emissions embodied in investment: Assessing emissions reduction responsibility through multi-regional input-output analysis</div>
+  </div>
+  <div class="cm2">
+    <span class="chip cj">Applied Energy</span>
+    <span class="chip cd">2024</span>
+    <span class="chip cp">一区</span>
+    <span class="chip oa-open">🔓 OA</span><span class="chip ct">隐含碳</span>
+  </div>
+  <div class="ca">Junyi Liang, Shaojian Wang, Yuantao Liao 等</div>
+  <div class="csu">
+    <div class="csl">主要发现 &amp; 参考价值</div>
+    <div class="cst">主要发现：（未配置AI Key，基于摘要生成）</div>
+  </div>
+  <div class="creason">
+    <div class="crl">💡 推荐理由</div>
+    <div class="crt">新锐分区一区顶刊，研究范式与写作规范具备强发表参考价值，可直接对标目标期刊的选题深度与论证逻辑；引用52次，研究认可度较好，方法设计具有一定参考价值</div>
+  </div>
+  <div class="cft">
+    <a class="cl" href="https://doi.org/10.1016/j.apenergy.2023.122558" target="_blank">🔗 原文</a><a class="cl" href="https://scholar.google.com/scholar?q=Carbon%20emissions%20embodied%20in%20investment%3A%20Assessing%20emissions%20reduction%20responsibility%20through%20multi-regional%20input-output%20analysis" target="_blank">Google Scholar</a>
+    <div class="rb"><span class="rl2">综合得分</span><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot "></span><span class="dot "></span></span></div>
+  </div>
+</div>
+
+<div class="lc top-pick" data-topics="policy">
+  <div class="ch">
+    <span class="ci">02</span>
+    <div class="ct2">Assessing the impact of regional coordinated development on a low-carbon future: Evidence from the Beijing-Tianjin-Hebei Coordinated Development Strategy</div>
+  </div>
+  <div class="cm2">
+    <span class="chip cj">Journal of Cleaner Production</span>
+    <span class="chip cd">2024</span>
+    <span class="chip cp">一区</span>
+    <span class="chip oa-open">🔓 OA</span><span class="chip ct">政策评估</span>
+  </div>
+  <div class="ca">Yaqi Wang, Wei Li, Guomin Li 等</div>
+  <div class="csu">
+    <div class="csl">主要发现 &amp; 参考价值</div>
+    <div class="cst">主要发现：（未配置AI Key，基于摘要生成）</div>
+  </div>
+  <div class="creason">
+    <div class="crl">💡 推荐理由</div>
+    <div class="crt">新锐分区一区顶刊，研究范式与写作规范具备强发表参考价值，可直接对标目标期刊的选题深度与论证逻辑；研究方法常规可控，核心实证环节可通过AI辅助完成代码与分析</div>
+  </div>
+  <div class="cft">
+    <a class="cl" href="https://doi.org/10.1016/j.jclepro.2024.144140" target="_blank">🔗 原文</a><a class="cl" href="https://scholar.google.com/scholar?q=Assessing%20the%20impact%20of%20regional%20coordinated%20development%20on%20a%20low-carbon%20future%3A%20Evidence%20from%20the%20Beijing-Tianjin-Hebei%20Coordinated%20Development%20Strategy" target="_blank">Google Scholar</a>
+    <div class="rb"><span class="rl2">综合得分</span><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot "></span><span class="dot "></span></span></div>
+  </div>
+</div>
+
+<div class="lc top-pick" data-topics="policy">
+  <div class="ch">
+    <span class="ci">03</span>
+    <div class="ct2">Simulation of hydrogen transportation development path and carbon emission reduction path based on LEAP model - A case study of Beijing-Tianjin-Hebei Region</div>
+  </div>
+  <div class="cm2">
+    <span class="chip cj">Energy Policy</span>
+    <span class="chip cd">2024</span>
+    <span class="chip cp">一区</span>
+    <span class="chip oa-open">🔓 OA</span><span class="chip ct">政策评估</span>
+  </div>
+  <div class="ca">Chaofan Shi, Guangyu Qin, Qinliang Tan 等</div>
+  <div class="csu">
+    <div class="csl">主要发现 &amp; 参考价值</div>
+    <div class="cst">主要发现：（未配置AI Key，基于摘要生成）</div>
+  </div>
+  <div class="creason">
+    <div class="crl">💡 推荐理由</div>
+    <div class="crt">新锐分区一区顶刊，研究范式与写作规范具备强发表参考价值，可直接对标目标期刊的选题深度与论证逻辑；研究方法常规可控，核心实证环节可通过AI辅助完成代码与分析</div>
+  </div>
+  <div class="cft">
+    <a class="cl" href="https://doi.org/10.1016/j.enpol.2024.114337" target="_blank">🔗 原文</a><a class="cl" href="https://scholar.google.com/scholar?q=Simulation%20of%20hydrogen%20transportation%20development%20path%20and%20carbon%20emission%20reduction%20path%20based%20on%20LEAP%20model%20-%20A%20case%20study%20of%20Beijing-Tianjin-Hebei%20Region" target="_blank">Google Scholar</a>
+    <div class="rb"><span class="rl2">综合得分</span><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot "></span><span class="dot "></span></span></div>
+  </div>
+</div></div>
+    <div id="all-feed" style="display:none">
+<div class="lc" data-topics="mrio">
+  <div class="ch">
+    <span class="ci">01</span>
+    <div class="ct2">Carbon emissions embodied in investment: Assessing emissions reduction responsibility through multi-regional input-output analysis</div>
+  </div>
+  <div class="cm2">
+    <span class="chip cj">Applied Energy</span>
+    <span class="chip cd">2024</span>
+    <span class="chip cp">一区</span>
+    <span class="chip oa-open">🔓 OA</span><span class="chip ct">隐含碳</span>
+  </div>
+  <div class="ca">Junyi Liang, Shaojian Wang, Yuantao Liao 等</div>
+  <div class="csu">
+    <div class="csl">主要发现 &amp; 参考价值</div>
+    <div class="cst">主要发现：（未配置AI Key，基于摘要生成）</div>
+  </div>
+  <div class="creason">
+    <div class="crl">💡 推荐理由</div>
+    <div class="crt">新锐分区一区顶刊，研究范式与写作规范具备强发表参考价值，可直接对标目标期刊的选题深度与论证逻辑；引用52次，研究认可度较好，方法设计具有一定参考价值</div>
+  </div>
+  <div class="cft">
+    <a class="cl" href="https://doi.org/10.1016/j.apenergy.2023.122558" target="_blank">🔗 原文</a><a class="cl" href="https://scholar.google.com/scholar?q=Carbon%20emissions%20embodied%20in%20investment%3A%20Assessing%20emissions%20reduction%20responsibility%20through%20multi-regional%20input-output%20analysis" target="_blank">Google Scholar</a>
+    <div class="rb"><span class="rl2">综合得分</span><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot "></span><span class="dot "></span></span></div>
+  </div>
+</div>
+
+<div class="lc" data-topics="policy">
+  <div class="ch">
+    <span class="ci">02</span>
+    <div class="ct2">Assessing the impact of regional coordinated development on a low-carbon future: Evidence from the Beijing-Tianjin-Hebei Coordinated Development Strategy</div>
+  </div>
+  <div class="cm2">
+    <span class="chip cj">Journal of Cleaner Production</span>
+    <span class="chip cd">2024</span>
+    <span class="chip cp">一区</span>
+    <span class="chip oa-open">🔓 OA</span><span class="chip ct">政策评估</span>
+  </div>
+  <div class="ca">Yaqi Wang, Wei Li, Guomin Li 等</div>
+  <div class="csu">
+    <div class="csl">主要发现 &amp; 参考价值</div>
+    <div class="cst">主要发现：（未配置AI Key，基于摘要生成）</div>
+  </div>
+  <div class="creason">
+    <div class="crl">💡 推荐理由</div>
+    <div class="crt">新锐分区一区顶刊，研究范式与写作规范具备强发表参考价值，可直接对标目标期刊的选题深度与论证逻辑；研究方法常规可控，核心实证环节可通过AI辅助完成代码与分析</div>
+  </div>
+  <div class="cft">
+    <a class="cl" href="https://doi.org/10.1016/j.jclepro.2024.144140" target="_blank">🔗 原文</a><a class="cl" href="https://scholar.google.com/scholar?q=Assessing%20the%20impact%20of%20regional%20coordinated%20development%20on%20a%20low-carbon%20future%3A%20Evidence%20from%20the%20Beijing-Tianjin-Hebei%20Coordinated%20Development%20Strategy" target="_blank">Google Scholar</a>
+    <div class="rb"><span class="rl2">综合得分</span><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot "></span><span class="dot "></span></span></div>
+  </div>
+</div>
+
+<div class="lc" data-topics="policy">
+  <div class="ch">
+    <span class="ci">03</span>
+    <div class="ct2">A study of low-carbon development, urban innovation and industrial structure upgrading in China</div>
+  </div>
+  <div class="cm2">
+    <span class="chip cj">International Journal of Low-Carbon Technologies</span>
+    <span class="chip cd">2022</span>
+    <span class="chip cp">未匹配分区</span>
+    <span class="chip oa-open">🔓 OA</span><span class="chip ct">政策评估</span>
+  </div>
+  <div class="ca">Mingqing Chen</div>
+  <div class="csu">
+    <div class="csl">主要发现 &amp; 参考价值</div>
+    <div class="cst">主要发现：Abstract
+               This paper, based on the panel data of 281 prefecture-level cities in China, applies the difference-in-differences (DID) appro（未配置AI Key，基于摘要生成）</div>
+  </div>
+  <div class="creason">
+    <div class="crl">💡 推荐理由</div>
+    <div class="crt">实证方法成熟通用（面板回归/DID/MRIO等），可借助Python/Stata配合AI工具快速复现，落地门槛低</div>
+  </div>
+  <div class="cft">
+    <a class="cl" href="https://doi.org/10.1093/ijlct/ctab097" target="_blank">🔗 原文</a><a class="cl" href="https://scholar.google.com/scholar?q=A%20study%20of%20low-carbon%20development%2C%20urban%20innovation%20and%20industrial%20structure%20upgrading%20in%20China" target="_blank">Google Scholar</a>
+    <div class="rb"><span class="rl2">综合得分</span><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot "></span><span class="dot "></span></span></div>
+  </div>
+</div>
+
+<div class="lc" data-topics="policy">
+  <div class="ch">
+    <span class="ci">04</span>
+    <div class="ct2">Simulation of hydrogen transportation development path and carbon emission reduction path based on LEAP model - A case study of Beijing-Tianjin-Hebei Region</div>
+  </div>
+  <div class="cm2">
+    <span class="chip cj">Energy Policy</span>
+    <span class="chip cd">2024</span>
+    <span class="chip cp">一区</span>
+    <span class="chip oa-open">🔓 OA</span><span class="chip ct">政策评估</span>
+  </div>
+  <div class="ca">Chaofan Shi, Guangyu Qin, Qinliang Tan 等</div>
+  <div class="csu">
+    <div class="csl">主要发现 &amp; 参考价值</div>
+    <div class="cst">主要发现：（未配置AI Key，基于摘要生成）</div>
+  </div>
+  <div class="creason">
+    <div class="crl">💡 推荐理由</div>
+    <div class="crt">新锐分区一区顶刊，研究范式与写作规范具备强发表参考价值，可直接对标目标期刊的选题深度与论证逻辑；研究方法常规可控，核心实证环节可通过AI辅助完成代码与分析</div>
+  </div>
+  <div class="cft">
+    <a class="cl" href="https://doi.org/10.1016/j.enpol.2024.114337" target="_blank">🔗 原文</a><a class="cl" href="https://scholar.google.com/scholar?q=Simulation%20of%20hydrogen%20transportation%20development%20path%20and%20carbon%20emission%20reduction%20path%20based%20on%20LEAP%20model%20-%20A%20case%20study%20of%20Beijing-Tianjin-Hebei%20Region" target="_blank">Google Scholar</a>
+    <div class="rb"><span class="rl2">综合得分</span><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot "></span><span class="dot "></span></span></div>
+  </div>
+</div>
+
+<div class="lc" data-topics="forest">
+  <div class="ch">
+    <span class="ci">05</span>
+    <div class="ct2">Scenario Analysis of Carbon Reduction Potential Through Forest Carbon Sink Mechanisms in the Beijing–Tianjin–Hebei Region, China</div>
+  </div>
+  <div class="cm2">
+    <span class="chip cj">Sustainability</span>
+    <span class="chip cd">2025</span>
+    <span class="chip cp">三区</span>
+    <span class="chip oa-open">🔓 OA</span><span class="chip ct">林业碳汇</span>
+  </div>
+  <div class="ca">Zhichen Wang, Ying Zhang, Zixuan Zhang</div>
+  <div class="csu">
+    <div class="csl">主要发现 &amp; 参考价值</div>
+    <div class="cst">主要发现：Forests in the Beijing–Tianjin–Hebei region have played an important role in wind prevention, sand fixation, and carbon emission reduction in China. T（未配置AI Key，基于摘要生成）</div>
+  </div>
+  <div class="creason">
+    <div class="crl">💡 推荐理由</div>
+    <div class="crt">研究方法常规可控，核心实证环节可通过AI辅助完成代码与分析；2025年最新发表，选题紧跟研究前沿，创新切入点与研究缺口可直接借鉴延伸</div>
+  </div>
+  <div class="cft">
+    <a class="cl" href="https://doi.org/10.3390/su17177992" target="_blank">🔗 原文</a><a class="cl" href="https://scholar.google.com/scholar?q=Scenario%20Analysis%20of%20Carbon%20Reduction%20Potential%20Through%20Forest%20Carbon%20Sink%20Mechanisms%20in%20the%20Beijing%E2%80%93Tianjin%E2%80%93Hebei%20Region%2C%20China" target="_blank">Google Scholar</a>
+    <div class="rb"><span class="rl2">综合得分</span><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot "></span><span class="dot "></span></span></div>
+  </div>
+</div>
+
+<div class="lc" data-topics="policy,governance">
+  <div class="ch">
+    <span class="ci">06</span>
+    <div class="ct2">Energy Transition and Systemic Enterprise Upgrading: The Role of Carbon Markets, Digitalization, and Financing Constraints</div>
+  </div>
+  <div class="cm2">
+    <span class="chip cj">Sustainability</span>
+    <span class="chip cd">2026</span>
+    <span class="chip cp">三区</span>
+    <span class="chip oa-open">🔓 OA</span><span class="chip ct">政策评估</span><span class="chip ct">碳市场</span>
+  </div>
+  <div class="ca">Ao Yue, Jingtao Chen, Yana Di 等</div>
+  <div class="csu">
+    <div class="csl">主要发现 &amp; 参考价值</div>
+    <div class="cst">主要发现：Achieving net-zero emissions requires balancing decarbonization with sustained enterprise development. Using panel data on China’s A-share listed firm（未配置AI Key，基于摘要生成）</div>
+  </div>
+  <div class="creason">
+    <div class="crl">💡 推荐理由</div>
+    <div class="crt">实证方法成熟通用（面板回归/DID/MRIO等），可借助Python/Stata配合AI工具快速复现，落地门槛低；2026年最新发表，选题紧跟研究前沿，创新切入点与研究缺口可直接借鉴延伸</div>
+  </div>
+  <div class="cft">
+    <a class="cl" href="https://doi.org/10.3390/su18115712" target="_blank">🔗 原文</a><a class="cl" href="https://scholar.google.com/scholar?q=Energy%20Transition%20and%20Systemic%20Enterprise%20Upgrading%3A%20The%20Role%20of%20Carbon%20Markets%2C%20Digitalization%2C%20and%20Financing%20Constraints" target="_blank">Google Scholar</a>
+    <div class="rb"><span class="rl2">综合得分</span><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot "></span><span class="dot "></span></span></div>
+  </div>
+</div>
+
+<div class="lc" data-topics="governance">
+  <div class="ch">
+    <span class="ci">07</span>
+    <div class="ct2">Low-carbon innovation induced by emissions trading in China</div>
+  </div>
+  <div class="cm2">
+    <span class="chip cj">Nature Communications</span>
+    <span class="chip cd">2019</span>
+    <span class="chip cp">未匹配分区</span>
+    <span class="chip oa-open">🔓 OA</span><span class="chip ct">碳市场</span>
+  </div>
+  <div class="ca">Junming Zhu, Yichun Fan, Xinghua Deng 等</div>
+  <div class="csu">
+    <div class="csl">主要发现 &amp; 参考价值</div>
+    <div class="cst">主要发现：AbstractEmissions trading scheme (ETS) has been adopted by an increasing number of countries and regions for carbon mitigation, but its actual effect （未配置AI Key，基于摘要生成）</div>
+  </div>
+  <div class="creason">
+    <div class="crl">💡 推荐理由</div>
+    <div class="crt">累计引用391次，研究框架已获业内广泛验证，结论可靠性高，适合作为本研究的理论基准；研究方法常规可控，核心实证环节可通过AI辅助完成代码与分析</div>
+  </div>
+  <div class="cft">
+    <a class="cl" href="https://doi.org/10.1038/s41467-019-12213-6" target="_blank">🔗 原文</a><a class="cl" href="https://scholar.google.com/scholar?q=Low-carbon%20innovation%20induced%20by%20emissions%20trading%20in%20China" target="_blank">Google Scholar</a>
+    <div class="rb"><span class="rl2">综合得分</span><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot "></span><span class="dot "></span></span></div>
+  </div>
+</div>
+
+<div class="lc" data-topics="policy">
+  <div class="ch">
+    <span class="ci">08</span>
+    <div class="ct2">The Impact of Rationalization and Upgrading of Industrial Structure on Carbon Emissions in the Beijing-Tianjin-Hebei Urban Agglomeration</div>
+  </div>
+  <div class="cm2">
+    <span class="chip cj">International Journal of Environmental Research and Public Health</span>
+    <span class="chip cd">2022</span>
+    <span class="chip cp">未匹配分区</span>
+    <span class="chip oa-open">🔓 OA</span><span class="chip ct">政策评估</span>
+  </div>
+  <div class="ca">Runde Gu, Chunfa Li, Dongdong Li 等</div>
+  <div class="csu">
+    <div class="csl">主要发现 &amp; 参考价值</div>
+    <div class="cst">主要发现：Carbon dioxide mainly comes from industrial economic activities. Industrial structure optimization is an effective way to reduce carbon dioxide emissi（未配置AI Key，基于摘要生成）</div>
+  </div>
+  <div class="creason">
+    <div class="crl">💡 推荐理由</div>
+    <div class="crt">引用115次，研究认可度较好，方法设计具有一定参考价值；研究方法常规可控，核心实证环节可通过AI辅助完成代码与分析</div>
+  </div>
+  <div class="cft">
+    <a class="cl" href="https://doi.org/10.3390/ijerph19137997" target="_blank">🔗 原文</a><a class="cl" href="https://scholar.google.com/scholar?q=The%20Impact%20of%20Rationalization%20and%20Upgrading%20of%20Industrial%20Structure%20on%20Carbon%20Emissions%20in%20the%20Beijing-Tianjin-Hebei%20Urban%20Agglomeration" target="_blank">Google Scholar</a>
+    <div class="rb"><span class="rl2">综合得分</span><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot "></span><span class="dot "></span></span></div>
+  </div>
+</div>
+
+<div class="lc" data-topics="policy">
+  <div class="ch">
+    <span class="ci">09</span>
+    <div class="ct2">Exploring the driving factors of carbon dioxide emission from transport sector in Beijing-Tianjin-Hebei region</div>
+  </div>
+  <div class="cm2">
+    <span class="chip cj">Journal of Cleaner Production</span>
+    <span class="chip cd">2019</span>
+    <span class="chip cp">一区</span>
+    <span class="chip oa-open">🔓 OA</span><span class="chip ct">政策评估</span>
+  </div>
+  <div class="ca">Mingyuan Guo, Juan Meng</div>
+  <div class="csu">
+    <div class="csl">主要发现 &amp; 参考价值</div>
+    <div class="cst">主要发现：（未配置AI Key，基于摘要生成）</div>
+  </div>
+  <div class="creason">
+    <div class="crl">💡 推荐理由</div>
+    <div class="crt">新锐分区一区顶刊，研究范式与写作规范具备强发表参考价值，可直接对标目标期刊的选题深度与论证逻辑；引用104次，研究认可度较好，方法设计具有一定参考价值</div>
+  </div>
+  <div class="cft">
+    <a class="cl" href="https://doi.org/10.1016/j.jclepro.2019.04.095" target="_blank">🔗 原文</a><a class="cl" href="https://scholar.google.com/scholar?q=Exploring%20the%20driving%20factors%20of%20carbon%20dioxide%20emission%20from%20transport%20sector%20in%20Beijing-Tianjin-Hebei%20region" target="_blank">Google Scholar</a>
+    <div class="rb"><span class="rl2">综合得分</span><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot "></span><span class="dot "></span></span></div>
+  </div>
+</div>
+
+<div class="lc" data-topics="policy">
+  <div class="ch">
+    <span class="ci">10</span>
+    <div class="ct2">Green technology innovation and carbon emissions nexus in China: Does industrial structure upgrading matter?</div>
+  </div>
+  <div class="cm2">
+    <span class="chip cj">Frontiers in Psychology</span>
+    <span class="chip cd">2022</span>
+    <span class="chip cp">未匹配分区</span>
+    <span class="chip oa-open">🔓 OA</span><span class="chip ct">政策评估</span>
+  </div>
+  <div class="ca">Pengfei Gao, Yadong Wang, Yi Zou 等</div>
+  <div class="csu">
+    <div class="csl">主要发现 &amp; 参考价值</div>
+    <div class="cst">主要发现：Compared with traditional technological innovation modes, green technology innovation is more targeted for low carbon development and critical support（未配置AI Key，基于摘要生成）</div>
+  </div>
+  <div class="creason">
+    <div class="crl">💡 推荐理由</div>
+    <div class="crt">引用103次，研究认可度较好，方法设计具有一定参考价值；研究方法常规可控，核心实证环节可通过AI辅助完成代码与分析</div>
+  </div>
+  <div class="cft">
+    <a class="cl" href="https://doi.org/10.3389/fpsyg.2022.951172" target="_blank">🔗 原文</a><a class="cl" href="https://scholar.google.com/scholar?q=Green%20technology%20innovation%20and%20carbon%20emissions%20nexus%20in%20China%3A%20Does%20industrial%20structure%20upgrading%20matter%3F" target="_blank">Google Scholar</a>
+    <div class="rb"><span class="rl2">综合得分</span><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot "></span><span class="dot "></span></span></div>
+  </div>
+</div>
+
+<div class="lc" data-topics="forest">
+  <div class="ch">
+    <span class="ci">11</span>
+    <div class="ct2">Ecological compensation for national parks based on carbon sink and ecosystem services</div>
+  </div>
+  <div class="cm2">
+    <span class="chip cj">Journal of Environmental Management</span>
+    <span class="chip cd">2026</span>
+    <span class="chip cp">二区</span>
+    <span class="chip oa-open">🔓 OA</span><span class="chip ct">林业碳汇</span>
+  </div>
+  <div class="ca">Zekun Yi, Donghe Li, Min Lu</div>
+  <div class="csu">
+    <div class="csl">主要发现 &amp; 参考价值</div>
+    <div class="cst">主要发现：（未配置AI Key，基于摘要生成）</div>
+  </div>
+  <div class="creason">
+    <div class="crl">💡 推荐理由</div>
+    <div class="crt">研究方法常规可控，核心实证环节可通过AI辅助完成代码与分析；2026年最新发表，选题紧跟研究前沿，创新切入点与研究缺口可直接借鉴延伸</div>
+  </div>
+  <div class="cft">
+    <a class="cl" href="https://doi.org/10.1016/j.jenvman.2025.128294" target="_blank">🔗 原文</a><a class="cl" href="https://scholar.google.com/scholar?q=Ecological%20compensation%20for%20national%20parks%20based%20on%20carbon%20sink%20and%20ecosystem%20services" target="_blank">Google Scholar</a>
+    <div class="rb"><span class="rl2">综合得分</span><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot "></span><span class="dot "></span></span></div>
+  </div>
+</div>
+
+<div class="lc" data-topics="policy">
+  <div class="ch">
+    <span class="ci">12</span>
+    <div class="ct2">Research on the Spatial Network Characteristics, Synergistic Emission Reduction Effects and Mechanisms of Carbon Emission in Beijing–Tianjin–Hebei Urban Agglomeration</div>
+  </div>
+  <div class="cm2">
+    <span class="chip cj">Sustainability</span>
+    <span class="chip cd">2023</span>
+    <span class="chip cp">三区</span>
+    <span class="chip oa-open">🔓 OA</span><span class="chip ct">政策评估</span>
+  </div>
+  <div class="ca">Xuesong Sun, Muru Li, Suyun Hou 等</div>
+  <div class="csu">
+    <div class="csl">主要发现 &amp; 参考价值</div>
+    <div class="cst">主要发现：With the in-depth advancement of the Beijing–Tianjin–Hebei coordinated development strategy, establishing a new mechanism for coordinated development （未配置AI Key，基于摘要生成）</div>
+  </div>
+  <div class="creason">
+    <div class="crl">💡 推荐理由</div>
+    <div class="crt">研究方法常规可控，核心实证环节可通过AI辅助完成代码与分析；2023年最新发表，选题紧跟研究前沿，创新切入点与研究缺口可直接借鉴延伸</div>
+  </div>
+  <div class="cft">
+    <a class="cl" href="https://doi.org/10.3390/su15108176" target="_blank">🔗 原文</a><a class="cl" href="https://scholar.google.com/scholar?q=Research%20on%20the%20Spatial%20Network%20Characteristics%2C%20Synergistic%20Emission%20Reduction%20Effects%20and%20Mechanisms%20of%20Carbon%20Emission%20in%20Beijing%E2%80%93Tianjin%E2%80%93Hebei%20Urban%20Agglomeration" target="_blank">Google Scholar</a>
+    <div class="rb"><span class="rl2">综合得分</span><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot "></span><span class="dot "></span></span></div>
+  </div>
+</div></div>
+  </div>
+  <div>
+    <div class="sdc">
+      <div class="sdt">博士论文体系</div>
+      <div class="ti"><div class="tn">01 · 已完成</div><div class="tnm">区域协调发展政策碳减排效应</div><div class="tm">DID · 294城市 · 2010-2023</div></div>
+      <div class="ti"><div class="tn">02 · 进行中</div><div class="tnm">京津冀与全国隐含碳责任分担</div><div class="tm">MRIO扩展 · 生产/消费/受益侧</div></div>
+      <div class="ti"><div class="tn">03</div><div class="tnm">林业碳汇CCER价值实现机制</div><div class="tm">制度分析 · 供需衔接框架</div></div>
+    </div>
+    <div class="sdc">
+      <div class="sdt">四级漏斗流程</div>
+      <div class="fstep"><span class="fn">第1级</span>CrossRef免费海选<span class="fb">~80篇</span></div>
+      <div class="fstep"><span class="fn">第2级</span>多维打分初筛<span class="fb">12篇</span></div>
+      <div class="fstep"><span class="fn">第3级</span>AI分级精读<span class="fb">12篇OA</span></div>
+      <div class="fstep"><span class="fn">第4级</span>顶刊终选推荐<span class="fb">3篇</span></div>
+    </div>
+    <div class="sdc">
+      <div class="sdt">更新信息</div>
+      <div class="str"><span class="stl">更新时间</span><span class="stv">2026年06月21日 09:45</span></div>
+      <div class="str"><span class="stl">终选文献</span><span class="stv">3 篇</span></div>
+      <div class="str"><span class="stl">分区标准</span><span class="stv">新锐分区表</span></div>
+      <div class="str"><span class="stl">AI引擎</span><span class="stv">Qwen2.5-72B</span></div>
+      <div class="str"><span class="stl">OA原则</span><span class="stv">不参与排序</span></div>
+    </div>
+  </div>
+</div>
+<script>
+function swT(btn, topic, mode) {
+  document.querySelectorAll('.tbtn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const tf = document.getElementById('top-feed');
+  const af = document.getElementById('all-feed');
+  const lb = document.getElementById('feed-label');
+  const rn = document.getElementById('rcn');
+  if (mode === 'top') {
+    tf.style.display = ''; af.style.display = 'none';
+    lb.textContent = '今日精选文献';
+    rn.textContent = '3 篇（分区优先）';
+  } else {
+    tf.style.display = 'none'; af.style.display = '';
+    lb.textContent = topic === 'all' ? '初筛全部文献' : '筛选结果';
+    af.querySelectorAll('.lc').forEach(c => {
+      c.style.display = (topic === 'all' || (c.dataset.topics||'').includes(topic)) ? '' : 'none';
+    });
+    const vis = af.querySelectorAll('.lc:not([style*="none"])').length;
+    rn.textContent = vis + ' 篇';
+  }
+}
+</script>
 </body>
 </html>
