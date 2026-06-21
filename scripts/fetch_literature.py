@@ -674,7 +674,12 @@ def ai_deepread(lit: Dict, source_text: str, basis_label: str) -> Dict:
                 },
                 timeout=75,
             )
-            response.raise_for_status()
+            if not response.ok:
+                try:
+                    detail = response.json().get("error", {}).get("message", response.text)
+                except Exception:
+                    detail = response.text
+                raise RuntimeError(f"Gemini HTTP {response.status_code}: {str(detail)[:500]}")
             text = "".join(
                 part.get("text", "")
                 for part in response.json()["candidates"][0]["content"]["parts"]
@@ -1080,12 +1085,13 @@ if __name__ == "__main__":
     final = final_select(candidates)
 
     # 保存 JSON（含完整初筛数据和终选数据）
+    actual_providers = sorted({p.get("analysis_provider", "unknown") for p in candidates})
     out = {
         "date":            TODAY,
         "generated_at":    NOW_CN,
         "final_count":     len(final),
         "candidate_count": len(candidates),
-        "ai_provider":     AI_PROVIDER,
+        "ai_provider":     " + ".join(actual_providers),
         "language_counts": {
             "pool_zh": sum(1 for p in pool if p.get("language_group") == "zh"),
             "pool_international": sum(1 for p in pool if p.get("language_group") == "international"),
