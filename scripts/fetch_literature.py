@@ -179,7 +179,7 @@ def fetch_one_batch(keyword: str) -> List[Dict]:
         "order": "desc",
         "select": (
             "title,author,issued,container-title,DOI,URL,"
-            "abstract,is-referenced-by-count,language,license,link"
+            "abstract,is-referenced-by-count,license,link"
         ),
         "mailto": "carbon-lit-bot@github.io",
     }
