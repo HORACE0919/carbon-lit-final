@@ -2,7 +2,7 @@ name: 每日文献更新
 
 on:
   schedule:
-    - cron: '0 0 * * *'   # UTC 00:00 = 北京时间 08:00
+    - cron: '0 23 * * *'  # UTC 23:00 = 北京时间次日 07:00
   workflow_dispatch:        # 支持手动触发测试
 
 jobs:
@@ -21,10 +21,11 @@ jobs:
           python-version: '3.11'
 
       - name: 安装依赖
-        run: pip install requests
+        run: pip install requests pypdf
 
       - name: 四级漏斗文献筛选
         env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           SILICONFLOW_API_KEY: ${{ secrets.SILICONFLOW_API_KEY }}
         run: python scripts/fetch_literature.py
 
