@@ -146,6 +146,16 @@ DATA_DIR.mkdir(exist_ok=True)
 GEMINI_KEY = os.environ.get("GEMINI_API_KEY", "")
 GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
 GEMINI_URL = f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent"
+GEMINI_RESPONSE_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "finding_zh": {"type": "string", "description": "2-3句中文核心发现或创新"},
+        "reference_value_zh": {"type": "string", "description": "对博士论文具体环节的中文可操作参考"},
+        "method_zh": {"type": "string", "description": "中文说明研究方法与数据，未知则如实说明"},
+        "limitations_zh": {"type": "string", "description": "中文说明阅读依据及待核验事项"},
+    },
+    "required": ["finding_zh", "reference_value_zh", "method_zh", "limitations_zh"],
+}
 SF_KEY   = os.environ.get("SILICONFLOW_API_KEY", "")
 SF_URL   = "https://api.siliconflow.cn/v1/chat/completions"
 SF_MODEL = "Qwen/Qwen2.5-72B-Instruct"
@@ -653,8 +663,13 @@ def ai_deepread(lit: Dict, source_text: str, basis_label: str) -> Dict:
                     "contents": [{"parts": [{"text": prompt}]}],
                     "generationConfig": {
                         "temperature": 0.2,
-                        "maxOutputTokens": 700,
-                        "responseMimeType": "application/json",
+                        "maxOutputTokens": 2048,
+                        "responseFormat": {
+                            "text": {
+                                "mimeType": "application/json",
+                                "schema": GEMINI_RESPONSE_SCHEMA,
+                            }
+                        },
                     },
                 },
                 timeout=75,
