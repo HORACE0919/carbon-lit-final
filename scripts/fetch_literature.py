@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-碳治理文献日报 · 四级漏斗精准筛选系统 v3.0
+碳治理文献日报 · 四级漏斗精准筛选系统 v4.0
 ============================================================
-第1级：CrossRef 免费海选（50-100篇候选池，零成本公开元数据）
+第1级：中文+国际双通道海选（Crossref + OpenAlex，零成本公开元数据）
 第2级：多维打分初筛（严格10-15篇，划定 AI token 使用边界）
 第3级：硅基流动 AI 分级精读（OA文献深度解析，非OA仅摘要）
-第4级：新锐分区顶刊终选（2-3篇，分区优先，OA状态不参与排序）
+第4级：综合得分终选（4篇，语言与OA状态不额外加减分）
 
 核心原则：
 - OA中立：OA状态仅影响精读方式，不参与任何打分排序
@@ -15,16 +15,16 @@
 ============================================================
 """
 
-import os, json, re, sys, time, datetime, pathlib
+import os, json, re, sys, time, datetime, pathlib, unicodedata, io, ipaddress, socket
 import requests
 from typing import List, Dict
+from urllib.parse import urlparse
 
 # ── 全局配置（对齐四级漏斗规则文档） ─────────────────────────
 CONFIG = {
     "pool_size":   80,    # 第1级：海选候选池规模
     "screen_num":  12,    # 第2级：初筛入围数量（10-15区间，付费token唯一边界）
-    "final_num":   3,     # 第4级：终选推荐数量（2-3区间）
-    "language_limit": False,          # 中英文混合，不限制语言
+    "final_num":   4,     # 第4级：终选推荐数量
     "partition_standard": "新锐分区", # 唯一分区判定标准
     # 打分权重（OA状态完全不参与，保证客观中立）
     "weight": {
@@ -37,61 +37,102 @@ CONFIG = {
 }
 
 # 分区等级优先级映射（终选排序用，数值越大优先级越高）
-PARTITION_PRIORITY = {"Top": 5, "一区": 4, "二区": 3, "三区": 2, "四区": 1, "未匹配分区": 0}
-
-# ── 新锐分区表（可持续补充） ──────────────────────────────────
-XINRUI_PARTITION = {
-    # Top 区
-    "Nature Energy": "Top",
-    "Nature Climate Change": "Top",
-    "Nature Sustainability": "Top",
-    "One Earth": "Top",
-    "Energy & Environmental Science": "Top",
-    "管理世界": "Top",
-    "经济研究": "Top",
-    # 一区
-    "Environmental Science & Technology": "一区",
-    "Applied Energy": "一区",
-    "Energy Policy": "一区",
-    "Energy Economics": "一区",
-    "Ecological Economics": "一区",
-    "Journal of Cleaner Production": "一区",
-    "Resources Conservation and Recycling": "一区",
-    "Resources, Conservation and Recycling": "一区",
-    "Global Environmental Change": "一区",
-    "Renewable and Sustainable Energy Reviews": "一区",
-    "Environmental and Resource Economics": "一区",
-    "中国人口·资源与环境": "一区",
-    "地理学报": "一区",
-    "中国工业经济": "一区",
-    # 二区
-    "Energy": "二区",
-    "Journal of Environmental Management": "二区",
-    "Environment International": "二区",
-    "Land Use Policy": "二区",
-    "Forest Policy and Economics": "二区",
-    "Science of the Total Environment": "二区",
-    "生态经济": "二区",
-    "林业经济": "二区",
-    "林业科学": "二区",
-    "资源科学": "二区",
-    "世界林业研究": "二区",
-    # 三区
-    "Sustainability": "三区",
-    "Forests": "三区",
-    "Carbon Balance and Management": "三区",
+PARTITION_PRIORITY = {
+    "Top": 5, "一区": 4, "二区": 3, "三区": 2, "四区": 1,
+    "分区冲突待核验": 0, "未匹配分区": 0,
 }
 
-# ── 研究关键词组（覆盖三篇论文方向） ─────────────────────────
-RESEARCH_KEYWORDS = [
+# ── 2026 新锐分区表（由用户提供的 Excel 全量导入） ───────────────
+PROJECT_ROOT = pathlib.Path(__file__).resolve().parents[1]
+PARTITION_FILE = PROJECT_ROOT / "journal_partitions_2026.json"
+
+
+def normalize_journal_name(value: str) -> str:
+    """规范化刊名，兼容大小写、标点、全半角与 &/and 差异。"""
+    text = unicodedata.normalize("NFKC", str(value or "")).casefold()
+    text = text.replace("&", " and ")
+    return " ".join(re.findall(r"[^\W_]+", text, flags=re.UNICODE))
+
+
+def normalize_issn(value: str) -> str:
+    text = re.sub(r"[^0-9Xx]", "", str(value or "")).upper()
+    return text if len(text) == 8 else ""
+
+
+def load_partition_table() -> Dict:
+    if not PARTITION_FILE.exists():
+        print(f"  [分区表缺失] {PARTITION_FILE}")
+        return {"by_name": {}, "by_issn": {}}
+    payload = json.loads(PARTITION_FILE.read_text(encoding="utf-8"))
+    by_name, by_issn = {}, {}
+    for record in payload.get("journals", []):
+        name_key = record.get("normalized_name") or normalize_journal_name(record.get("name", ""))
+        if name_key:
+            by_name.setdefault(name_key, []).append(record)
+        for issn in record.get("issn", []):
+            issn_key = normalize_issn(issn)
+            if issn_key:
+                by_issn.setdefault(issn_key, []).append(record)
+    print(
+        f"  📊 已加载2026新锐分区表：{payload.get('row_count', 0)}条，"
+        f"刊名冲突{payload.get('name_conflict_count', 0)}组"
+    )
+    return {"by_name": by_name, "by_issn": by_issn}
+
+
+PARTITION_INDEX = load_partition_table()
+
+
+def lookup_partition(journal: str, issns: List[str]) -> Dict:
+    name_key = normalize_journal_name(journal)
+    name_matches = PARTITION_INDEX["by_name"].get(name_key, [])
+
+    # 刊名唯一时以刊名为准；表内个别 ISSN 存在质量问题，不反向覆盖。
+    if name_matches:
+        levels = {record.get("level", "未匹配分区") for record in name_matches}
+        if len(levels) == 1:
+            record = name_matches[0]
+            return {"level": levels.pop(), "match": "normalized_name", "record": record}
+
+        # 同名且分区冲突时，仅用 ISSN 做二次消歧。
+        issn_keys = {normalize_issn(value) for value in (issns or []) if normalize_issn(value)}
+        narrowed = [
+            record for record in name_matches
+            if issn_keys.intersection({normalize_issn(value) for value in record.get("issn", [])})
+        ]
+        narrowed_levels = {record.get("level", "未匹配分区") for record in narrowed}
+        if narrowed and len(narrowed_levels) == 1:
+            return {"level": narrowed_levels.pop(), "match": "name_and_issn", "record": narrowed[0]}
+        return {"level": "分区冲突待核验", "match": "name_conflict", "record": {}}
+
+    # 刊名未命中时才尝试 ISSN，且只接受唯一分区。
+    issn_matches = []
+    for value in issns or []:
+        issn_matches.extend(PARTITION_INDEX["by_issn"].get(normalize_issn(value), []))
+    levels = {record.get("level", "未匹配分区") for record in issn_matches}
+    if issn_matches and len(levels) == 1:
+        return {"level": levels.pop(), "match": "issn", "record": issn_matches[0]}
+    return {"level": "未匹配分区", "match": "none", "record": {}}
+
+# ── 独立的国际/中文检索路由（避免长串混合查询导致语言偏颇） ───────────
+INTERNATIONAL_QUERIES = [
     "Beijing Tianjin Hebei carbon emission coordinated development difference-in-differences policy",
     "embodied carbon MRIO multi-regional input-output inter-regional transfer China responsibility",
     "forest carbon sink CCER voluntary carbon market China ecological compensation incentive",
     "low-carbon governance industrial upgrading green innovation urban agglomeration China",
-    "京津冀碳排放区域协调发展政策效应准实验",
-    "林业碳汇CCER价值实现生态保护激励机制",
 ]
-COMBINED_KW = " ".join(RESEARCH_KEYWORDS)
+CHINESE_QUERIES = [
+    "京津冀碳排放区域协调发展政策效应准实验",
+    "京津冀 隐含碳 投入产出 责任分担 区域间转移",
+    "林业碳汇CCER价值实现生态保护激励机制",
+    "低碳治理 产业结构升级 绿色创新 城市群",
+]
+RESEARCH_QUERY_GROUPS = {
+    "international": INTERNATIONAL_QUERIES,
+    "zh": CHINESE_QUERIES,
+}
+COMBINED_KW = " ".join(INTERNATIONAL_QUERIES + CHINESE_QUERIES)
+RETRIEVAL_STATS: List[Dict] = []
 
 # ── 时间 ──────────────────────────────────────────────────────
 TODAY  = datetime.date.today().strftime("%Y-%m-%d")
@@ -102,9 +143,16 @@ DATA_DIR = pathlib.Path("data")
 DATA_DIR.mkdir(exist_ok=True)
 
 # ── 硅基流动 API（第3级精读用） ───────────────────────────────
+GEMINI_KEY = os.environ.get("GEMINI_API_KEY", "")
+GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
+GEMINI_URL = f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent"
 SF_KEY   = os.environ.get("SILICONFLOW_API_KEY", "")
 SF_URL   = "https://api.siliconflow.cn/v1/chat/completions"
 SF_MODEL = "Qwen/Qwen2.5-72B-Instruct"
+AI_PROVIDER = "Gemini" if GEMINI_KEY else ("SiliconFlow" if SF_KEY else "deterministic-fallback")
+WORKFLOW_URL = "https://github.com/HORACE0919/carbon-lit-final/actions/workflows/daily.yml"
+MAX_FULLTEXT_BYTES = 15 * 1024 * 1024
+MAX_FULLTEXT_CHARS = 12000
 
 
 # ════════════════════════════════════════════════════════════════
@@ -112,24 +160,46 @@ SF_MODEL = "Qwen/Qwen2.5-72B-Instruct"
 # ════════════════════════════════════════════════════════════════
 def check_oa_status(item: Dict) -> Dict:
     """
-    识别开放获取状态，仅用于标注精读方式与token消耗判定
+    保守识别开放获取状态。Crossref 的 license/link 并不都代表 OA：
+    出版商常会提供仅用于文本与数据挖掘（TDM）的许可和 PDF 链接。
+    只把明确的 Creative Commons/公共领域许可视为“OA 已核验”。
     严格OA中立：不纳入打分排序，不影响推荐优先级
     """
-    has_license = len(item.get("license", [])) > 0
-    has_pdf     = any(
-        lk.get("content-type") == "application/pdf"
-        for lk in item.get("link", [])
+    oa_license_markers = (
+        "creativecommons.org/licenses/",
+        "creativecommons.org/publicdomain/",
     )
-    is_oa = has_license or has_pdf
-    fulltext_url = next(
-        (lk.get("URL") for lk in item.get("link", [])
-         if lk.get("content-type") == "application/pdf"),
-        ""
-    ) if is_oa else ""
+    license_urls = [
+        str(lic.get("URL", "")).strip().lower()
+        for lic in (item.get("license", []) or [])
+    ]
+    verified_license = next(
+        (url for url in license_urls
+         if any(marker in url for marker in oa_license_markers)),
+        "",
+    )
+    is_oa = bool(verified_license)
+
+    fulltext_url = ""
+    if is_oa:
+        fulltext_url = next(
+            (
+                str(lk.get("URL", "")).strip()
+                for lk in (item.get("link", []) or [])
+                if lk.get("content-type") == "application/pdf"
+                and str(lk.get("intended-application", "")).lower()
+                not in {"text-mining", "similarity-checking"}
+            ),
+            "",
+        )
+
     return {
-        "oa_status":      "开放获取-可直接精读" if is_oa else "需机构权限-校园网可下载",
+        "oa_verified":    is_oa,
+        "oa_status":      "OA已核验-Creative Commons许可" if is_oa else "需机构权限或OA待核验",
+        "oa_evidence":    verified_license,
         "fulltext_url":   fulltext_url,
-        "token_required": is_oa,  # True=可自动精读并消耗token，False=需用户手动上传
+        "auto_fulltext_eligible": bool(is_oa and fulltext_url),
+        "token_required": bool(is_oa and fulltext_url),  # 兼容旧数据字段
     }
 
 
@@ -168,18 +238,36 @@ def calculate_implementability_score(abstract: str) -> float:
 
 
 # ════════════════════════════════════════════════════════════════
-# 第1级：CrossRef 免费海选（零成本，仅用公开元数据）
+# 第1级：中文+国际双通道免费海选（Crossref + OpenAlex）
 # ════════════════════════════════════════════════════════════════
-def fetch_one_batch(keyword: str) -> List[Dict]:
-    """单关键词海选，单条异常直接跳过，绝不中断"""
+def detect_language_group(title: str, abstract: str = "") -> str:
+    text = f"{title} {abstract}"
+    return "zh" if len(re.findall(r"[\u3400-\u9fff]", text)) >= 2 else "international"
+
+
+def normalize_doi(value: str) -> str:
+    return re.sub(r"^https?://(?:dx\.)?doi\.org/", "", str(value or ""), flags=re.I).strip().lower()
+
+
+def openalex_abstract(inverted_index: Dict) -> str:
+    positioned = []
+    for word, positions in (inverted_index or {}).items():
+        for position in positions or []:
+            positioned.append((position, word))
+    return " ".join(word for _, word in sorted(positioned))
+
+
+def fetch_crossref_batch(keyword: str, query_group: str) -> List[Dict]:
+    """Crossref 检索；批次失败会被记录，不伪装成成功。"""
     params = {
-        "query": keyword,
+        "query.bibliographic": keyword,
         "rows":  CONFIG["pool_size"],
         "sort":  "relevance",
         "order": "desc",
+        "filter": "from-pub-date:2022-01-01",
         "select": (
             "title,author,issued,container-title,DOI,URL,"
-            "abstract,is-referenced-by-count,license,link"
+            "abstract,is-referenced-by-count,ISSN,license,link"
         ),
         "mailto": "carbon-lit-bot@github.io",
     }
@@ -191,7 +279,8 @@ def fetch_one_batch(keyword: str) -> List[Dict]:
         resp.raise_for_status()
         items = resp.json()["message"]["items"]
     except Exception as e:
-        print(f"  [海选异常，已跳过] {e}")
+        RETRIEVAL_STATS.append({"source": "Crossref", "group": query_group, "query": keyword, "ok": False, "count": 0, "error": str(e)})
+        print(f"  [Crossref异常] {e}")
         return []
 
     pool = []
@@ -200,11 +289,13 @@ def fetch_one_batch(keyword: str) -> List[Dict]:
             title   = item.get("title", [""])[0].strip()
             journal = item.get("container-title", ["未知期刊"])[0].strip()
             abstract_raw = item.get("abstract", "")
-            abstract = re.sub(r"<[^>]+>", "", abstract_raw).strip()[:400]
+            abstract = re.sub(r"<[^>]+>", "", abstract_raw).strip()[:1600]
             year_parts = item.get("issued", {}).get("date-parts", [[None]])[0]
             year = year_parts[0] if year_parts else None
             oa   = check_oa_status(item)
             impl = calculate_implementability_score(abstract)
+            issns = item.get("ISSN", []) or []
+            partition = lookup_partition(journal, issns)
             pool.append({
                 "title":          title,
                 "authors":        [
@@ -213,39 +304,154 @@ def fetch_one_batch(keyword: str) -> List[Dict]:
                 ],
                 "year":           year,
                 "journal":        journal,
-                "partition":      XINRUI_PARTITION.get(journal, "未匹配分区"),
-                "doi":            item.get("DOI", ""),
+                "partition":      partition["level"],
+                "partition_match": partition["match"],
+                "partition_subject": partition["record"].get("subject", ""),
+                "doi":            normalize_doi(item.get("DOI", "")),
+                "issn":           issns,
                 "official_url":   item.get("URL", ""),
                 "fulltext_url":   oa["fulltext_url"],
+                "oa_verified":    oa["oa_verified"],
                 "oa_status":      oa["oa_status"],
+                "oa_evidence":    oa["oa_evidence"],
+                "auto_fulltext_eligible": oa["auto_fulltext_eligible"],
                 "token_required": oa["token_required"],
                 "citation":       item.get("is-referenced-by-count", 0),
                 "abstract":       abstract,
-                "language":       item.get("language", "unknown"),
+                "language_group": detect_language_group(title, abstract),
+                "query_group":    query_group,
+                "sources":        ["Crossref"],
                 "implementability_score": impl,
             })
         except Exception:
             continue  # 单条解析失败直接跳过
+    RETRIEVAL_STATS.append({"source": "Crossref", "group": query_group, "query": keyword, "ok": True, "count": len(pool), "error": ""})
+    return pool
+
+
+def fetch_openalex_batch(keyword: str, query_group: str) -> List[Dict]:
+    """OpenAlex 是独立元数据补充源；失败时 Crossref 通道仍可继续。"""
+    params = {
+        "search": keyword,
+        "filter": "from_publication_date:2022-01-01",
+        "per-page": min(CONFIG["pool_size"], 100),
+        "mailto": "carbon-lit-bot@github.io",
+    }
+    try:
+        resp = requests.get(
+            "https://api.openalex.org/works",
+            params=params,
+            headers={"User-Agent": "carbon-literature-daily/4.0 (mailto:carbon-lit-bot@github.io)"},
+            timeout=25,
+        )
+        resp.raise_for_status()
+        items = resp.json().get("results", [])
+    except Exception as e:
+        RETRIEVAL_STATS.append({"source": "OpenAlex", "group": query_group, "query": keyword, "ok": False, "count": 0, "error": str(e)})
+        print(f"  [OpenAlex异常] {e}")
+        return []
+
+    pool = []
+    for item in items:
+        try:
+            title = str(item.get("title") or "").strip()
+            primary = item.get("primary_location") or {}
+            source = primary.get("source") or {}
+            journal = str(source.get("display_name") or "未知期刊").strip()
+            abstract = openalex_abstract(item.get("abstract_inverted_index") or {})[:1600]
+            issns = source.get("issn") or ([source.get("issn_l")] if source.get("issn_l") else [])
+            partition = lookup_partition(journal, issns)
+            open_access = item.get("open_access") or {}
+            best_oa = item.get("best_oa_location") or {}
+            public_pdf = str(best_oa.get("pdf_url") or "").strip()
+            is_oa = bool(open_access.get("is_oa"))
+            evidence = f"OpenAlex:{open_access.get('oa_status', 'unknown')}" if is_oa else ""
+            authors = [
+                str((entry.get("author") or {}).get("display_name") or "").strip()
+                for entry in (item.get("authorships") or [])
+                if (entry.get("author") or {}).get("display_name")
+            ]
+            pool.append({
+                "title": title,
+                "authors": authors,
+                "year": item.get("publication_year"),
+                "journal": journal,
+                "partition": partition["level"],
+                "partition_match": partition["match"],
+                "partition_subject": partition["record"].get("subject", ""),
+                "doi": normalize_doi(item.get("doi", "")),
+                "issn": issns,
+                "official_url": item.get("doi") or item.get("id", ""),
+                "fulltext_url": public_pdf,
+                "oa_verified": is_oa,
+                "oa_status": "OA已核验-OpenAlex" if is_oa else "需机构权限或OA待核验",
+                "oa_evidence": evidence,
+                "auto_fulltext_eligible": bool(is_oa and public_pdf),
+                "token_required": bool(is_oa and public_pdf),
+                "citation": item.get("cited_by_count", 0),
+                "abstract": abstract,
+                "language_group": detect_language_group(title, abstract),
+                "query_group": query_group,
+                "sources": ["OpenAlex"],
+                "implementability_score": calculate_implementability_score(abstract),
+            })
+        except Exception:
+            continue
+    RETRIEVAL_STATS.append({"source": "OpenAlex", "group": query_group, "query": keyword, "ok": True, "count": len(pool), "error": ""})
     return pool
 
 
 def fetch_global_literature_pool() -> List[Dict]:
     """
-    全球文献海选：多关键词批次检索，去重合并
-    覆盖中英文核心期刊、国际主流出版社、预印本平台
+    中文与国际查询独立执行，再跨 Crossref/OpenAlex 去重合并。
     全程不读全文、不消耗付费token、不受付费墙影响
     """
-    print("【第1级】CrossRef 免费海选…")
-    all_papers, seen_dois = [], set()
-    for kw in RESEARCH_KEYWORDS:
-        print(f"  🔍 {kw[:55]}…")
-        batch = fetch_one_batch(kw)
-        for p in batch:
-            if p["doi"] and p["doi"] not in seen_dois and p["title"]:
-                seen_dois.add(p["doi"])
-                all_papers.append(p)
-        time.sleep(1)  # 礼貌延迟，避免被限速
-    print(f"✅ 海选完成，去重后共 {len(all_papers)} 篇候选（公开元数据，无全文成本）")
+    print("【第1级】中文+国际双通道免费海选…")
+    RETRIEVAL_STATS.clear()
+    merged = {}
+    for group, queries in RESEARCH_QUERY_GROUPS.items():
+        print(f"  ── {'中文' if group == 'zh' else '国际'}检索组 ──")
+        for keyword in queries:
+            print(f"  🔍 {keyword[:55]}…")
+            for batch in (
+                fetch_crossref_batch(keyword, group),
+                fetch_openalex_batch(keyword, group),
+            ):
+                for paper in batch:
+                    if not paper.get("title"):
+                        continue
+                    identity = (
+                        f"doi:{paper['doi']}" if paper.get("doi")
+                        else f"title:{normalize_journal_name(paper['title'])}"
+                    )
+                    if identity not in merged:
+                        merged[identity] = paper
+                        continue
+                    existing = merged[identity]
+                    existing["sources"] = sorted(set(existing.get("sources", []) + paper.get("sources", [])))
+                    if len(paper.get("abstract", "")) > len(existing.get("abstract", "")):
+                        existing["abstract"] = paper["abstract"]
+                    if not existing.get("fulltext_url") and paper.get("fulltext_url"):
+                        for key in (
+                            "fulltext_url", "oa_verified", "oa_status", "oa_evidence",
+                            "auto_fulltext_eligible", "token_required",
+                        ):
+                            existing[key] = paper.get(key)
+            time.sleep(0.4)
+
+    successes = sum(1 for stat in RETRIEVAL_STATS if stat["ok"])
+    if successes == 0:
+        raise RuntimeError("所有元数据通道均失败，不生成伪成功日报")
+    all_papers = list(merged.values())
+    zh_count = sum(1 for paper in all_papers if paper.get("language_group") == "zh")
+    intl_count = len(all_papers) - zh_count
+    print(
+        f"✅ 海选完成：去重后{len(all_papers)}篇，"
+        f"中文{zh_count}篇，国际{intl_count}篇；"
+        f"成功批次{successes}/{len(RETRIEVAL_STATS)}"
+    )
+    if zh_count == 0 or intl_count == 0:
+        print("  ⚠️ 语种覆盖不完整：保留警告，不用无关文献硬填配额")
     return all_papers
 
 
@@ -279,6 +485,7 @@ def calculate_score(lit: Dict) -> float:
     year     = lit["year"] or 2015
     recency  = max(0.0, 1.0 - (2026 - year) / 10)
 
+    lit["relevance_score"] = round(relevance, 4)
     return round(
         relevance     * w["relevance"] +
         journal_score * w["journal_level"] +
@@ -298,13 +505,17 @@ def screen_candidates(pool: List[Dict]) -> List[Dict]:
         return []
     for p in pool:
         p["total_score"] = calculate_score(p)
-    ranked     = sorted(pool, key=lambda x: x["total_score"], reverse=True)
+    ranked = sorted(pool, key=lambda x: x["total_score"], reverse=True)
     candidates = ranked[:CONFIG["screen_num"]]
-    oa_count   = sum(1 for c in candidates if c["token_required"])
+    oa_count   = sum(1 for c in candidates if c.get("oa_verified"))
+    auto_count = sum(1 for c in candidates if c["token_required"])
     print(f"\n【第2级】多维打分初筛完成：")
     print(f"  ✅ 共选出 {len(candidates)} 篇（付费token仅在此范围内使用）")
-    print(f"  🔓 开放获取 {oa_count} 篇（可自动AI精读）")
-    print(f"  🔒 需机构权限 {len(candidates)-oa_count} 篇（建议校园网下载后手动精读）")
+    print(f"  🔓 OA已核验 {oa_count} 篇，其中 {auto_count} 篇具有可自动读取全文")
+    print(f"  🔒 需机构权限或OA待核验 {len(candidates)-oa_count} 篇")
+    zh_count = sum(1 for c in candidates if c.get("language_group") == "zh")
+    print(f"  🌏 语种覆盖：中文 {zh_count} 篇，国际 {len(candidates)-zh_count} 篇")
+    print("  ℹ️  中英文无硬性配额，统一按综合得分入选")
     print(f"  ℹ️  排序严格按综合质量，未因OA状态倾斜")
     return candidates
 
@@ -312,76 +523,211 @@ def screen_candidates(pool: List[Dict]) -> List[Dict]:
 # ════════════════════════════════════════════════════════════════
 # 第3级：分级精读（付费token严格限定在初筛范围内）
 # ════════════════════════════════════════════════════════════════
-def ai_deepread(lit: Dict) -> str:
-    """
-    对OA文献调用硅基流动AI深度解析，生成120字中文主要发现
-    非OA文献：不消耗token，基于摘要生成兜底总结并标注需手动精读
-    """
-    if not SF_KEY:
-        return f"主要发现：{lit['abstract'][:150]}（未配置AI Key，基于摘要生成）"
+def validate_public_url(url: str) -> str:
+    """拒绝本地/私有网络地址，避免将外部元数据链接变成 SSRF 入口。"""
+    parsed = urlparse(str(url or ""))
+    if parsed.scheme not in {"http", "https"} or not parsed.hostname or parsed.username or parsed.password:
+        raise ValueError("全文URL无效")
+    addresses = {
+        entry[4][0]
+        for entry in socket.getaddrinfo(parsed.hostname, parsed.port or 443, type=socket.SOCK_STREAM)
+    }
+    if not addresses or any(not ipaddress.ip_address(address).is_global for address in addresses):
+        raise ValueError("全文URL指向非公网地址")
+    return parsed.geturl()
 
-    prompt = f"""你是学术文献分析专家，服务于研究"区域低碳治理与林业碳汇"的农林经济管理博士生。
 
-博士生三篇论文方向：
-1. 区域协调发展政策的碳减排效应（DID，294城市面板2010-2023，京津冀处理组）
-2. 京津冀与全国隐含碳责任分担（MRIO扩展，生产/消费/受益侧）
-3. 林业碳汇CCER价值实现与生态保护激励机制（供需衔接框架）
+def fetch_public_pdf_text(lit: Dict) -> Dict:
+    """仅对已核验 OA 且有公开PDF链接的文献尝试自动取文。"""
+    if not lit.get("oa_verified") or not lit.get("fulltext_url"):
+        return {"text": "", "error": "无已核验的公开PDF链接"}
+    response = None
+    try:
+        url = validate_public_url(lit["fulltext_url"])
+        response = requests.get(
+            url,
+            headers={"User-Agent": "carbon-literature-daily/4.0"},
+            timeout=35,
+            stream=True,
+            allow_redirects=True,
+        )
+        response.raise_for_status()
+        content_length = int(response.headers.get("Content-Length", 0) or 0)
+        if content_length > MAX_FULLTEXT_BYTES:
+            raise ValueError(f"PDF超过{MAX_FULLTEXT_BYTES // 1024 // 1024}MB限制")
+        chunks, size = [], 0
+        for chunk in response.iter_content(chunk_size=64 * 1024):
+            if not chunk:
+                continue
+            size += len(chunk)
+            if size > MAX_FULLTEXT_BYTES:
+                raise ValueError(f"PDF超过{MAX_FULLTEXT_BYTES // 1024 // 1024}MB限制")
+            chunks.append(chunk)
+        content = b"".join(chunks)
+        content_type = response.headers.get("Content-Type", "").lower()
+        if not content.startswith(b"%PDF") and "application/pdf" not in content_type:
+            raise ValueError("公开链接返回的不是PDF")
+        from pypdf import PdfReader
+        reader = PdfReader(io.BytesIO(content))
+        page_text = []
+        for page in reader.pages[:20]:
+            text = page.extract_text() or ""
+            if text:
+                page_text.append(text)
+            if sum(len(value) for value in page_text) >= MAX_FULLTEXT_CHARS:
+                break
+        cleaned = re.sub(r"\s+", " ", " ".join(page_text)).strip()[:MAX_FULLTEXT_CHARS]
+        if len(cleaned) < 800:
+            raise ValueError("PDF可读文字不足800字符")
+        return {"text": cleaned, "error": ""}
+    except Exception as exc:
+        return {"text": "", "error": str(exc)[:300]}
+    finally:
+        if response is not None:
+            response.close()
 
-请基于以下文献摘要，写出约120字的中文主要发现：
-【要求】
-- 必须以"主要发现："开头
-- 直接说核心结论/发现/创新，不写研究背景
-- 最后一句明确说明对上述三篇论文哪篇有何具体参考价值
+
+def fallback_analysis(lit: Dict, source_text: str, basis_label: str, error: str = "") -> Dict:
+    """无Key或API失败时的非空、可追溯降级结果，不冒充AI结论。"""
+    clean = re.sub(r"\s+", " ", source_text or "").strip()
+    finding = clean[:320] if clean else "公开元数据未提供摘要，当前无法可靠概括研究结论。"
+    text = f"{lit.get('title', '')} {clean}".lower()
+    if any(term in text for term in ["mrio", "input-output", "embodied carbon", "隐含碳", "投入产出"]):
+        reference = "主要服务论文二：可对照其碳流边界、MRIO部门聚合与责任分担口径。"
+    elif any(term in text for term in ["forest", "ccer", "carbon sink", "林业碳汇", "生态补偿"]):
+        reference = "主要服务论文三：可对照CCER制度边界、价值实现链条与激励机制。"
+    else:
+        reference = "主要服务论文一：可对照政策识别、减排机制与异质性分析设计。"
+    return {
+        "finding_zh": finding,
+        "reference_value_zh": reference,
+        "method_zh": "需根据全文或完整摘要进一步核验",
+        "limitations_zh": f"当前仅使用{basis_label}；" + (f"AI调用失败：{error[:120]}" if error else "未配置可用AI Key"),
+        "analysis_provider": "deterministic-fallback",
+    }
+
+
+def parse_ai_json(text: str) -> Dict:
+    cleaned = str(text or "").strip()
+    cleaned = re.sub(r"^```(?:json)?\s*|\s*```$", "", cleaned, flags=re.I)
+    start, end = cleaned.find("{"), cleaned.rfind("}")
+    if start < 0 or end <= start:
+        raise ValueError("AI未返回JSON对象")
+    payload = json.loads(cleaned[start:end + 1])
+    required = ("finding_zh", "reference_value_zh", "method_zh", "limitations_zh")
+    if any(not str(payload.get(key, "")).strip() for key in required):
+        raise ValueError("AI JSON缺少必填字段")
+    return {key: str(payload[key]).strip() for key in required}
+
+
+def ai_deepread(lit: Dict, source_text: str, basis_label: str) -> Dict:
+    """优先调用 Gemini，次选硅基流动；返回统一结构化结果。"""
+    prompt = f"""你是严谨的学术文献分析助手，服务于研究区域低碳治理与林业碳汇的农林经济管理博士生。
+
+三篇论文方向：
+1. 京津冀区域协调发展政策的碳减排效应（DID）
+2. 京津冀与全国隐含碳责任分担（MRIO）
+3. 林业碳汇CCER价值实现与生态保护激励机制
+
+仅根据「{basis_label}」分析。若是摘要，不得声称已阅读全文，不得臆造结果。
+只返回JSON：
+{{
+  "finding_zh": "2-3句核心发现/创新，无背景套话",
+  "reference_value_zh": "明确对哪篇论文的什么环节有何可操作参考",
+  "method_zh": "研究方法与数据；原文未提供则如实说明",
+  "limitations_zh": "阅读依据及需要进一步核验的点"
+}}
 
 标题：{lit['title']}
-摘要：{lit['abstract']}"""
+期刊：{lit.get('journal', '')}
+内容：{source_text}"""
 
+    if not GEMINI_KEY and not SF_KEY:
+        return fallback_analysis(lit, source_text, basis_label)
     try:
-        resp = requests.post(
-            SF_URL,
-            headers={
-                "Authorization": f"Bearer {SF_KEY}",
-                "Content-Type":  "application/json"
-            },
-            json={
-                "model":       SF_MODEL,
-                "messages":    [{"role": "user", "content": prompt}],
-                "temperature": 0.2,
-                "max_tokens":  300,
-            },
-            timeout=60
-        )
-        resp.raise_for_status()
-        return resp.json()["choices"][0]["message"]["content"].strip()
-    except Exception as e:
-        print(f"  [AI精读异常，摘要兜底] {e}")
-        return f"主要发现：{lit['abstract'][:150]}（AI解析失败，基于摘要生成）"
+        if GEMINI_KEY:
+            response = requests.post(
+                GEMINI_URL,
+                headers={"x-goog-api-key": GEMINI_KEY, "Content-Type": "application/json"},
+                json={
+                    "contents": [{"parts": [{"text": prompt}]}],
+                    "generationConfig": {
+                        "temperature": 0.2,
+                        "maxOutputTokens": 700,
+                        "responseMimeType": "application/json",
+                    },
+                },
+                timeout=75,
+            )
+            response.raise_for_status()
+            text = "".join(
+                part.get("text", "")
+                for part in response.json()["candidates"][0]["content"]["parts"]
+            )
+            provider = f"Gemini/{GEMINI_MODEL}"
+        else:
+            response = requests.post(
+                SF_URL,
+                headers={"Authorization": f"Bearer {SF_KEY}", "Content-Type": "application/json"},
+                json={
+                    "model": SF_MODEL,
+                    "messages": [{"role": "user", "content": prompt}],
+                    "temperature": 0.2,
+                    "max_tokens": 700,
+                    "response_format": {"type": "json_object"},
+                },
+                timeout=75,
+            )
+            response.raise_for_status()
+            text = response.json()["choices"][0]["message"]["content"]
+            provider = f"SiliconFlow/{SF_MODEL}"
+        result = parse_ai_json(text)
+        result["analysis_provider"] = provider
+        return result
+    except Exception as exc:
+        print(f"  [AI解读异常，已使用规则降级] {type(exc).__name__}: {str(exc)[:180]}")
+        return fallback_analysis(lit, source_text, basis_label, f"{type(exc).__name__}: {str(exc)}")
 
 
 def deepread_all(candidates: List[Dict]) -> List[Dict]:
     """
-    分级精读入口：
-    - OA文献（token_required=True）：调用AI深度解析，消耗付费token
-    - 非OA文献（token_required=False）：不消耗token，基于摘要评估，标注需手动精读
-    付费token使用范围严格限定在初筛12篇以内，不得超出
+    仅对已核验 OA 公开PDF尝试全文取文；其余文献仅分析公开摘要。
+    AI token 始终严格限定在初筛12篇以内，OA不决定推荐优先级。
     """
-    print(f"\n【第3级】分级精读（付费token仅用于OA文献）…")
+    print(f"\n【第3级】合法全文/摘要分层解读…")
     for i, lit in enumerate(candidates):
-        if lit["token_required"]:
-            print(f"  [{i+1}/{len(candidates)}] 🤖 AI精读（OA）：{lit['title'][:50]}…")
-            lit["summary_zh"] = ai_deepread(lit)
-            time.sleep(0.8)
+        fetched = fetch_public_pdf_text(lit)
+        if fetched["text"]:
+            source_text = fetched["text"]
+            lit["access_mode"] = "verified_public_fulltext"
+            lit["analysis_basis"] = "public_fulltext"
+            lit["analysis_basis_label"] = "已核验公开全文"
+            print(f"  [{i+1}/{len(candidates)}] 📖 公开全文解读：{lit['title'][:50]}…")
         else:
-            print(f"  [{i+1}/{len(candidates)}] 📄 摘要评估（非OA）：{lit['title'][:50]}…")
-            lit["summary_zh"] = (
-                f"主要发现：{lit['abstract'][:150]}"
-                f"（非OA文献，建议校园网下载全文后手动精读，可深度拆解方法细节）"
+            source_text = lit.get("abstract", "")
+            lit["access_mode"] = (
+                "oa_without_machine_readable_fulltext" if lit.get("oa_verified")
+                else "institutional_or_unknown"
             )
+            lit["analysis_basis"] = "abstract" if source_text else "metadata_only"
+            lit["analysis_basis_label"] = "公开摘要" if source_text else "仅元数据"
+            print(f"  [{i+1}/{len(candidates)}] 📄 {lit['analysis_basis_label']}解读：{lit['title'][:50]}…")
+        lit["fulltext_fetch_error"] = fetched["error"]
+        lit["fulltext_chars"] = len(fetched["text"])
+        lit["manual_fulltext_recommended"] = lit["analysis_basis"] != "public_fulltext"
+        analysis = ai_deepread(lit, source_text, lit["analysis_basis_label"])
+        lit.update(analysis)
+        lit["summary_zh"] = (
+            f"主要发现：{analysis['finding_zh']} "
+            f"参考价值：{analysis['reference_value_zh']}"
+        )
+        if GEMINI_KEY or SF_KEY:
+            time.sleep(0.8)
     return candidates
 
 
 # ════════════════════════════════════════════════════════════════
-# 第4级：终选推荐（分区优先，OA状态不参与排序）
+# 第4级：终选推荐（综合得分排序，语言/OA不额外加减分）
 # ════════════════════════════════════════════════════════════════
 def generate_personalized_reason(lit: Dict) -> str:
     """
@@ -440,26 +786,18 @@ def generate_personalized_reason(lit: Dict) -> str:
 
 def final_select(candidates: List[Dict]) -> List[Dict]:
     """
-    终选排序规则（严格执行）：
-    第一优先级：新锐分区等级（Top > 一区 > 二区 > 三区 > 四区 > 未匹配）
-    第二优先级：综合质量得分
-    禁止因OA可精读而提升排序，高分区非OA永远优先于低分区OA
-    淘汰逻辑：优先淘汰主题契合度低、方法可借鉴性弱、复现难度高的文献
+    终选严格按综合得分排序。分区已经是综合得分的一个组成部分，
+    不再进行分区二次优先；语言与OA状态均不额外加减分。
     """
-    ranked = sorted(
-        candidates,
-        key=lambda x: (
-            PARTITION_PRIORITY.get(x["partition"], 0),
-            x["total_score"]
-        ),
-        reverse=True
-    )
+    ranked = sorted(candidates, key=lambda x: x["total_score"], reverse=True)
     final = ranked[:CONFIG["final_num"]]
-    print(f"\n【第4级】顶刊终选完成：{len(final)} 篇")
+    print(f"\n【第4级】综合得分终选完成：{len(final)} 篇")
     for i, p in enumerate(final):
-        oa_tag = "🔓OA" if "开放" in p["oa_status"] else "🔒非OA"
+        oa_tag = "🔓OA已核验" if p.get("oa_verified") else "🔒需权限/OA待核验"
         print(f"  [{i+1}] [{p['partition']}]{oa_tag} {p['title'][:55]}…")
-    print(f"  ℹ️  排序严格遵循「分区优先、质量其次」，未因OA倾斜")
+    zh_count = sum(1 for p in final if p.get("language_group") == "zh")
+    print(f"  🌏 终选语种：中文 {zh_count} 篇，国际 {len(final)-zh_count} 篇")
+    print(f"  ℹ️  排序严格按综合得分，语言与OA均不额外加减分")
     return final
 
 
@@ -494,13 +832,20 @@ def render_card(lit: Dict, idx: int, is_top: bool = False) -> str:
     doi      = lit.get("doi", "")
     doi_href = f'https://doi.org/{doi}' if doi and not doi.startswith("http") else doi
     dl       = f'<a class="cl" href="{doi_href}" target="_blank">🔗 原文</a>' if doi_href else ""
+    public_pdf = lit.get("fulltext_url", "") if lit.get("analysis_basis") == "public_fulltext" else ""
+    pdf_link = f'<a class="cl" href="{public_pdf}" target="_blank">📖 公开全文</a>' if public_pdf else ""
     gs_url   = f'https://scholar.google.com/scholar?q={requests.utils.quote(lit["title"])}'
     gs       = f'<a class="cl" href="{gs_url}" target="_blank">Google Scholar</a>'
-    is_oa    = "开放" in lit.get("oa_status", "")
-    oa_badge = f'<span class="chip {"oa-open" if is_oa else "oa-lock"}">{"🔓 OA" if is_oa else "🔒 需权限"}</span>'
+    is_oa    = bool(lit.get("oa_verified", False))
+    oa_badge = f'<span class="chip {"oa-open" if is_oa else "oa-lock"}">{"🔓 OA已核验" if is_oa else "🔒 需权限/OA待核验"}</span>'
+    basis_label = lit.get("analysis_basis_label", "仅元数据")
+    basis_badge = f'<span class="chip cd">🔎 {basis_label}</span>'
     part     = lit.get("partition", "未匹配分区")
     authors  = ", ".join(lit.get("authors", [])[:3]) + (" 等" if len(lit.get("authors", [])) > 3 else "")
     summary  = lit.get("summary_zh", "")
+    method   = lit.get("method_zh", "")
+    limits   = lit.get("limitations_zh", "")
+    provider = lit.get("analysis_provider", "deterministic-fallback")
     reason   = generate_personalized_reason(lit)
     top_cls  = " top-pick" if is_top else ""
     return f"""
@@ -513,19 +858,21 @@ def render_card(lit: Dict, idx: int, is_top: bool = False) -> str:
     <span class="chip cj">{lit.get("journal","")}</span>
     <span class="chip cd">{lit.get("year","—")}</span>
     <span class="chip cp">{part}</span>
-    {oa_badge}{ttags}
+    {oa_badge}{basis_badge}{ttags}
   </div>
   <div class="ca">{authors}</div>
   <div class="csu">
     <div class="csl">主要发现 &amp; 参考价值</div>
     <div class="cst">{summary}</div>
+    <div class="cst"><strong>方法：</strong>{method}<br><strong>局限：</strong>{limits}</div>
+    <div class="csl">解读引擎：{provider}</div>
   </div>
   <div class="creason">
     <div class="crl">💡 推荐理由</div>
     <div class="crt">{reason}</div>
   </div>
   <div class="cft">
-    {dl}{gs}
+    {dl}{pdf_link}{gs}
     <div class="rb"><span class="rl2">综合得分</span><span class="dots">{dots}</span></div>
   </div>
 </div>"""
@@ -533,8 +880,10 @@ def render_card(lit: Dict, idx: int, is_top: bool = False) -> str:
 def build_html(final: List[Dict], candidates: List[Dict]) -> str:
     final_html = "\n".join(render_card(p, i+1, True) for i, p in enumerate(final))
     cand_html  = "\n".join(render_card(p, i+1, False) for i, p in enumerate(candidates))
-    oa_n       = sum(1 for p in candidates if "开放" in p.get("oa_status",""))
+    oa_n       = sum(1 for p in candidates if p.get("oa_verified"))
     non_oa_n   = len(candidates) - oa_n
+    providers  = sorted({p.get("analysis_provider", "deterministic-fallback") for p in candidates})
+    provider_label = " + ".join(providers)
 
     return f"""<!DOCTYPE html>
 <html lang="zh-CN">
@@ -556,7 +905,9 @@ body{{font-family:'Inter',-apple-system,sans-serif;background:var(--s);color:var
 .mast-t{{font-family:'Noto Serif SC',serif;font-size:20px;font-weight:600;letter-spacing:.04em}}
 .mast-s{{font-size:11px;color:var(--f);letter-spacing:.05em;text-transform:uppercase;border-left:1px solid var(--b);padding-left:14px}}
 .mast-d{{margin-left:auto;font-size:11px;color:var(--m);font-family:'JetBrains Mono',monospace}}
-.ubar{{background:var(--a);color:white;padding:8px 28px;font-size:11px;display:flex;flex-wrap:wrap;gap:16px}}
+.ubar{{background:var(--a);color:white;padding:8px 28px;font-size:11px;display:flex;align-items:center;flex-wrap:wrap;gap:16px}}
+.runbtn{{margin-left:auto;color:white;text-decoration:none;font-weight:600;border:1px solid rgba(255,255,255,.65);padding:3px 10px;border-radius:var(--r);white-space:nowrap}}
+.runbtn:hover{{background:rgba(255,255,255,.14)}}
 .tbar{{background:var(--ink);padding:0 28px;display:flex;overflow-x:auto}}
 .tbar::-webkit-scrollbar{{height:0}}
 .tbtn{{background:none;border:none;color:rgba(255,255,255,.45);font-size:11px;font-family:'Inter',sans-serif;font-weight:500;letter-spacing:.05em;text-transform:uppercase;padding:9px 14px;cursor:pointer;border-bottom:2px solid transparent;transition:color .15s;white-space:nowrap}}
@@ -612,9 +963,10 @@ body{{font-family:'Inter',-apple-system,sans-serif;background:var(--s);color:var
 </div>
 <div class="ubar">
   <span>✅ 已自动更新 · {NOW_CN}</span>
-  <span>📊 海选→初筛{len(candidates)}篇→终选{len(final)}篇顶刊</span>
-  <span>🔓 OA可精读 {oa_n} 篇 &nbsp;🔒 需校园下载 {non_oa_n} 篇</span>
-  <span>⏰ 每天北京时间 08:00 自动刷新</span>
+  <span>📊 海选→初筛{len(candidates)}篇→综合得分终选{len(final)}篇</span>
+  <span>🔓 OA已核验 {oa_n} 篇 &nbsp;🔒 需权限/OA待核验 {non_oa_n} 篇</span>
+  <span>⏰ 每天北京时间 07:00 自动刷新</span>
+  <a class="runbtn" href="{WORKFLOW_URL}" target="_blank" rel="noopener" title="进入 GitHub Actions 后点击 Run workflow">⚡ 立即更新文献日报</a>
 </div>
 <div class="tbar">
   <button class="tbtn active" onclick="swT(this,'all','top')">⭐ 今日精选</button>
@@ -628,7 +980,7 @@ body{{font-family:'Inter',-apple-system,sans-serif;background:var(--s);color:var
   <div>
     <div class="shdr">
       <span class="sl" id="feed-label">今日精选文献</span>
-      <span class="sc2" id="rcn">{len(final)} 篇（分区优先）</span>
+      <span class="sc2" id="rcn">{len(final)} 篇（综合得分）</span>
     </div>
     <div id="top-feed">{final_html}</div>
     <div id="all-feed" style="display:none">{cand_html}</div>
@@ -642,17 +994,17 @@ body{{font-family:'Inter',-apple-system,sans-serif;background:var(--s);color:var
     </div>
     <div class="sdc">
       <div class="sdt">四级漏斗流程</div>
-      <div class="fstep"><span class="fn">第1级</span>CrossRef免费海选<span class="fb">~80篇</span></div>
+      <div class="fstep"><span class="fn">第1级</span>中文+国际双源海选<span class="fb">Crossref·OpenAlex</span></div>
       <div class="fstep"><span class="fn">第2级</span>多维打分初筛<span class="fb">{len(candidates)}篇</span></div>
       <div class="fstep"><span class="fn">第3级</span>AI分级精读<span class="fb">{oa_n}篇OA</span></div>
-      <div class="fstep"><span class="fn">第4级</span>顶刊终选推荐<span class="fb">{len(final)}篇</span></div>
+      <div class="fstep"><span class="fn">第4级</span>综合得分终选<span class="fb">{len(final)}篇</span></div>
     </div>
     <div class="sdc">
       <div class="sdt">更新信息</div>
       <div class="str"><span class="stl">更新时间</span><span class="stv">{NOW_CN}</span></div>
       <div class="str"><span class="stl">终选文献</span><span class="stv">{len(final)} 篇</span></div>
       <div class="str"><span class="stl">分区标准</span><span class="stv">新锐分区表</span></div>
-      <div class="str"><span class="stl">AI引擎</span><span class="stv">Qwen2.5-72B</span></div>
+      <div class="str"><span class="stl">解读引擎</span><span class="stv">{provider_label}</span></div>
       <div class="str"><span class="stl">OA原则</span><span class="stv">不参与排序</span></div>
     </div>
   </div>
@@ -668,7 +1020,7 @@ function swT(btn, topic, mode) {{
   if (mode === 'top') {{
     tf.style.display = ''; af.style.display = 'none';
     lb.textContent = '今日精选文献';
-    rn.textContent = '{len(final)} 篇（分区优先）';
+    rn.textContent = '{len(final)} 篇（综合得分）';
   }} else {{
     tf.style.display = 'none'; af.style.display = '';
     lb.textContent = topic === 'all' ? '初筛全部文献' : '筛选结果';
@@ -691,6 +1043,10 @@ if __name__ == "__main__":
     print(f"\n{'='*62}")
     print(f"📚 碳治理文献日报 · 四级漏斗精选 · {TODAY}")
     print(f"{'='*62}")
+    if AI_PROVIDER == "deterministic-fallback":
+        print("⚠️ 未检测到 GEMINI_API_KEY 或 SILICONFLOW_API_KEY，将生成明确标注的规则降级解读")
+    else:
+        print(f"🤖 AI解读提供方：{AI_PROVIDER}")
 
     # 第1级：免费海选
     pool = fetch_global_literature_pool()
@@ -705,7 +1061,7 @@ if __name__ == "__main__":
     # 第3级：分级精读
     candidates = deepread_all(candidates)
 
-    # 第4级：顶刊终选
+    # 第4级：综合得分终选
     final = final_select(candidates)
 
     # 保存 JSON（含完整初筛数据和终选数据）
@@ -714,6 +1070,14 @@ if __name__ == "__main__":
         "generated_at":    NOW_CN,
         "final_count":     len(final),
         "candidate_count": len(candidates),
+        "ai_provider":     AI_PROVIDER,
+        "language_counts": {
+            "pool_zh": sum(1 for p in pool if p.get("language_group") == "zh"),
+            "pool_international": sum(1 for p in pool if p.get("language_group") == "international"),
+            "final_zh": sum(1 for p in final if p.get("language_group") == "zh"),
+            "final_international": sum(1 for p in final if p.get("language_group") == "international"),
+        },
+        "retrieval_stats": RETRIEVAL_STATS,
         "final":           final,
         "candidates":      candidates,
     }
@@ -729,4 +1093,4 @@ if __name__ == "__main__":
     html = build_html(final, candidates)
     pathlib.Path("index.html").write_text(html, encoding="utf-8")
     print(f"✅ index.html 已生成（{len(html):,} 字节）")
-    print(f"🌐 访问：https://HORACE0919.github.io/carbon-lit/\n")
+    print(f"🌐 访问：https://HORACE0919.github.io/carbon-lit-final/\n")
