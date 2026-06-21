@@ -159,7 +159,7 @@ GEMINI_RESPONSE_SCHEMA = {
 SF_KEY   = os.environ.get("SILICONFLOW_API_KEY", "")
 SF_URL   = "https://api.siliconflow.cn/v1/chat/completions"
 SF_MODEL = "Qwen/Qwen2.5-72B-Instruct"
-AI_PROVIDER = "Gemini" if GEMINI_KEY else ("SiliconFlow" if SF_KEY else "deterministic-fallback")
+AI_PROVIDER = "SiliconFlow" if SF_KEY else ("Gemini" if GEMINI_KEY else "deterministic-fallback")
 WORKFLOW_URL = "https://github.com/HORACE0919/carbon-lit-final/actions/workflows/daily.yml"
 MAX_FULLTEXT_BYTES = 15 * 1024 * 1024
 MAX_FULLTEXT_CHARS = 12000
@@ -630,6 +630,57 @@ def parse_ai_json(text: str) -> Dict:
     return {key: str(payload[key]).strip() for key in required}
 
 
+def call_siliconflow(prompt: str) -> tuple[str, str]:
+    response = requests.post(
+        SF_URL,
+        headers={"Authorization": f"Bearer {SF_KEY}", "Content-Type": "application/json"},
+        json={
+            "model": SF_MODEL,
+            "messages": [{"role": "user", "content": prompt}],
+            "temperature": 0.2,
+            "max_tokens": 900,
+            "response_format": {"type": "json_object"},
+        },
+        timeout=75,
+    )
+    if not response.ok:
+        try:
+            detail = response.json().get("message", response.text)
+        except Exception:
+            detail = response.text
+        raise RuntimeError(f"SiliconFlow HTTP {response.status_code}: {str(detail)[:500]}")
+    return response.json()["choices"][0]["message"]["content"], f"SiliconFlow/{SF_MODEL}"
+
+
+def call_gemini(prompt: str) -> tuple[str, str]:
+    response = requests.post(
+        GEMINI_URL,
+        headers={"x-goog-api-key": GEMINI_KEY, "Content-Type": "application/json"},
+        json={
+            "contents": [{"parts": [{"text": prompt}]}],
+            "generationConfig": {
+                "temperature": 0.2,
+                "maxOutputTokens": 2048,
+                "responseFormat": {
+                    "text": {"mimeType": "application/json", "schema": GEMINI_RESPONSE_SCHEMA}
+                },
+            },
+        },
+        timeout=75,
+    )
+    if not response.ok:
+        try:
+            detail = response.json().get("error", {}).get("message", response.text)
+        except Exception:
+            detail = response.text
+        raise RuntimeError(f"Gemini HTTP {response.status_code}: {str(detail)[:500]}")
+    text = "".join(
+        part.get("text", "")
+        for part in response.json()["candidates"][0]["content"]["parts"]
+    )
+    return text, f"Gemini/{GEMINI_MODEL}"
+
+
 def ai_deepread(lit: Dict, source_text: str, basis_label: str) -> Dict:
     """优先调用 Gemini，次选硅基流动；返回统一结构化结果。"""
     prompt = f"""你是严谨的学术文献分析助手，服务于研究区域低碳治理与林业碳汇的农林经济管理博士生。
@@ -654,59 +705,24 @@ def ai_deepread(lit: Dict, source_text: str, basis_label: str) -> Dict:
 
     if not GEMINI_KEY and not SF_KEY:
         return fallback_analysis(lit, source_text, basis_label)
-    try:
-        if GEMINI_KEY:
-            response = requests.post(
-                GEMINI_URL,
-                headers={"x-goog-api-key": GEMINI_KEY, "Content-Type": "application/json"},
-                json={
-                    "contents": [{"parts": [{"text": prompt}]}],
-                    "generationConfig": {
-                        "temperature": 0.2,
-                        "maxOutputTokens": 2048,
-                        "responseFormat": {
-                            "text": {
-                                "mimeType": "application/json",
-                                "schema": GEMINI_RESPONSE_SCHEMA,
-                            }
-                        },
-                    },
-                },
-                timeout=75,
-            )
-            if not response.ok:
-                try:
-                    detail = response.json().get("error", {}).get("message", response.text)
-                except Exception:
-                    detail = response.text
-                raise RuntimeError(f"Gemini HTTP {response.status_code}: {str(detail)[:500]}")
-            text = "".join(
-                part.get("text", "")
-                for part in response.json()["candidates"][0]["content"]["parts"]
-            )
-            provider = f"Gemini/{GEMINI_MODEL}"
-        else:
-            response = requests.post(
-                SF_URL,
-                headers={"Authorization": f"Bearer {SF_KEY}", "Content-Type": "application/json"},
-                json={
-                    "model": SF_MODEL,
-                    "messages": [{"role": "user", "content": prompt}],
-                    "temperature": 0.2,
-                    "max_tokens": 700,
-                    "response_format": {"type": "json_object"},
-                },
-                timeout=75,
-            )
-            response.raise_for_status()
-            text = response.json()["choices"][0]["message"]["content"]
-            provider = f"SiliconFlow/{SF_MODEL}"
-        result = parse_ai_json(text)
-        result["analysis_provider"] = provider
-        return result
-    except Exception as exc:
-        print(f"  [AI解读异常，已使用规则降级] {type(exc).__name__}: {str(exc)[:180]}")
-        return fallback_analysis(lit, source_text, basis_label, f"{type(exc).__name__}: {str(exc)}")
+    attempts = []
+    if SF_KEY:
+        attempts.append(("SiliconFlow", call_siliconflow))
+    if GEMINI_KEY:
+        attempts.append(("Gemini", call_gemini))
+    errors = []
+    for name, caller in attempts:
+        try:
+            text, provider = caller(prompt)
+            result = parse_ai_json(text)
+            result["analysis_provider"] = provider
+            return result
+        except Exception as exc:
+            errors.append(f"{name}: {type(exc).__name__}: {str(exc)}")
+            print(f"  [{name}解读异常，尝试下一提供方] {type(exc).__name__}: {str(exc)[:180]}")
+    error_text = " | ".join(errors)
+    print("  [所有AI提供方均不可用，已使用规则降级]")
+    return fallback_analysis(lit, source_text, basis_label, error_text)
 
 
 def deepread_all(candidates: List[Dict]) -> List[Dict]:
