@@ -1,9 +1,9 @@
 {
   "date": "2026-06-21",
-  "generated_at": "2026年06月21日 20:37",
+  "generated_at": "2026年06月21日 20:41",
   "final_count": 4,
   "candidate_count": 12,
-  "ai_provider": "Gemini",
+  "ai_provider": "deterministic-fallback",
   "language_counts": {
     "pool_zh": 247,
     "pool_international": 648,
@@ -187,7 +187,7 @@
       "finding_zh": "OeconomiA copernicana Volume 14 Issue 4 December 20 23 p-ISSN 2083-1277, e-ISSN 2353-1827 www.oeconomia.pl Copyright © Instytut Badań Gospodarczych / Institute of Economic Research (Poland) This is an Open Access article distributed under th e terms of the Creative Commons Attribu- tion License (http://creativecommons.",
       "reference_value_zh": "主要服务论文一：可对照政策识别、减排机制与异质性分析设计。",
       "method_zh": "需根据全文或完整摘要进一步核验",
-      "limitations_zh": "当前仅使用已核验公开全文；AI调用失败：HTTPError: 400 Client Error: Bad Request for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-fla",
+      "limitations_zh": "当前仅使用已核验公开全文；AI调用失败：RuntimeError: Gemini HTTP 400: Invalid value at 'generation_config.response_format.text.mime_type' (type.googleapis.com/",
       "analysis_provider": "deterministic-fallback",
       "summary_zh": "主要发现：OeconomiA copernicana Volume 14 Issue 4 December 20 23 p-ISSN 2083-1277, e-ISSN 2353-1827 www.oeconomia.pl Copyright © Instytut Badań Gospodarczych / Institute of Economic Research (Poland) This is an Open Access article distributed under th e terms of the Creative Commons Attribu- tion License (http://creativecommons. 参考价值：主要服务论文一：可对照政策识别、减排机制与异质性分析设计。"
     },
@@ -237,7 +237,7 @@
       "finding_zh": "Abstract Low‐carbon sustainable development is considered an essential strategy for achieving economic growth and environmental protection, requiring a fundamental transformation of the industrial structure, including developing clean technologies, promoting energy efficiency, and adopting sustainable production and co",
       "reference_value_zh": "主要服务论文一：可对照政策识别、减排机制与异质性分析设计。",
       "method_zh": "需根据全文或完整摘要进一步核验",
-      "limitations_zh": "当前仅使用公开摘要；AI调用失败：HTTPError: 400 Client Error: Bad Request for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-fla",
+      "limitations_zh": "当前仅使用公开摘要；AI调用失败：RuntimeError: Gemini HTTP 400: Invalid value at 'generation_config.response_format.text.mime_type' (type.googleapis.com/",
       "analysis_provider": "deterministic-fallback",
       "summary_zh": "主要发现：Abstract Low‐carbon sustainable development is considered an essential strategy for achieving economic growth and environmental protection, requiring a fundamental transformation of the industrial structure, including developing clean technologies, promoting energy efficiency, and adopting sustainable production and co 参考价值：主要服务论文一：可对照政策识别、减排机制与异质性分析设计。"
     },
@@ -285,7 +285,7 @@
       "finding_zh": "Abstract Using panel data from 37 countries from 1990 to 2019 and applying a quantile regression approach with panel fixed effects, we investigate the impact of national Environmental, Social, and Governance (ESG) performance on green innovation and how this impact varies across different green innovation capacity dist",
       "reference_value_zh": "主要服务论文一：可对照政策识别、减排机制与异质性分析设计。",
       "method_zh": "需根据全文或完整摘要进一步核验",
-      "limitations_zh": "当前仅使用公开摘要；AI调用失败：HTTPError: 400 Client Error: Bad Request for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-fla",
+      "limitations_zh": "当前仅使用公开摘要；AI调用失败：RuntimeError: Gemini HTTP 400: Invalid value at 'generation_config.response_format.text.mime_type' (type.googleapis.com/",
       "analysis_provider": "deterministic-fallback",
       "summary_zh": "主要发现：Abstract Using panel data from 37 countries from 1990 to 2019 and applying a quantile regression approach with panel fixed effects, we investigate the impact of national Environmental, Social, and Governance (ESG) performance on green innovation and how this impact varies across different green innovation capacity dist 参考价值：主要服务论文一：可对照政策识别、减排机制与异质性分析设计。"
     },
@@ -333,7 +333,7 @@
       "finding_zh": "Does the carbon emission trading pilot policy promote green innovation cooperation? Evidence from a quasi‑natural experiment in China Peng Xiaobao1, Wu Jian2, Chen Yuhui1, Sumran Ali3* and Xie Qijun4 Introduction The European Union (EU) was the first organization to launch a mechanism for trading carbon emissions. Sinc",
       "reference_value_zh": "主要服务论文一：可对照政策识别、减排机制与异质性分析设计。",
       "method_zh": "需根据全文或完整摘要进一步核验",
-      "limitations_zh": "当前仅使用已核验公开全文；AI调用失败：HTTPError: 400 Client Error: Bad Request for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-fla",
+      "limitations_zh": "当前仅使用已核验公开全文；AI调用失败：RuntimeError: Gemini HTTP 400: Invalid value at 'generation_config.response_format.text.mime_type' (type.googleapis.com/",
       "analysis_provider": "deterministic-fallback",
       "summary_zh": "主要发现：Does the carbon emission trading pilot policy promote green innovation cooperation? Evidence from a quasi‑natural experiment in China Peng Xiaobao1, Wu Jian2, Chen Yuhui1, Sumran Ali3* and Xie Qijun4 Introduction The European Union (EU) was the first organization to launch a mechanism for trading carbon emissions. Sinc 参考价值：主要服务论文一：可对照政策识别、减排机制与异质性分析设计。"
     }
@@ -385,7 +385,7 @@
       "finding_zh": "OeconomiA copernicana Volume 14 Issue 4 December 20 23 p-ISSN 2083-1277, e-ISSN 2353-1827 www.oeconomia.pl Copyright © Instytut Badań Gospodarczych / Institute of Economic Research (Poland) This is an Open Access article distributed under th e terms of the Creative Commons Attribu- tion License (http://creativecommons.",
       "reference_value_zh": "主要服务论文一：可对照政策识别、减排机制与异质性分析设计。",
       "method_zh": "需根据全文或完整摘要进一步核验",
-      "limitations_zh": "当前仅使用已核验公开全文；AI调用失败：HTTPError: 400 Client Error: Bad Request for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-fla",
+      "limitations_zh": "当前仅使用已核验公开全文；AI调用失败：RuntimeError: Gemini HTTP 400: Invalid value at 'generation_config.response_format.text.mime_type' (type.googleapis.com/",
       "analysis_provider": "deterministic-fallback",
       "summary_zh": "主要发现：OeconomiA copernicana Volume 14 Issue 4 December 20 23 p-ISSN 2083-1277, e-ISSN 2353-1827 www.oeconomia.pl Copyright © Instytut Badań Gospodarczych / Institute of Economic Research (Poland) This is an Open Access article distributed under th e terms of the Creative Commons Attribu- tion License (http://creativecommons. 参考价值：主要服务论文一：可对照政策识别、减排机制与异质性分析设计。"
     },
@@ -435,7 +435,7 @@
       "finding_zh": "Abstract Low‐carbon sustainable development is considered an essential strategy for achieving economic growth and environmental protection, requiring a fundamental transformation of the industrial structure, including developing clean technologies, promoting energy efficiency, and adopting sustainable production and co",
       "reference_value_zh": "主要服务论文一：可对照政策识别、减排机制与异质性分析设计。",
       "method_zh": "需根据全文或完整摘要进一步核验",
-      "limitations_zh": "当前仅使用公开摘要；AI调用失败：HTTPError: 400 Client Error: Bad Request for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-fla",
+      "limitations_zh": "当前仅使用公开摘要；AI调用失败：RuntimeError: Gemini HTTP 400: Invalid value at 'generation_config.response_format.text.mime_type' (type.googleapis.com/",
       "analysis_provider": "deterministic-fallback",
       "summary_zh": "主要发现：Abstract Low‐carbon sustainable development is considered an essential strategy for achieving economic growth and environmental protection, requiring a fundamental transformation of the industrial structure, including developing clean technologies, promoting energy efficiency, and adopting sustainable production and co 参考价值：主要服务论文一：可对照政策识别、减排机制与异质性分析设计。"
     },
@@ -483,7 +483,7 @@
       "finding_zh": "Abstract Using panel data from 37 countries from 1990 to 2019 and applying a quantile regression approach with panel fixed effects, we investigate the impact of national Environmental, Social, and Governance (ESG) performance on green innovation and how this impact varies across different green innovation capacity dist",
       "reference_value_zh": "主要服务论文一：可对照政策识别、减排机制与异质性分析设计。",
       "method_zh": "需根据全文或完整摘要进一步核验",
-      "limitations_zh": "当前仅使用公开摘要；AI调用失败：HTTPError: 400 Client Error: Bad Request for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-fla",
+      "limitations_zh": "当前仅使用公开摘要；AI调用失败：RuntimeError: Gemini HTTP 400: Invalid value at 'generation_config.response_format.text.mime_type' (type.googleapis.com/",
       "analysis_provider": "deterministic-fallback",
       "summary_zh": "主要发现：Abstract Using panel data from 37 countries from 1990 to 2019 and applying a quantile regression approach with panel fixed effects, we investigate the impact of national Environmental, Social, and Governance (ESG) performance on green innovation and how this impact varies across different green innovation capacity dist 参考价值：主要服务论文一：可对照政策识别、减排机制与异质性分析设计。"
     },
@@ -531,7 +531,7 @@
       "finding_zh": "Does the carbon emission trading pilot policy promote green innovation cooperation? Evidence from a quasi‑natural experiment in China Peng Xiaobao1, Wu Jian2, Chen Yuhui1, Sumran Ali3* and Xie Qijun4 Introduction The European Union (EU) was the first organization to launch a mechanism for trading carbon emissions. Sinc",
       "reference_value_zh": "主要服务论文一：可对照政策识别、减排机制与异质性分析设计。",
       "method_zh": "需根据全文或完整摘要进一步核验",
-      "limitations_zh": "当前仅使用已核验公开全文；AI调用失败：HTTPError: 400 Client Error: Bad Request for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-fla",
+      "limitations_zh": "当前仅使用已核验公开全文；AI调用失败：RuntimeError: Gemini HTTP 400: Invalid value at 'generation_config.response_format.text.mime_type' (type.googleapis.com/",
       "analysis_provider": "deterministic-fallback",
       "summary_zh": "主要发现：Does the carbon emission trading pilot policy promote green innovation cooperation? Evidence from a quasi‑natural experiment in China Peng Xiaobao1, Wu Jian2, Chen Yuhui1, Sumran Ali3* and Xie Qijun4 Introduction The European Union (EU) was the first organization to launch a mechanism for trading carbon emissions. Sinc 参考价值：主要服务论文一：可对照政策识别、减排机制与异质性分析设计。"
     },
@@ -579,7 +579,7 @@
       "finding_zh": "Niu et al. Carbon Balance and Management (2024) 19:12 https://doi.org/10.1186/s13021-024-00259-z RESEARCH Open Access © The Author(s) 2024. Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any me",
       "reference_value_zh": "主要服务论文一：可对照政策识别、减排机制与异质性分析设计。",
       "method_zh": "需根据全文或完整摘要进一步核验",
-      "limitations_zh": "当前仅使用已核验公开全文；AI调用失败：HTTPError: 400 Client Error: Bad Request for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-fla",
+      "limitations_zh": "当前仅使用已核验公开全文；AI调用失败：RuntimeError: Gemini HTTP 400: Invalid value at 'generation_config.response_format.text.mime_type' (type.googleapis.com/",
       "analysis_provider": "deterministic-fallback",
       "summary_zh": "主要发现：Niu et al. Carbon Balance and Management (2024) 19:12 https://doi.org/10.1186/s13021-024-00259-z RESEARCH Open Access © The Author(s) 2024. Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any me 参考价值：主要服务论文一：可对照政策识别、减排机制与异质性分析设计。"
     },
@@ -635,7 +635,7 @@
       "finding_zh": "High Resolution Image Download MS PowerPoint Slide The mismatch between trade-embodied economic benefits and CO 2 emissions causes carbon inequality, which is seldom analyzed from the intracountry level, especially across a long-term period. This study applied an environmentally extended multiregional input–output mode",
       "reference_value_zh": "主要服务论文一：可对照政策识别、减排机制与异质性分析设计。",
       "method_zh": "需根据全文或完整摘要进一步核验",
-      "limitations_zh": "当前仅使用公开摘要；AI调用失败：HTTPError: 400 Client Error: Bad Request for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-fla",
+      "limitations_zh": "当前仅使用公开摘要；AI调用失败：RuntimeError: Gemini HTTP 400: Invalid value at 'generation_config.response_format.text.mime_type' (type.googleapis.com/",
       "analysis_provider": "deterministic-fallback",
       "summary_zh": "主要发现：High Resolution Image Download MS PowerPoint Slide The mismatch between trade-embodied economic benefits and CO 2 emissions causes carbon inequality, which is seldom analyzed from the intracountry level, especially across a long-term period. This study applied an environmentally extended multiregional input–output mode 参考价值：主要服务论文一：可对照政策识别、减排机制与异质性分析设计。"
     },
@@ -683,7 +683,7 @@
       "finding_zh": "BACKGROUND: Health care substantially contributes to global greenhouse gas emissions, but for pharmaceuticals, this is mostly understood through case studies of individual medicines. Using newly compiled international databases, we aimed to analyse global greenhouse gas emissions from pharmaceutical consumption and pro",
       "reference_value_zh": "主要服务论文二：可对照其碳流边界、MRIO部门聚合与责任分担口径。",
       "method_zh": "需根据全文或完整摘要进一步核验",
-      "limitations_zh": "当前仅使用公开摘要；AI调用失败：HTTPError: 400 Client Error: Bad Request for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-fla",
+      "limitations_zh": "当前仅使用公开摘要；AI调用失败：RuntimeError: Gemini HTTP 400: Invalid value at 'generation_config.response_format.text.mime_type' (type.googleapis.com/",
       "analysis_provider": "deterministic-fallback",
       "summary_zh": "主要发现：BACKGROUND: Health care substantially contributes to global greenhouse gas emissions, but for pharmaceuticals, this is mostly understood through case studies of individual medicines. Using newly compiled international databases, we aimed to analyse global greenhouse gas emissions from pharmaceutical consumption and pro 参考价值：主要服务论文二：可对照其碳流边界、MRIO部门聚合与责任分担口径。"
     },
@@ -737,7 +737,7 @@
       "finding_zh": "nature communications Article https://doi.org/10.1038/s41467-022-32656-8 Co-beneﬁts of CO2 emission reduction from China’s clean air actions between 2013-2020 Qinren Shi1,2,6, Bo Zheng 3,6, Yixuan Zheng 2,4, Dan Tong 2,Y a n gL i u 2, Hanchen Ma2, Chaopeng Hong3, Guannan Geng 1,D a b oG u a n 2, Kebin He 1,5 & Qiang Zh",
       "reference_value_zh": "主要服务论文一：可对照政策识别、减排机制与异质性分析设计。",
       "method_zh": "需根据全文或完整摘要进一步核验",
-      "limitations_zh": "当前仅使用已核验公开全文；AI调用失败：HTTPError: 400 Client Error: Bad Request for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-fla",
+      "limitations_zh": "当前仅使用已核验公开全文；AI调用失败：RuntimeError: Gemini HTTP 400: Invalid value at 'generation_config.response_format.text.mime_type' (type.googleapis.com/",
       "analysis_provider": "deterministic-fallback",
       "summary_zh": "主要发现：nature communications Article https://doi.org/10.1038/s41467-022-32656-8 Co-beneﬁts of CO2 emission reduction from China’s clean air actions between 2013-2020 Qinren Shi1,2,6, Bo Zheng 3,6, Yixuan Zheng 2,4, Dan Tong 2,Y a n gL i u 2, Hanchen Ma2, Chaopeng Hong3, Guannan Geng 1,D a b oG u a n 2, Kebin He 1,5 & Qiang Zh 参考价值：主要服务论文一：可对照政策识别、减排机制与异质性分析设计。"
     },
@@ -789,7 +789,7 @@
       "finding_zh": "Abstract Background China has made substantial efforts in afforestation since the 1970s, significantly contributing to the country’s forest carbon sink. However, the future carbon sink dynamics remain uncertain due to anticipated changes in forest age structure, climate conditions, and atmospheric CO2 concentrations. M",
       "reference_value_zh": "主要服务论文三：可对照CCER制度边界、价值实现链条与激励机制。",
       "method_zh": "需根据全文或完整摘要进一步核验",
-      "limitations_zh": "当前仅使用公开摘要；AI调用失败：HTTPError: 400 Client Error: Bad Request for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-fla",
+      "limitations_zh": "当前仅使用公开摘要；AI调用失败：RuntimeError: Gemini HTTP 400: Invalid value at 'generation_config.response_format.text.mime_type' (type.googleapis.com/",
       "analysis_provider": "deterministic-fallback",
       "summary_zh": "主要发现：Abstract Background China has made substantial efforts in afforestation since the 1970s, significantly contributing to the country’s forest carbon sink. However, the future carbon sink dynamics remain uncertain due to anticipated changes in forest age structure, climate conditions, and atmospheric CO2 concentrations. M 参考价值：主要服务论文三：可对照CCER制度边界、价值实现链条与激励机制。"
     },
@@ -835,7 +835,7 @@
       "finding_zh": "Abstract The Paris Accord has brought the world's governments together to begin implementing plans for their individual economies to become carbon‐free. The goal of attaining low‐carbon growth is not, however, as simple as it would appear since the world economies, which are dependent on fossil fuels and are fast expan",
       "reference_value_zh": "主要服务论文一：可对照政策识别、减排机制与异质性分析设计。",
       "method_zh": "需根据全文或完整摘要进一步核验",
-      "limitations_zh": "当前仅使用公开摘要；AI调用失败：HTTPError: 400 Client Error: Bad Request for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-fla",
+      "limitations_zh": "当前仅使用公开摘要；AI调用失败：RuntimeError: Gemini HTTP 400: Invalid value at 'generation_config.response_format.text.mime_type' (type.googleapis.com/",
       "analysis_provider": "deterministic-fallback",
       "summary_zh": "主要发现：Abstract The Paris Accord has brought the world's governments together to begin implementing plans for their individual economies to become carbon‐free. The goal of attaining low‐carbon growth is not, however, as simple as it would appear since the world economies, which are dependent on fossil fuels and are fast expan 参考价值：主要服务论文一：可对照政策识别、减排机制与异质性分析设计。"
     },
@@ -920,7 +920,7 @@
       "finding_zh": "It is well recognized that carbon dioxide and air pollutants share similar emission sources so that synergetic policies on climate change mitigation and air pollution control can lead to remarkable co-benefits on greenhouse gas reduction, air quality improvement, and improved health. In the context of carbon peak, carb",
       "reference_value_zh": "主要服务论文一：可对照政策识别、减排机制与异质性分析设计。",
       "method_zh": "需根据全文或完整摘要进一步核验",
-      "limitations_zh": "当前仅使用公开摘要；AI调用失败：HTTPError: 400 Client Error: Bad Request for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-fla",
+      "limitations_zh": "当前仅使用公开摘要；AI调用失败：RuntimeError: Gemini HTTP 400: Invalid value at 'generation_config.response_format.text.mime_type' (type.googleapis.com/",
       "analysis_provider": "deterministic-fallback",
       "summary_zh": "主要发现：It is well recognized that carbon dioxide and air pollutants share similar emission sources so that synergetic policies on climate change mitigation and air pollution control can lead to remarkable co-benefits on greenhouse gas reduction, air quality improvement, and improved health. In the context of carbon peak, carb 参考价值：主要服务论文一：可对照政策识别、减排机制与异质性分析设计。"
     },
@@ -972,7 +972,7 @@
       "finding_zh": "Article https://doi.org/10.1038/s41467-024-50327-8 Substantial differences in source contributions to carbon emissions and health damage necessitate balanced synergistic control plans in China Yilin Chen 1,2 , Huizhong Shen 2,3,G u o f e n gS h e n4, Jianmin Ma 4, Yafang Cheng 5,A r m i s t e a dG .R u s s e l l6, Shun",
       "reference_value_zh": "主要服务论文一：可对照政策识别、减排机制与异质性分析设计。",
       "method_zh": "需根据全文或完整摘要进一步核验",
-      "limitations_zh": "当前仅使用已核验公开全文；AI调用失败：HTTPError: 400 Client Error: Bad Request for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-fla",
+      "limitations_zh": "当前仅使用已核验公开全文；AI调用失败：RuntimeError: Gemini HTTP 400: Invalid value at 'generation_config.response_format.text.mime_type' (type.googleapis.com/",
       "analysis_provider": "deterministic-fallback",
       "summary_zh": "主要发现：Article https://doi.org/10.1038/s41467-024-50327-8 Substantial differences in source contributions to carbon emissions and health damage necessitate balanced synergistic control plans in China Yilin Chen 1,2 , Huizhong Shen 2,3,G u o f e n gS h e n4, Jianmin Ma 4, Yafang Cheng 5,A r m i s t e a dG .R u s s e l l6, Shun 参考价值：主要服务论文一：可对照政策识别、减排机制与异质性分析设计。"
     }
