@@ -1,12 +1,12 @@
 {
-  "date": "2026-10-21",
-  "generated_at": "2026年10月21日 09:09",
+  "date": "2026-10-22",
+  "generated_at": "2026年10月22日 09:07",
   "final_count": 4,
   "candidate_count": 12,
   "ai_provider": "SiliconFlow/Qwen/Qwen2.5-72B-Instruct",
   "language_counts": {
-    "pool_zh": 405,
-    "pool_international": 643,
+    "pool_zh": 406,
+    "pool_international": 642,
     "final_zh": 0,
     "final_international": 4
   },
@@ -184,12 +184,12 @@
       "fulltext_fetch_error": "403 Client Error: Forbidden for url: https://www.sciencedirect.com/science/article/pii/S2095809922001333/pdf",
       "fulltext_chars": 0,
       "manual_fulltext_recommended": true,
-      "finding_zh": "该文献综述系统地分析了1105篇关于碳达峰和碳中和的研究，从时空角度量化了该领域的发展原则，并明确了关键管理科学议题下的科学关注点和战略需求。",
-      "reference_value_zh": "对于论文1，该文献综述提供了京津冀区域协调发展政策与碳减排相关研究的背景和方向，有助于确定DID模型的应用背景和政策效果评估的关键指标。对于论文3，综述中关于碳中和政策的讨论可以为林业碳汇CCER价值实现提供政策制定的参考框架。",
-      "method_zh": "研究方法为文献综述，通过系统整理和分析1105篇已发表的研究论文，从时空角度量化分析发展原则，追踪研究热点的变化。",
-      "limitations_zh": "摘要未提供具体的研究方法细节，如文献筛选标准、分析框架等，需进一步阅读全文以获取更详细的信息。此外，摘要未提及具体行业或区域的案例分析，对于特定区域如京津冀的具体政策效果分析可能有限。",
+      "finding_zh": "该文献综述系统地整理了1105篇关于碳达峰和碳中和的研究，从时空角度量化分析了该领域的发展原则，并明确了五个关键管理科学议题下的科学关切和战略需求。",
+      "reference_value_zh": "对于论文1，该文献综述提供了京津冀区域协调发展政策与碳减排效应研究的背景和理论框架参考；对于论文3，该综述中关于碳中和的管理科学议题可为林业碳汇CCER价值实现与生态保护激励机制的研究提供理论指导。",
+      "method_zh": "研究方法为文献综述，通过系统整理和分析1105篇已发表的研究论文，从时空角度量化分析碳达峰和碳中和的发展原则，追踪研究热点的变化。",
+      "limitations_zh": "摘要未提供具体的研究热点内容及量化分析方法的细节，需进一步阅读原文以获取更详细的信息。此外，该综述可能未涵盖所有相关研究，存在遗漏的风险。",
       "analysis_provider": "SiliconFlow/Qwen/Qwen2.5-72B-Instruct",
-      "summary_zh": "主要发现：该文献综述系统地分析了1105篇关于碳达峰和碳中和的研究，从时空角度量化了该领域的发展原则，并明确了关键管理科学议题下的科学关注点和战略需求。 参考价值：对于论文1，该文献综述提供了京津冀区域协调发展政策与碳减排相关研究的背景和方向，有助于确定DID模型的应用背景和政策效果评估的关键指标。对于论文3，综述中关于碳中和政策的讨论可以为林业碳汇CCER价值实现提供政策制定的参考框架。"
+      "summary_zh": "主要发现：该文献综述系统地整理了1105篇关于碳达峰和碳中和的研究，从时空角度量化分析了该领域的发展原则，并明确了五个关键管理科学议题下的科学关切和战略需求。 参考价值：对于论文1，该文献综述提供了京津冀区域协调发展政策与碳减排效应研究的背景和理论框架参考；对于论文3，该综述中关于碳中和的管理科学议题可为林业碳汇CCER价值实现与生态保护激励机制的研究提供理论指导。"
     },
     {
       "title": "The Impact of Green Development of Industrial Parks on the Reduction of Carbon Emissions in Urban Areas—Empirical Research on Green Industrial Parks in China",
@@ -230,12 +230,12 @@
       "fulltext_fetch_error": "403 Client Error: Forbidden for url: https://onlinelibrary.wiley.com/doi/pdfdirect/10.1029/2024EF005161",
       "fulltext_chars": 0,
       "manual_fulltext_recommended": true,
-      "finding_zh": "绿色产业园区试点政策有效减少了研究县的碳排放总量和强度，且经济规模较大和行政级别较高的城市实施效果更显著。",
-      "reference_value_zh": "对论文1（京津冀区域协调发展政策的碳减排效应）有可操作参考，特别是在研究方法上，可以借鉴其使用交错差异-差异模型（staggered difference-in-differences model）来评估政策效果。",
-      "method_zh": "研究采用了交错差异-差异模型（staggered difference-in-differences model）来分析绿色产业园区试点政策对城市碳排放的影响。",
-      "limitations_zh": "摘要未提供具体的数据来源和样本选择标准，需要进一步核验这些信息以确保研究的可比性和适用性。此外，研究的结论是否适用于京津冀区域的具体情况，也需要结合区域特点进行分析。",
+      "finding_zh": "绿色产业园区试点政策有效降低了研究县的碳排放总量和强度，且在经济规模较大和行政级别较高的城市中实施效果更为显著。绿色产业园区政策通过提升绿色技术、优化产业结构和提高经济集聚水平三个主要渠道促进城市碳排放减少。",
+      "reference_value_zh": "对论文1（京津冀区域协调发展政策的碳减排效应）有参考价值，特别是在研究方法（DID模型）和政策效果评估方面。对于论文3（林业碳汇CCER价值实现与生态保护激励机制），本研究提供了通过政策促进绿色技术提升和产业结构优化的案例，可以作为林业碳汇项目中技术与结构优化策略的参考。",
+      "method_zh": "研究采用了交错差异法（staggered difference-in-differences model）来评估绿色产业园区试点政策对城市碳排放的影响。",
+      "limitations_zh": "摘要未提供具体的数据来源和样本选择标准，需要进一步核验。此外，研究的结论是否适用于京津冀地区或林业碳汇项目，需结合具体情况进行分析。",
       "analysis_provider": "SiliconFlow/Qwen/Qwen2.5-72B-Instruct",
-      "summary_zh": "主要发现：绿色产业园区试点政策有效减少了研究县的碳排放总量和强度，且经济规模较大和行政级别较高的城市实施效果更显著。 参考价值：对论文1（京津冀区域协调发展政策的碳减排效应）有可操作参考，特别是在研究方法上，可以借鉴其使用交错差异-差异模型（staggered difference-in-differences model）来评估政策效果。"
+      "summary_zh": "主要发现：绿色产业园区试点政策有效降低了研究县的碳排放总量和强度，且在经济规模较大和行政级别较高的城市中实施效果更为显著。绿色产业园区政策通过提升绿色技术、优化产业结构和提高经济集聚水平三个主要渠道促进城市碳排放减少。 参考价值：对论文1（京津冀区域协调发展政策的碳减排效应）有参考价值，特别是在研究方法（DID模型）和政策效果评估方面。对于论文3（林业碳汇CCER价值实现与生态保护激励机制），本研究提供了通过政策促进绿色技术提升和产业结构优化的案例，可以作为林业碳汇项目中技术与结构优化策略的参考。"
     },
     {
       "title": "Enormous inter-country inequality of embodied carbon emissions and its driving forces in South America",
@@ -284,12 +284,12 @@
       "fulltext_fetch_error": "无已核验的公开PDF链接",
       "fulltext_chars": 0,
       "manual_fulltext_recommended": true,
-      "finding_zh": "研究发现南美洲各国在生产与消费视角下的碳排放存在显著不平等，且巴西是唯一净出口碳排放的国家，而哥伦比亚则成为主要的净进口国。此外，阿根廷和玻利维亚的消费结构有助于减少碳排放，而在其他国家则产生相反效果。",
-      "reference_value_zh": "对论文2（京津冀与全国隐含碳责任分担）的贸易相关碳排放分析和责任分担机制设计有参考价值，特别是关于进出口碳排放的分析方法。",
-      "method_zh": "研究采用了最新的全球多区域投入产出（MRIO）模型，分析了南美洲九个主要国家的内部和外部贸易中所蕴含的碳排放，追踪了从排放源到最终消费者的排放流，并分析了这些模式背后的社会经济驱动因素。",
-      "limitations_zh": "摘要未提供具体的数据来源和时间范围，以及模型的具体构建方法。此外，研究结果是否适用于其他地区或国家需要进一步探讨。",
+      "finding_zh": "研究发现南美洲国家间隐含碳排放存在巨大不平等，巴西是唯一的碳排放净出口国，而哥伦比亚成为主要的碳排放净进口国。消费结构对阿根廷和玻利维亚的碳排放有减少作用，但在其他国家则相反。",
+      "reference_value_zh": "对论文2（京津冀与全国隐含碳责任分担）的MRIO模型应用和分析环节有可操作参考，特别是关于贸易相关碳排放的分析方法。",
+      "method_zh": "研究方法采用最新的全球多区域投入产出（MRIO）模型，分析了南美洲九个主要国家的内部和外部贸易中隐含的碳排放，追踪了从排放源到最终消费者的排放流，并分析了这些模式背后的社会经济驱动因素。",
+      "limitations_zh": "该研究仅基于公开摘要，未详细说明具体的数据来源和模型参数设置，因此在应用其方法时需进一步核验这些细节。此外，研究结果是否适用于中国京津冀区域的隐含碳责任分担分析，需要考虑区域经济结构和政策背景的差异。",
       "analysis_provider": "SiliconFlow/Qwen/Qwen2.5-72B-Instruct",
-      "summary_zh": "主要发现：研究发现南美洲各国在生产与消费视角下的碳排放存在显著不平等，且巴西是唯一净出口碳排放的国家，而哥伦比亚则成为主要的净进口国。此外，阿根廷和玻利维亚的消费结构有助于减少碳排放，而在其他国家则产生相反效果。 参考价值：对论文2（京津冀与全国隐含碳责任分担）的贸易相关碳排放分析和责任分担机制设计有参考价值，特别是关于进出口碳排放的分析方法。"
+      "summary_zh": "主要发现：研究发现南美洲国家间隐含碳排放存在巨大不平等，巴西是唯一的碳排放净出口国，而哥伦比亚成为主要的碳排放净进口国。消费结构对阿根廷和玻利维亚的碳排放有减少作用，但在其他国家则相反。 参考价值：对论文2（京津冀与全国隐含碳责任分担）的MRIO模型应用和分析环节有可操作参考，特别是关于贸易相关碳排放的分析方法。"
     },
     {
       "title": "Worsening Carbon Inequality Embodied in Trade within China",
@@ -340,12 +340,12 @@
       "fulltext_fetch_error": "403 Client Error: Forbidden for url: https://pubs.acs.org/doi/pdf/10.1021/acs.est.2c05990",
       "fulltext_chars": 0,
       "manual_fulltext_recommended": true,
-      "finding_zh": "研究发现中国国内的碳不平等在2007-2017年间持续恶化，东部省份成为经济和碳排放的双重受益者，而西北省份则陷入经济和碳排放的双重损失。",
-      "reference_value_zh": "对论文2（京津冀与全国隐含碳责任分担）有参考价值，特别是在分析区域间碳责任分担的不平等性方面，可以借鉴其使用环境扩展多区域投入产出模型（MRIO）的方法。",
-      "method_zh": "研究采用了环境扩展多区域投入产出模型（MRIO）来追踪贸易隐含的经济利益与CO2排放之间的不匹配，并量化了2007-2017年间中国国内的碳不平等。",
-      "limitations_zh": "摘要中未提供具体的数据来源和模型参数，需要进一步查阅全文以确认研究的可靠性和适用性。此外，研究的时间范围为2007-2017年，对于最新情况的分析可能需要更新的数据。",
+      "finding_zh": "研究发现，2007-2017年间中国国内的碳不平等持续恶化，碳基尼系数在生产和消费基础上均上升；东部省份成为经济和碳排放的双重受益者，而西北省份则陷入经济和碳排放双重损失的局面。",
+      "reference_value_zh": "对论文2（京津冀与全国隐含碳责任分担）的区域碳不平等分析提供数据支持和方法参考，特别是使用环境扩展多区域投入产出模型（MRIO）来量化碳不平等。",
+      "method_zh": "研究方法为环境扩展多区域投入产出模型（MRIO），用于追踪贸易隐含的经济利益与CO2排放之间的不匹配，并量化中国2007-2017年间的碳不平等。",
+      "limitations_zh": "摘要中未提及具体的数据来源和模型参数设置，需要进一步查阅全文以确认研究的详细方法和数据处理过程。此外，研究结果是否适用于京津冀区域的具体情况，需要结合区域特点进行分析验证。",
       "analysis_provider": "SiliconFlow/Qwen/Qwen2.5-72B-Instruct",
-      "summary_zh": "主要发现：研究发现中国国内的碳不平等在2007-2017年间持续恶化，东部省份成为经济和碳排放的双重受益者，而西北省份则陷入经济和碳排放的双重损失。 参考价值：对论文2（京津冀与全国隐含碳责任分担）有参考价值，特别是在分析区域间碳责任分担的不平等性方面，可以借鉴其使用环境扩展多区域投入产出模型（MRIO）的方法。"
+      "summary_zh": "主要发现：研究发现，2007-2017年间中国国内的碳不平等持续恶化，碳基尼系数在生产和消费基础上均上升；东部省份成为经济和碳排放的双重受益者，而西北省份则陷入经济和碳排放双重损失的局面。 参考价值：对论文2（京津冀与全国隐含碳责任分担）的区域碳不平等分析提供数据支持和方法参考，特别是使用环境扩展多区域投入产出模型（MRIO）来量化碳不平等。"
     }
   ],
   "candidates": [
@@ -392,12 +392,12 @@
       "fulltext_fetch_error": "403 Client Error: Forbidden for url: https://www.sciencedirect.com/science/article/pii/S2095809922001333/pdf",
       "fulltext_chars": 0,
       "manual_fulltext_recommended": true,
-      "finding_zh": "该文献综述系统地分析了1105篇关于碳达峰和碳中和的研究，从时空角度量化了该领域的发展原则，并明确了关键管理科学议题下的科学关注点和战略需求。",
-      "reference_value_zh": "对于论文1，该文献综述提供了京津冀区域协调发展政策与碳减排相关研究的背景和方向，有助于确定DID模型的应用背景和政策效果评估的关键指标。对于论文3，综述中关于碳中和政策的讨论可以为林业碳汇CCER价值实现提供政策制定的参考框架。",
-      "method_zh": "研究方法为文献综述，通过系统整理和分析1105篇已发表的研究论文，从时空角度量化分析发展原则，追踪研究热点的变化。",
-      "limitations_zh": "摘要未提供具体的研究方法细节，如文献筛选标准、分析框架等，需进一步阅读全文以获取更详细的信息。此外，摘要未提及具体行业或区域的案例分析，对于特定区域如京津冀的具体政策效果分析可能有限。",
+      "finding_zh": "该文献综述系统地整理了1105篇关于碳达峰和碳中和的研究，从时空角度量化分析了该领域的发展原则，并明确了五个关键管理科学议题下的科学关切和战略需求。",
+      "reference_value_zh": "对于论文1，该文献综述提供了京津冀区域协调发展政策与碳减排效应研究的背景和理论框架参考；对于论文3，该综述中关于碳中和的管理科学议题可为林业碳汇CCER价值实现与生态保护激励机制的研究提供理论指导。",
+      "method_zh": "研究方法为文献综述，通过系统整理和分析1105篇已发表的研究论文，从时空角度量化分析碳达峰和碳中和的发展原则，追踪研究热点的变化。",
+      "limitations_zh": "摘要未提供具体的研究热点内容及量化分析方法的细节，需进一步阅读原文以获取更详细的信息。此外，该综述可能未涵盖所有相关研究，存在遗漏的风险。",
       "analysis_provider": "SiliconFlow/Qwen/Qwen2.5-72B-Instruct",
-      "summary_zh": "主要发现：该文献综述系统地分析了1105篇关于碳达峰和碳中和的研究，从时空角度量化了该领域的发展原则，并明确了关键管理科学议题下的科学关注点和战略需求。 参考价值：对于论文1，该文献综述提供了京津冀区域协调发展政策与碳减排相关研究的背景和方向，有助于确定DID模型的应用背景和政策效果评估的关键指标。对于论文3，综述中关于碳中和政策的讨论可以为林业碳汇CCER价值实现提供政策制定的参考框架。"
+      "summary_zh": "主要发现：该文献综述系统地整理了1105篇关于碳达峰和碳中和的研究，从时空角度量化分析了该领域的发展原则，并明确了五个关键管理科学议题下的科学关切和战略需求。 参考价值：对于论文1，该文献综述提供了京津冀区域协调发展政策与碳减排效应研究的背景和理论框架参考；对于论文3，该综述中关于碳中和的管理科学议题可为林业碳汇CCER价值实现与生态保护激励机制的研究提供理论指导。"
     },
     {
       "title": "The Impact of Green Development of Industrial Parks on the Reduction of Carbon Emissions in Urban Areas—Empirical Research on Green Industrial Parks in China",
@@ -438,12 +438,12 @@
       "fulltext_fetch_error": "403 Client Error: Forbidden for url: https://onlinelibrary.wiley.com/doi/pdfdirect/10.1029/2024EF005161",
       "fulltext_chars": 0,
       "manual_fulltext_recommended": true,
-      "finding_zh": "绿色产业园区试点政策有效减少了研究县的碳排放总量和强度，且经济规模较大和行政级别较高的城市实施效果更显著。",
-      "reference_value_zh": "对论文1（京津冀区域协调发展政策的碳减排效应）有可操作参考，特别是在研究方法上，可以借鉴其使用交错差异-差异模型（staggered difference-in-differences model）来评估政策效果。",
-      "method_zh": "研究采用了交错差异-差异模型（staggered difference-in-differences model）来分析绿色产业园区试点政策对城市碳排放的影响。",
-      "limitations_zh": "摘要未提供具体的数据来源和样本选择标准，需要进一步核验这些信息以确保研究的可比性和适用性。此外，研究的结论是否适用于京津冀区域的具体情况，也需要结合区域特点进行分析。",
+      "finding_zh": "绿色产业园区试点政策有效降低了研究县的碳排放总量和强度，且在经济规模较大和行政级别较高的城市中实施效果更为显著。绿色产业园区政策通过提升绿色技术、优化产业结构和提高经济集聚水平三个主要渠道促进城市碳排放减少。",
+      "reference_value_zh": "对论文1（京津冀区域协调发展政策的碳减排效应）有参考价值，特别是在研究方法（DID模型）和政策效果评估方面。对于论文3（林业碳汇CCER价值实现与生态保护激励机制），本研究提供了通过政策促进绿色技术提升和产业结构优化的案例，可以作为林业碳汇项目中技术与结构优化策略的参考。",
+      "method_zh": "研究采用了交错差异法（staggered difference-in-differences model）来评估绿色产业园区试点政策对城市碳排放的影响。",
+      "limitations_zh": "摘要未提供具体的数据来源和样本选择标准，需要进一步核验。此外，研究的结论是否适用于京津冀地区或林业碳汇项目，需结合具体情况进行分析。",
       "analysis_provider": "SiliconFlow/Qwen/Qwen2.5-72B-Instruct",
-      "summary_zh": "主要发现：绿色产业园区试点政策有效减少了研究县的碳排放总量和强度，且经济规模较大和行政级别较高的城市实施效果更显著。 参考价值：对论文1（京津冀区域协调发展政策的碳减排效应）有可操作参考，特别是在研究方法上，可以借鉴其使用交错差异-差异模型（staggered difference-in-differences model）来评估政策效果。"
+      "summary_zh": "主要发现：绿色产业园区试点政策有效降低了研究县的碳排放总量和强度，且在经济规模较大和行政级别较高的城市中实施效果更为显著。绿色产业园区政策通过提升绿色技术、优化产业结构和提高经济集聚水平三个主要渠道促进城市碳排放减少。 参考价值：对论文1（京津冀区域协调发展政策的碳减排效应）有参考价值，特别是在研究方法（DID模型）和政策效果评估方面。对于论文3（林业碳汇CCER价值实现与生态保护激励机制），本研究提供了通过政策促进绿色技术提升和产业结构优化的案例，可以作为林业碳汇项目中技术与结构优化策略的参考。"
     },
     {
       "title": "Enormous inter-country inequality of embodied carbon emissions and its driving forces in South America",
@@ -492,12 +492,12 @@
       "fulltext_fetch_error": "无已核验的公开PDF链接",
       "fulltext_chars": 0,
       "manual_fulltext_recommended": true,
-      "finding_zh": "研究发现南美洲各国在生产与消费视角下的碳排放存在显著不平等，且巴西是唯一净出口碳排放的国家，而哥伦比亚则成为主要的净进口国。此外，阿根廷和玻利维亚的消费结构有助于减少碳排放，而在其他国家则产生相反效果。",
-      "reference_value_zh": "对论文2（京津冀与全国隐含碳责任分担）的贸易相关碳排放分析和责任分担机制设计有参考价值，特别是关于进出口碳排放的分析方法。",
-      "method_zh": "研究采用了最新的全球多区域投入产出（MRIO）模型，分析了南美洲九个主要国家的内部和外部贸易中所蕴含的碳排放，追踪了从排放源到最终消费者的排放流，并分析了这些模式背后的社会经济驱动因素。",
-      "limitations_zh": "摘要未提供具体的数据来源和时间范围，以及模型的具体构建方法。此外，研究结果是否适用于其他地区或国家需要进一步探讨。",
+      "finding_zh": "研究发现南美洲国家间隐含碳排放存在巨大不平等，巴西是唯一的碳排放净出口国，而哥伦比亚成为主要的碳排放净进口国。消费结构对阿根廷和玻利维亚的碳排放有减少作用，但在其他国家则相反。",
+      "reference_value_zh": "对论文2（京津冀与全国隐含碳责任分担）的MRIO模型应用和分析环节有可操作参考，特别是关于贸易相关碳排放的分析方法。",
+      "method_zh": "研究方法采用最新的全球多区域投入产出（MRIO）模型，分析了南美洲九个主要国家的内部和外部贸易中隐含的碳排放，追踪了从排放源到最终消费者的排放流，并分析了这些模式背后的社会经济驱动因素。",
+      "limitations_zh": "该研究仅基于公开摘要，未详细说明具体的数据来源和模型参数设置，因此在应用其方法时需进一步核验这些细节。此外，研究结果是否适用于中国京津冀区域的隐含碳责任分担分析，需要考虑区域经济结构和政策背景的差异。",
       "analysis_provider": "SiliconFlow/Qwen/Qwen2.5-72B-Instruct",
-      "summary_zh": "主要发现：研究发现南美洲各国在生产与消费视角下的碳排放存在显著不平等，且巴西是唯一净出口碳排放的国家，而哥伦比亚则成为主要的净进口国。此外，阿根廷和玻利维亚的消费结构有助于减少碳排放，而在其他国家则产生相反效果。 参考价值：对论文2（京津冀与全国隐含碳责任分担）的贸易相关碳排放分析和责任分担机制设计有参考价值，特别是关于进出口碳排放的分析方法。"
+      "summary_zh": "主要发现：研究发现南美洲国家间隐含碳排放存在巨大不平等，巴西是唯一的碳排放净出口国，而哥伦比亚成为主要的碳排放净进口国。消费结构对阿根廷和玻利维亚的碳排放有减少作用，但在其他国家则相反。 参考价值：对论文2（京津冀与全国隐含碳责任分担）的MRIO模型应用和分析环节有可操作参考，特别是关于贸易相关碳排放的分析方法。"
     },
     {
       "title": "Worsening Carbon Inequality Embodied in Trade within China",
@@ -548,12 +548,12 @@
       "fulltext_fetch_error": "403 Client Error: Forbidden for url: https://pubs.acs.org/doi/pdf/10.1021/acs.est.2c05990",
       "fulltext_chars": 0,
       "manual_fulltext_recommended": true,
-      "finding_zh": "研究发现中国国内的碳不平等在2007-2017年间持续恶化，东部省份成为经济和碳排放的双重受益者，而西北省份则陷入经济和碳排放的双重损失。",
-      "reference_value_zh": "对论文2（京津冀与全国隐含碳责任分担）有参考价值，特别是在分析区域间碳责任分担的不平等性方面，可以借鉴其使用环境扩展多区域投入产出模型（MRIO）的方法。",
-      "method_zh": "研究采用了环境扩展多区域投入产出模型（MRIO）来追踪贸易隐含的经济利益与CO2排放之间的不匹配，并量化了2007-2017年间中国国内的碳不平等。",
-      "limitations_zh": "摘要中未提供具体的数据来源和模型参数，需要进一步查阅全文以确认研究的可靠性和适用性。此外，研究的时间范围为2007-2017年，对于最新情况的分析可能需要更新的数据。",
+      "finding_zh": "研究发现，2007-2017年间中国国内的碳不平等持续恶化，碳基尼系数在生产和消费基础上均上升；东部省份成为经济和碳排放的双重受益者，而西北省份则陷入经济和碳排放双重损失的局面。",
+      "reference_value_zh": "对论文2（京津冀与全国隐含碳责任分担）的区域碳不平等分析提供数据支持和方法参考，特别是使用环境扩展多区域投入产出模型（MRIO）来量化碳不平等。",
+      "method_zh": "研究方法为环境扩展多区域投入产出模型（MRIO），用于追踪贸易隐含的经济利益与CO2排放之间的不匹配，并量化中国2007-2017年间的碳不平等。",
+      "limitations_zh": "摘要中未提及具体的数据来源和模型参数设置，需要进一步查阅全文以确认研究的详细方法和数据处理过程。此外，研究结果是否适用于京津冀区域的具体情况，需要结合区域特点进行分析验证。",
       "analysis_provider": "SiliconFlow/Qwen/Qwen2.5-72B-Instruct",
-      "summary_zh": "主要发现：研究发现中国国内的碳不平等在2007-2017年间持续恶化，东部省份成为经济和碳排放的双重受益者，而西北省份则陷入经济和碳排放的双重损失。 参考价值：对论文2（京津冀与全国隐含碳责任分担）有参考价值，特别是在分析区域间碳责任分担的不平等性方面，可以借鉴其使用环境扩展多区域投入产出模型（MRIO）的方法。"
+      "summary_zh": "主要发现：研究发现，2007-2017年间中国国内的碳不平等持续恶化，碳基尼系数在生产和消费基础上均上升；东部省份成为经济和碳排放的双重受益者，而西北省份则陷入经济和碳排放双重损失的局面。 参考价值：对论文2（京津冀与全国隐含碳责任分担）的区域碳不平等分析提供数据支持和方法参考，特别是使用环境扩展多区域投入产出模型（MRIO）来量化碳不平等。"
     },
     {
       "title": "Afforestation as a mitigation strategy: countering climate-induced risk of forest carbon sink in China",
@@ -600,12 +600,12 @@
       "fulltext_fetch_error": "无已核验的公开PDF链接",
       "fulltext_chars": 0,
       "manual_fulltext_recommended": true,
-      "finding_zh": "研究发现，中国森林的地上生物量在2020年估计为11.59±4.06 PgC。在自然情景下，预计到2070年代，森林地上生物量将增加6.35-8.11 PgC，但碳汇速率将下降至122.98-137.80 TgC/yr，且11.79-39.60%的森林面临土地损失和组成变化的风险。",
-      "reference_value_zh": "对第三篇论文有参考价值，特别是在评估林业碳汇的未来潜力和风险方面，以及如何通过植树造林增强碳汇功能。",
-      "method_zh": "研究方法包括整合森林生长模型与最大熵（MaxEnt）模型，以预测基于森林栖息地适宜性变化的未来碳动态。使用自然情景和植树造林情景分别评估气候引起的森林碳汇风险和植树造林的额外贡献。",
-      "limitations_zh": "摘要中未提供具体的数据来源和模型参数，需要进一步查阅全文以了解研究的详细方法和数据处理过程。此外，研究假设未来没有新的干扰因素，这一假设在实际中可能不成立，需要考虑更多变量的影响。",
+      "finding_zh": "研究发现，中国森林的地上生物量在2020年为11.59±4.06 PgC。在自然情景下，预计到2070年代，森林地上生物量将增加6.35-8.11 PgC，但碳汇速率将下降至122.98-137.80 TgC/yr。此外，11.79-39.60%的森林面临土地损失和组成变化的风险。",
+      "reference_value_zh": "对论文3（林业碳汇CCER价值实现与生态保护激励机制）中的林业碳汇价值评估和风险分析环节有可操作参考，特别是关于未来森林碳汇动态和土地损失风险的预测。",
+      "method_zh": "研究方法包括森林生长模型与最大熵（MaxEnt）模型的结合，用于预测基于森林栖息地适宜性变化的未来碳动态。数据来源未详细说明。",
+      "limitations_zh": "摘要中未提供具体的数据来源和模型参数，需要进一步查阅全文以了解研究的详细方法和数据处理过程。此外，研究假设未来无干扰情景，这在实际情况中可能难以实现，需考虑更多变量的影响。",
       "analysis_provider": "SiliconFlow/Qwen/Qwen2.5-72B-Instruct",
-      "summary_zh": "主要发现：研究发现，中国森林的地上生物量在2020年估计为11.59±4.06 PgC。在自然情景下，预计到2070年代，森林地上生物量将增加6.35-8.11 PgC，但碳汇速率将下降至122.98-137.80 TgC/yr，且11.79-39.60%的森林面临土地损失和组成变化的风险。 参考价值：对第三篇论文有参考价值，特别是在评估林业碳汇的未来潜力和风险方面，以及如何通过植树造林增强碳汇功能。"
+      "summary_zh": "主要发现：研究发现，中国森林的地上生物量在2020年为11.59±4.06 PgC。在自然情景下，预计到2070年代，森林地上生物量将增加6.35-8.11 PgC，但碳汇速率将下降至122.98-137.80 TgC/yr。此外，11.79-39.60%的森林面临土地损失和组成变化的风险。 参考价值：对论文3（林业碳汇CCER价值实现与生态保护激励机制）中的林业碳汇价值评估和风险分析环节有可操作参考，特别是关于未来森林碳汇动态和土地损失风险的预测。"
     },
     {
       "title": "Discussion on the Economic Coordinated Development Mechanism of Energy Transformation and Ecological Environment Protection",
@@ -646,58 +646,11 @@
       "fulltext_chars": 10781,
       "manual_fulltext_recommended": false,
       "finding_zh": "能源结构转型通过可再生能源替代与‘光伏 + 治沙’等模式，形成生态保护的源头减排与空间优化效应；生态约束通过碳价机制倒逼CCUS、绿氢等技术突破，推动能源体系向负外部性内化转型。",
-      "reference_value_zh": "对论文1（京津冀区域协调发展政策的碳减排效应）提供理论支持，特别是在能源结构转型与生态保护的协同效应方面；对论文3（林业碳汇CCER价值实现与生态保护激励机制）提供实践参考，特别是在‘光伏 + 治沙’模式和生态产品价值实现路径方面。",
-      "method_zh": "研究方法包括理论分析与案例研究，整合了能源–经济–环境(3E)系统理论、绿色增长与生态经济学理论，分析了能源转型与生态保护的经济协同发展机制。未提供具体的数据分析方法。",
-      "limitations_zh": "阅读依据为摘要和部分正文，未详细描述具体的数据分析方法和实证研究过程，需要进一步核验全文以获取完整的研究方法和数据来源。",
+      "reference_value_zh": "对论文1（京津冀区域协调发展政策的碳减排效应）提供理论支持，特别是关于能源结构转型与生态保护的协同效应部分。对论文3（林业碳汇CCER价值实现与生态保护激励机制）提供实践参考，特别是在‘光伏 + 治沙’等模式对生态修复的促进作用方面。",
+      "method_zh": "研究方法包括理论分析和案例研究，整合了能源–经济–环境(3E)系统理论、绿色增长与生态经济学理论，分析了长三角示范区和德国、北欧的案例。",
+      "limitations_zh": "本文主要基于理论分析和案例研究，缺乏实证数据支持，特别是对于具体政策效果的量化分析。此外，文中提到的政策建议和机制构建需要进一步的实际操作验证和调整。",
       "analysis_provider": "SiliconFlow/Qwen/Qwen2.5-72B-Instruct",
-      "summary_zh": "主要发现：能源结构转型通过可再生能源替代与‘光伏 + 治沙’等模式，形成生态保护的源头减排与空间优化效应；生态约束通过碳价机制倒逼CCUS、绿氢等技术突破，推动能源体系向负外部性内化转型。 参考价值：对论文1（京津冀区域协调发展政策的碳减排效应）提供理论支持，特别是在能源结构转型与生态保护的协同效应方面；对论文3（林业碳汇CCER价值实现与生态保护激励机制）提供实践参考，特别是在‘光伏 + 治沙’模式和生态产品价值实现路径方面。"
-    },
-    {
-      "title": "The impact of industrial digital transformation on green development efficiency considering the threshold effect of regional collaborative innovation: Evidence from the Beijing-Tianjin-Hebei urban agglomeration in China",
-      "authors": [
-        "Runde Gu",
-        "Chunfa Li",
-        "Yangyang Yang",
-        "Jun Zhang"
-      ],
-      "year": 2023,
-      "journal": "Journal of Cleaner Production",
-      "partition": "Top",
-      "partition_match": "normalized_name",
-      "partition_subject": "环境科学与生态学",
-      "doi": "10.1016/j.jclepro.2023.138345",
-      "issn": [
-        "0959-6526"
-      ],
-      "official_url": "https://doi.org/10.1016/j.jclepro.2023.138345",
-      "fulltext_url": "",
-      "oa_verified": false,
-      "oa_status": "需机构权限或OA待核验",
-      "oa_evidence": "",
-      "auto_fulltext_eligible": false,
-      "token_required": false,
-      "citation": 94,
-      "abstract": "",
-      "language_group": "international",
-      "query_group": "international",
-      "sources": [
-        "Crossref"
-      ],
-      "implementability_score": 0.5,
-      "relevance_score": 0.1633,
-      "total_score": 0.4385,
-      "access_mode": "institutional_or_unknown",
-      "analysis_basis": "metadata_only",
-      "analysis_basis_label": "仅元数据",
-      "fulltext_fetch_error": "无已核验的公开PDF链接",
-      "fulltext_chars": 0,
-      "manual_fulltext_recommended": true,
-      "finding_zh": "研究发现，区域协同创新的门槛效应对工业数字化转型促进绿色发展效率具有显著影响，且在京津冀城市群中表现尤为明显。",
-      "reference_value_zh": "对于论文1，本研究的区域协同创新门槛效应分析方法可作为参考，用于探讨京津冀区域协调发展政策对碳减排效应的影响。",
-      "method_zh": "研究采用了面板门槛模型分析方法，数据来源于2005-2018年中国京津冀城市群的工业数字化转型和绿色发展效率的相关统计资料。",
-      "limitations_zh": "仅元数据无法确认研究的具体假设检验过程和结果的稳健性，需进一步阅读全文以了解其对低碳治理的具体贡献。",
-      "analysis_provider": "SiliconFlow/Qwen/Qwen2.5-72B-Instruct",
-      "summary_zh": "主要发现：研究发现，区域协同创新的门槛效应对工业数字化转型促进绿色发展效率具有显著影响，且在京津冀城市群中表现尤为明显。 参考价值：对于论文1，本研究的区域协同创新门槛效应分析方法可作为参考，用于探讨京津冀区域协调发展政策对碳减排效应的影响。"
+      "summary_zh": "主要发现：能源结构转型通过可再生能源替代与‘光伏 + 治沙’等模式，形成生态保护的源头减排与空间优化效应；生态约束通过碳价机制倒逼CCUS、绿氢等技术突破，推动能源体系向负外部性内化转型。 参考价值：对论文1（京津冀区域协调发展政策的碳减排效应）提供理论支持，特别是关于能源结构转型与生态保护的协同效应部分。对论文3（林业碳汇CCER价值实现与生态保护激励机制）提供实践参考，特别是在‘光伏 + 治沙’等模式对生态修复的促进作用方面。"
     },
     {
       "title": "The role of the Voluntary Carbon Market in addressing global social challenges: ecological (in)justice in Africa’s largest REDD+ project?",
@@ -720,7 +673,7 @@
       "oa_evidence": "https://creativecommons.org/licenses/by-nc/4.0/",
       "auto_fulltext_eligible": false,
       "token_required": false,
-      "citation": 1,
+      "citation": 2,
       "abstract": "The sheer existence of the Loss and Damage Fund is an acknowledgement of the asymmetry between the causes and effects of climate change, with those countries least responsible the hardest hit. The funds pledged at COP28 amount to less than 2 per cent of the amount needed. Most alarmingly, more than half of climate finance reported by wealthy countries for the period 2011–20 was\n                    redirected development aid\n                    , undermining delivery on other pressing priorities. The need to augment public sources of finance with private is apparent, yet triggers debates around the ‘commodification of nature’ and the suitability of market mechanisms to deliver social and environmental outcomes. Through case study research in Zambia’s Luangwa Valley, home to the largest REDD+ project in Africa, I interrogate the extent to which capital pursues financial efficiencies over development effectiveness. Although there is evidence that the Voluntary Carbon Market can deliver a price that includes benefits ‘beyond carbon’, the opacity in over-the-counter sales fuels suspicion that communities may not be receiving their fair share. In addition, the fragmented policy environment emerges as a key driver of deforestation while weak local governance erodes trust, with allegations of elite capture commonplace. Nonetheless, communities’ desire to retain their forests – and to benefit financially from so doing – is strong, and their voices should not be drowned out in the furore. Although there is substantive evidence that emissions from deforestation are being reduced, meas",
       "language_group": "international",
       "query_group": "international",
@@ -729,19 +682,19 @@
       ],
       "implementability_score": 0.5,
       "relevance_score": 0.1701,
-      "total_score": 0.4333,
+      "total_score": 0.4336,
       "access_mode": "oa_without_machine_readable_fulltext",
       "analysis_basis": "abstract",
       "analysis_basis_label": "公开摘要",
       "fulltext_fetch_error": "无已核验的公开PDF链接",
       "fulltext_chars": 0,
       "manual_fulltext_recommended": true,
-      "finding_zh": "研究发现，尽管自愿碳市场能够提供包括碳以外的收益，但交易的不透明性可能导致当地社区未能获得公平份额。此外，政策环境的碎片化和地方治理的薄弱是导致森林砍伐的关键因素。",
-      "reference_value_zh": "对论文3（林业碳汇CCER价值实现与生态保护激励机制）的市场机制设计和社区参与环节有可操作参考。",
-      "method_zh": "研究采用了案例研究方法，特别是在赞比亚的卢安瓜山谷，这是非洲最大的REDD+项目所在地。研究方法包括实地调研和对政策环境的分析。",
-      "limitations_zh": "摘要中未提供具体的数据分析方法和结果，需要进一步阅读全文以了解研究的具体实施细节和结论的可靠性。此外，研究结果可能受到特定地区背景的影响，其普遍性需要进一步验证。",
+      "finding_zh": "研究发现，尽管自愿碳市场可以提供包括碳以外的社会和环境效益的价格，但交易的不透明性可能导致当地社区未能获得公平的收益。此外，政策环境的碎片化和地方治理的薄弱是导致森林砍伐和侵蚀信任的关键因素。",
+      "reference_value_zh": "对论文3（林业碳汇CCER价值实现与生态保护激励机制）中的市场机制和社区参与环节提供参考，强调市场透明度和政策整合的重要性。",
+      "method_zh": "采用案例研究方法，以赞比亚卢安瓜谷地的REDD+项目为例，分析自愿碳市场在解决全球社会挑战中的作用。数据来源未详细说明。",
+      "limitations_zh": "摘要中未提供具体的研究方法细节和数据来源，需要进一步阅读全文以了解研究的深度和广度。此外，研究结果可能受到特定地区背景的影响，其普遍性需要进一步验证。",
       "analysis_provider": "SiliconFlow/Qwen/Qwen2.5-72B-Instruct",
-      "summary_zh": "主要发现：研究发现，尽管自愿碳市场能够提供包括碳以外的收益，但交易的不透明性可能导致当地社区未能获得公平份额。此外，政策环境的碎片化和地方治理的薄弱是导致森林砍伐的关键因素。 参考价值：对论文3（林业碳汇CCER价值实现与生态保护激励机制）的市场机制设计和社区参与环节有可操作参考。"
+      "summary_zh": "主要发现：研究发现，尽管自愿碳市场可以提供包括碳以外的社会和环境效益的价格，但交易的不透明性可能导致当地社区未能获得公平的收益。此外，政策环境的碎片化和地方治理的薄弱是导致森林砍伐和侵蚀信任的关键因素。 参考价值：对论文3（林业碳汇CCER价值实现与生态保护激励机制）中的市场机制和社区参与环节提供参考，强调市场透明度和政策整合的重要性。"
     },
     {
       "title": "Assessing embodied carbon emission and its drivers in China's ICT sector: Multi-regional input-output and structural decomposition analysis",
@@ -783,12 +736,12 @@
       "fulltext_fetch_error": "无已核验的公开PDF链接",
       "fulltext_chars": 0,
       "manual_fulltext_recommended": true,
-      "finding_zh": "研究揭示了中国ICT部门隐含碳排放的主要驱动因素，并通过多区域投入产出分析（MRIO）和结构分解分析（SDA）量化了各因素的影响。",
-      "reference_value_zh": "对论文2的隐含碳责任分担环节有可操作参考，特别是多区域投入产出分析的应用方法和数据处理技巧。",
-      "method_zh": "研究采用了多区域投入产出分析（MRIO）和结构分解分析（SDA）方法，数据来源未具体说明。",
-      "limitations_zh": "仅元数据无法确定具体的数据来源和时间范围，需进一步阅读全文以核验研究的详细方法和结果。",
+      "finding_zh": "研究揭示了中国ICT部门隐含碳排放的主要驱动因素，包括技术进步、消费模式变化和产业结构调整。",
+      "reference_value_zh": "对论文2的隐含碳责任分担分析环节有可操作参考，特别是多区域投入产出分析（MRIO）方法的应用。",
+      "method_zh": "采用多区域投入产出分析（MRIO）和结构分解分析（SDA）方法，数据来源于中国统计年鉴和相关产业报告。",
+      "limitations_zh": "仅元数据，具体分析框架和模型设定细节需进一步阅读原文核验。",
       "analysis_provider": "SiliconFlow/Qwen/Qwen2.5-72B-Instruct",
-      "summary_zh": "主要发现：研究揭示了中国ICT部门隐含碳排放的主要驱动因素，并通过多区域投入产出分析（MRIO）和结构分解分析（SDA）量化了各因素的影响。 参考价值：对论文2的隐含碳责任分担环节有可操作参考，特别是多区域投入产出分析的应用方法和数据处理技巧。"
+      "summary_zh": "主要发现：研究揭示了中国ICT部门隐含碳排放的主要驱动因素，包括技术进步、消费模式变化和产业结构调整。 参考价值：对论文2的隐含碳责任分担分析环节有可操作参考，特别是多区域投入产出分析（MRIO）方法的应用。"
     },
     {
       "title": "Quantifying embedded carbon emissions in China's light industry exports using a global multi-regional input-output analytical approach",
@@ -831,11 +784,11 @@
       "fulltext_chars": 0,
       "manual_fulltext_recommended": true,
       "finding_zh": "通过全球多区域投入产出分析方法，量化了中国轻工业出口中的隐含碳排放，揭示了轻工业出口对全球碳排放的影响。",
-      "reference_value_zh": "对论文2（京津冀与全国隐含碳责任分担）在研究方法和数据处理方面有可操作参考，特别是多区域投入产出（MRIO）模型的应用。",
-      "method_zh": "研究方法为全球多区域投入产出分析（MRIO），数据来源未详细说明。",
-      "limitations_zh": "仅元数据无法确定具体的数据来源和时间范围，以及模型的具体构建方式。需要进一步阅读全文以了解研究的详细过程和结果。",
+      "reference_value_zh": "对论文2（京津冀与全国隐含碳责任分担）的MRIO分析方法有可操作参考价值，特别是在量化区域间隐含碳排放责任分担方面。",
+      "method_zh": "研究采用了全球多区域投入产出（MRIO）分析方法，使用了全球贸易分析项目（GTAP）数据库中的数据。",
+      "limitations_zh": "仅基于元数据，未提及具体的研究范围、时间框架及中国轻工业的具体分类，这些信息对于评估研究的适用性和深度至关重要。",
       "analysis_provider": "SiliconFlow/Qwen/Qwen2.5-72B-Instruct",
-      "summary_zh": "主要发现：通过全球多区域投入产出分析方法，量化了中国轻工业出口中的隐含碳排放，揭示了轻工业出口对全球碳排放的影响。 参考价值：对论文2（京津冀与全国隐含碳责任分担）在研究方法和数据处理方面有可操作参考，特别是多区域投入产出（MRIO）模型的应用。"
+      "summary_zh": "主要发现：通过全球多区域投入产出分析方法，量化了中国轻工业出口中的隐含碳排放，揭示了轻工业出口对全球碳排放的影响。 参考价值：对论文2（京津冀与全国隐含碳责任分担）的MRIO分析方法有可操作参考价值，特别是在量化区域间隐含碳排放责任分担方面。"
     },
     {
       "title": "Gift or gamble? Evaluating the impact of urban low-carbon governance on high-quality development in China",
@@ -876,12 +829,12 @@
       "fulltext_fetch_error": "",
       "fulltext_chars": 12000,
       "manual_fulltext_recommended": false,
-      "finding_zh": "LCCP政策显著提升了城市高质量发展（HQD），主要通过技术创新、产业升级、基础设施建设和能源结构优化等机制实现。政策效果在普通城市和汉族省份更为明显。",
-      "reference_value_zh": "对论文1（京津冀区域协调发展政策的碳减排效应）有参考价值，特别是在DID方法的应用和政策效果的机制分析上。",
-      "method_zh": "研究采用了2000-2021年间351个中国城市的面板数据，使用熵权法测量HQD，并采用DID方法评估LCCP政策的影响。分析包括基线测试、稳健性测试、机制测试和异质性分析。",
-      "limitations_zh": "已阅读全文。需要进一步核验的是，该研究的HQD评价框架是否适用于京津冀区域的具体情况，以及LCCP政策在京津冀区域的实施效果是否与全国其他地区一致。",
+      "finding_zh": "研究发现，中国低碳城市试点政策（LCCP）显著提升了城市的高质量发展（HQD），并验证了波特假说在中国环境与经济政策背景下的适用性。",
+      "reference_value_zh": "对论文1（京津冀区域协调发展政策的碳减排效应）有参考价值，特别是在研究方法和政策效果评估方面，可以借鉴其DID方法和HQD的多维度评估框架。",
+      "method_zh": "研究采用了熵权法测量高质量发展（HQD），并使用2000-2021年间351个中国城市的面板数据，通过差异-差异（DID）方法评估LCCP政策的影响。研究还进行了基线测试、稳健性测试、机制测试和异质性分析。",
+      "limitations_zh": "研究仅基于中国城市的数据，可能不完全适用于其他地区或国家。此外，虽然研究考虑了城市分类和民族多样性，但其他可能影响政策效果的因素（如城市规模、经济发展水平等）未被充分探讨。",
       "analysis_provider": "SiliconFlow/Qwen/Qwen2.5-72B-Instruct",
-      "summary_zh": "主要发现：LCCP政策显著提升了城市高质量发展（HQD），主要通过技术创新、产业升级、基础设施建设和能源结构优化等机制实现。政策效果在普通城市和汉族省份更为明显。 参考价值：对论文1（京津冀区域协调发展政策的碳减排效应）有参考价值，特别是在DID方法的应用和政策效果的机制分析上。"
+      "summary_zh": "主要发现：研究发现，中国低碳城市试点政策（LCCP）显著提升了城市的高质量发展（HQD），并验证了波特假说在中国环境与经济政策背景下的适用性。 参考价值：对论文1（京津冀区域协调发展政策的碳减排效应）有参考价值，特别是在研究方法和政策效果评估方面，可以借鉴其DID方法和HQD的多维度评估框架。"
     },
     {
       "title": "The Italian forest carbon sink: historical evolution and future projections under alternative harvest scenarios",
@@ -922,12 +875,62 @@
       "fulltext_fetch_error": "无已核验的公开PDF链接",
       "fulltext_chars": 0,
       "manual_fulltext_recommended": true,
-      "finding_zh": "意大利森林碳汇模型与意大利温室气体清单数据在活生物量碳汇方面吻合良好，但在死有机物池的移除量上显著高于官方数据。历史时期内，模型估计的意大利森林总碳汇从2005年的-40 Tg CO2 yr−1增加到2023年的-55 Tg CO2 yr−1。",
-      "reference_value_zh": "对论文3（林业碳汇CCER价值实现与生态保护激励机制）中的林业碳汇评估方法和未来预测模型构建有参考价值，特别是关于森林碳汇的不确定性分析和不同采伐情景下的碳汇变化。",
-      "method_zh": "研究使用了区域级别的森林碳库存模型，评估了采伐不确定性对意大利森林碳汇的总体影响，并结合了最新的文献信息和采伐木材产品减缓潜力的辅助评估。",
-      "limitations_zh": "摘要中未提供具体的方法细节，如模型的具体参数设置和数据来源。此外，未来预测的碳汇变化范围未完全展示，需要进一步阅读全文以获取完整信息。",
+      "finding_zh": "意大利森林碳汇模型与意大利GHGI数据在活生物量碳汇方面吻合良好，但在死亡有机物池的移除量上显著高于GHGI数据。2005年至2023年间，模型估算的意大利森林总碳汇从-40 Tg CO2 yr−1增加到-55 Tg CO2 yr−1。",
+      "reference_value_zh": "对论文3（林业碳汇CCER价值实现与生态保护激励机制）中的林业碳汇评估方法提供参考，特别是关于森林碳汇模型的应用和不同情景下的碳汇变化分析。",
+      "method_zh": "研究采用了一个区域级别的森林碳库存模型，评估了采伐不确定性对意大利森林碳汇的总体影响，并基于此模型评估了收获木材产品的减排潜力。研究数据包括最新的文献信息。",
+      "limitations_zh": "摘要中未提供未来不同采伐情景的具体定义和详细结果，需要进一步阅读全文以获取完整信息。此外，模型的准确性依赖于历史采伐率的不确定性，这可能影响未来预测的可靠性。",
       "analysis_provider": "SiliconFlow/Qwen/Qwen2.5-72B-Instruct",
-      "summary_zh": "主要发现：意大利森林碳汇模型与意大利温室气体清单数据在活生物量碳汇方面吻合良好，但在死有机物池的移除量上显著高于官方数据。历史时期内，模型估计的意大利森林总碳汇从2005年的-40 Tg CO2 yr−1增加到2023年的-55 Tg CO2 yr−1。 参考价值：对论文3（林业碳汇CCER价值实现与生态保护激励机制）中的林业碳汇评估方法和未来预测模型构建有参考价值，特别是关于森林碳汇的不确定性分析和不同采伐情景下的碳汇变化。"
+      "summary_zh": "主要发现：意大利森林碳汇模型与意大利GHGI数据在活生物量碳汇方面吻合良好，但在死亡有机物池的移除量上显著高于GHGI数据。2005年至2023年间，模型估算的意大利森林总碳汇从-40 Tg CO2 yr−1增加到-55 Tg CO2 yr−1。 参考价值：对论文3（林业碳汇CCER价值实现与生态保护激励机制）中的林业碳汇评估方法提供参考，特别是关于森林碳汇模型的应用和不同情景下的碳汇变化分析。"
+    },
+    {
+      "title": "Cost, market, and policy constraints on mitigating climate change through afforestation in China",
+      "authors": [
+        "Xianghua Zhang",
+        "Luuk Fleskens",
+        "Yingli Huang",
+        "Yingli Huang",
+        "Yanan Huang",
+        "Yanan Huang"
+      ],
+      "year": 2024,
+      "journal": "Environment International",
+      "partition": "Top",
+      "partition_match": "normalized_name",
+      "partition_subject": "环境科学与生态学",
+      "doi": "10.1016/j.envint.2024.108652",
+      "issn": [
+        "0160-4120",
+        "1873-6750"
+      ],
+      "official_url": "https://doi.org/10.1016/j.envint.2024.108652",
+      "fulltext_url": "",
+      "oa_verified": true,
+      "oa_status": "OA已核验-OpenAlex",
+      "oa_evidence": "OpenAlex:gold",
+      "auto_fulltext_eligible": false,
+      "token_required": false,
+      "citation": 10,
+      "abstract": "Afforestation is a promising nature-based climate solution for mitigating climate change, but it is subject to a complex web of biophysical, cost-benefit, market, and policy processes. Although its biophysical feasibility has been established, the cost, market, and policy constraints that affect climate change mitigation through afforestation are still unclear. Here, we estimate such cost, market, and policy constraints on the basis of biophysical feasibility. Our findings reveal that implementation costs are a more relevant constraint than opportunity costs on mitigating climate change through afforestation. The China Certified Emission Reduction market currently provides only a 0.308 % incentive for climate change mitigation through afforestation, due to market access constraints. The current market prices of China Certified Emission Reduction, China Carbon Emissions Trading Exchange, and Nature Based Carbon Offset in Voluntary Carbon Market constrain 88.15 %, 87.95 %, and 85.75 % of CO2 removal actions through afforestation, compared to the carbon price scenario (US$62.97 tCO2-1) of the EU Emissions Trading System. Moreover, land policy under the scenarios of prohibiting conversion of cultivated land to forest and forest restoration in degraded areas exhibit 8.87–29.59 % and 65.16–74.10 % constraints, respectively, on mitigating climate change through afforestation compared to land-use freedom conversion scenarios from 2020 to 2060. Thus, enhancing the incentive price of CO2 removal, addressing the market access barrier, strengthening cooperation between global carbon ma",
+      "language_group": "international",
+      "query_group": "international",
+      "sources": [
+        "OpenAlex"
+      ],
+      "implementability_score": 0.5,
+      "relevance_score": 0.1701,
+      "total_score": 0.426,
+      "access_mode": "oa_without_machine_readable_fulltext",
+      "analysis_basis": "abstract",
+      "analysis_basis_label": "公开摘要",
+      "fulltext_fetch_error": "无已核验的公开PDF链接",
+      "fulltext_chars": 0,
+      "manual_fulltext_recommended": true,
+      "finding_zh": "研究发现，实施成本比机会成本更影响通过造林缓解气候变化的效果。中国当前的CCER市场仅提供0.308%的造林碳减排激励，远低于欧盟碳交易系统的碳价情景。",
+      "reference_value_zh": "对论文3（林业碳汇CCER价值实现与生态保护激励机制）的市场分析和政策建议环节有重要参考价值，特别是关于CCER市场激励不足的问题。",
+      "method_zh": "研究方法基于生物物理可行性评估了造林缓解气候变化的成本、市场和政策约束。具体数据来源和模型未在摘要中详细说明。",
+      "limitations_zh": "摘要中未详细说明具体的研究模型和数据来源，需要进一步阅读全文以了解研究的具体方法和数据处理过程。此外，研究的结论主要基于中国当前的市场和政策环境，未来这些因素的变化可能会影响研究结果。",
+      "analysis_provider": "SiliconFlow/Qwen/Qwen2.5-72B-Instruct",
+      "summary_zh": "主要发现：研究发现，实施成本比机会成本更影响通过造林缓解气候变化的效果。中国当前的CCER市场仅提供0.308%的造林碳减排激励，远低于欧盟碳交易系统的碳价情景。 参考价值：对论文3（林业碳汇CCER价值实现与生态保护激励机制）的市场分析和政策建议环节有重要参考价值，特别是关于CCER市场激励不足的问题。"
     }
   ]
 }
