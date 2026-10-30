@@ -1,12 +1,12 @@
 {
-  "date": "2026-10-29",
-  "generated_at": "2026年10月29日 10:01",
+  "date": "2026-10-30",
+  "generated_at": "2026年10月30日 10:17",
   "final_count": 4,
   "candidate_count": 12,
   "ai_provider": "SiliconFlow/Qwen/Qwen2.5-72B-Instruct",
   "language_counts": {
-    "pool_zh": 408,
-    "pool_international": 646,
+    "pool_zh": 409,
+    "pool_international": 644,
     "final_zh": 0,
     "final_international": 4
   },
@@ -184,12 +184,12 @@
       "fulltext_fetch_error": "403 Client Error: Forbidden for url: https://www.sciencedirect.com/science/article/pii/S2095809922001333/pdf",
       "fulltext_chars": 0,
       "manual_fulltext_recommended": true,
-      "finding_zh": "该文献综述系统地整理了1105篇关于碳达峰和碳中和的研究，从时空角度量化分析了该领域的发展原则，并明确了关键管理科学议题下的科学关切和战略需求。",
-      "reference_value_zh": "对论文1和论文3有参考价值，特别是在识别碳减排政策的效果评估和林业碳汇在实现碳中和目标中的作用方面提供了研究方向和优先任务的理论见解。",
-      "method_zh": "研究方法为文献综述，通过系统整理和分析1105篇已发表的研究文献，从时空角度量化分析发展原则，并追踪研究热点的变化。",
-      "limitations_zh": "摘要未提供具体的研究成果细节，因此无法直接评估其对特定研究方法（如DID和MRIO）的适用性。此外，摘要中未提及具体数据来源和分析方法，需要进一步阅读全文以获取更多信息。",
+      "finding_zh": "该文献综述系统地整理了1105篇关于碳达峰和碳中和的研究，从时空角度量化分析了该领域的发展原则，并明确了五个关键管理科学议题的科学关注点和战略需求。",
+      "reference_value_zh": "对于论文1，该文献综述提供了京津冀区域协调发展政策可能影响碳减排的背景和理论基础，有助于理解政策制定的科学依据。对于论文3，文献综述中关于碳中和的管理科学议题可以为林业碳汇CCER价值实现与生态保护激励机制的研究提供理论框架和研究方向。",
+      "method_zh": "研究方法为文献综述，综合整理和分析了1105篇已发表的研究论文，从时空角度量化分析了碳达峰和碳中和的发展原则。",
+      "limitations_zh": "摘要未提供具体的研究热点转移细节，也未详细说明五个关键管理科学议题的具体内容，需要进一步阅读全文以获取更详细的信息。",
       "analysis_provider": "SiliconFlow/Qwen/Qwen2.5-72B-Instruct",
-      "summary_zh": "主要发现：该文献综述系统地整理了1105篇关于碳达峰和碳中和的研究，从时空角度量化分析了该领域的发展原则，并明确了关键管理科学议题下的科学关切和战略需求。 参考价值：对论文1和论文3有参考价值，特别是在识别碳减排政策的效果评估和林业碳汇在实现碳中和目标中的作用方面提供了研究方向和优先任务的理论见解。"
+      "summary_zh": "主要发现：该文献综述系统地整理了1105篇关于碳达峰和碳中和的研究，从时空角度量化分析了该领域的发展原则，并明确了五个关键管理科学议题的科学关注点和战略需求。 参考价值：对于论文1，该文献综述提供了京津冀区域协调发展政策可能影响碳减排的背景和理论基础，有助于理解政策制定的科学依据。对于论文3，文献综述中关于碳中和的管理科学议题可以为林业碳汇CCER价值实现与生态保护激励机制的研究提供理论框架和研究方向。"
     },
     {
       "title": "Heterogeneity in carbon footprint trends and trade-induced emissions in China’s urban agglomerations",
@@ -239,12 +239,12 @@
       "fulltext_fetch_error": "",
       "fulltext_chars": 12000,
       "manual_fulltext_recommended": false,
-      "finding_zh": "研究发现，2012年至2017年间，中国16个城市群中，5个城市群的碳足迹减少，6个增加，5个持平。减少的主要驱动因素包括消费下降、低碳消费和科技进步，而增加则主要由于人均消费上升。城市间贸易导致外部排放增加801.7 Mt，表明贸易对减排的贡献减弱。",
-      "reference_value_zh": "对于论文1（京津冀区域协调发展政策的碳减排效应），本文提供了城市群碳足迹变化的具体数据和驱动因素分析，有助于理解京津冀区域政策对碳排放的影响。对于论文2（京津冀与全国隐含碳责任分担），本文的贸易诱导排放分析可以为京津冀与其他区域的碳责任分担提供参考。",
-      "method_zh": "研究使用了城市层面的投入产出模型（IO）来分析2012年至2017年间中国16个城市群的碳足迹变化及其驱动因素。",
-      "limitations_zh": "本文数据截止至2017年，需要进一步核验2017年后的数据以了解最新趋势。此外，研究未深入探讨具体政策对碳足迹变化的影响，这在分析区域协调发展政策时是一个重要的考虑点。",
+      "finding_zh": "研究发现2012至2017年间，中国16个城市群的碳足迹变化呈现异质性，其中5个城市群减少排放，6个增加，5个持平。减少的主要驱动力包括消费下降、低碳消费和科技进步，而增加则主要由于人均消费上升。",
+      "reference_value_zh": "对论文1（京津冀区域协调发展政策的碳减排效应）有参考价值，特别是在分析区域间贸易对碳排放的影响以及区域特定策略的制定方面。",
+      "method_zh": "研究采用了城市层面的投入产出模型，分析了2012年至2017年间中国16个城市群的碳足迹变化及其驱动因素。",
+      "limitations_zh": "已阅读全文。需要进一步核验的是，研究是否考虑了政策因素对碳足迹变化的影响，以及未来趋势预测的准确性。",
       "analysis_provider": "SiliconFlow/Qwen/Qwen2.5-72B-Instruct",
-      "summary_zh": "主要发现：研究发现，2012年至2017年间，中国16个城市群中，5个城市群的碳足迹减少，6个增加，5个持平。减少的主要驱动因素包括消费下降、低碳消费和科技进步，而增加则主要由于人均消费上升。城市间贸易导致外部排放增加801.7 Mt，表明贸易对减排的贡献减弱。 参考价值：对于论文1（京津冀区域协调发展政策的碳减排效应），本文提供了城市群碳足迹变化的具体数据和驱动因素分析，有助于理解京津冀区域政策对碳排放的影响。对于论文2（京津冀与全国隐含碳责任分担），本文的贸易诱导排放分析可以为京津冀与其他区域的碳责任分担提供参考。"
+      "summary_zh": "主要发现：研究发现2012至2017年间，中国16个城市群的碳足迹变化呈现异质性，其中5个城市群减少排放，6个增加，5个持平。减少的主要驱动力包括消费下降、低碳消费和科技进步，而增加则主要由于人均消费上升。 参考价值：对论文1（京津冀区域协调发展政策的碳减排效应）有参考价值，特别是在分析区域间贸易对碳排放的影响以及区域特定策略的制定方面。"
     },
     {
       "title": "The Impact of Green Development of Industrial Parks on the Reduction of Carbon Emissions in Urban Areas—Empirical Research on Green Industrial Parks in China",
@@ -269,7 +269,7 @@
       "oa_evidence": "OpenAlex:gold",
       "auto_fulltext_eligible": true,
       "token_required": true,
-      "citation": 14,
+      "citation": 15,
       "abstract": "Abstract China has over 2,500 national and provincial industrial parks, stimulating the economics growth, meanwhile being the primary sources of carbon dioxide emissions and other pollutants. Assessing the mechanisms and impacts of the policies of pilot programs of green industrial parks on urban carbon emissions offers critical insights into the efficacy and application of green and low‐carbon development. This study utilizes a staggered difference‐in‐differences model to examine the impact of green industrial park pilot policies. The results demonstrate that green industrial parks have effectively reduced carbon emissions of the studied counties in terms of total and intensity. The economic scales and the administrative levels of any given city significantly influence the implementation effect of green industrial park policy. In applying the green industrial park policy, reducing the carbon emissions is more pronounced in cities with larger economic scales and higher administrative levels. Environmental regulation policies and green industrial park pilot policies exhibit a certain degree of substitution effect. The green industrial parks drive urban carbon emission reduction through three main channels: enhancing green technologies, optimizing industrial structures, and elevating economic agglomeration levels. Overall, this study provides a new perspective, a methodological reference, and empirical evidence for promoting green and low‐carbon development for industrial parks in the different regions and developing countries.",
       "language_group": "international",
       "query_group": "international",
@@ -278,19 +278,19 @@
       ],
       "implementability_score": 0.5,
       "relevance_score": 0.2585,
-      "total_score": 0.4626,
+      "total_score": 0.4629,
       "access_mode": "oa_without_machine_readable_fulltext",
       "analysis_basis": "abstract",
       "analysis_basis_label": "公开摘要",
       "fulltext_fetch_error": "403 Client Error: Forbidden for url: https://onlinelibrary.wiley.com/doi/pdfdirect/10.1029/2024EF005161",
       "fulltext_chars": 0,
       "manual_fulltext_recommended": true,
-      "finding_zh": "绿色产业园区政策有效降低了研究县的碳排放总量和强度，且城市经济规模和行政级别显著影响政策实施效果，经济规模较大和行政级别较高的城市减排效果更明显。",
-      "reference_value_zh": "对论文1（京津冀区域协调发展政策的碳减排效应）有参考价值，特别是在研究方法（DID模型）和政策效果评估方面提供了借鉴。",
+      "finding_zh": "绿色产业园区试点政策有效降低了研究区域的碳排放总量和强度，且在经济规模较大和行政级别较高的城市中效果更为显著。",
+      "reference_value_zh": "对论文1（京津冀区域协调发展政策的碳减排效应）有参考价值，特别是在研究方法（DID模型）和政策效果评估方面。",
       "method_zh": "研究采用了交错差异-差异模型（staggered difference-in-differences model）来评估绿色产业园区试点政策的影响。",
-      "limitations_zh": "摘要未提供具体的数据来源和样本选择标准，需要进一步核验这些信息以确保研究的可比性和适用性。此外，研究的结论是否适用于京津冀区域需要具体分析。",
+      "limitations_zh": "摘要中未提及具体的研究区域是否包括京津冀地区，需要进一步核验以确定其结果对京津冀区域的适用性。此外，未详细说明数据来源和时间范围，这些信息对于评估研究的可靠性和外部有效性至关重要。",
       "analysis_provider": "SiliconFlow/Qwen/Qwen2.5-72B-Instruct",
-      "summary_zh": "主要发现：绿色产业园区政策有效降低了研究县的碳排放总量和强度，且城市经济规模和行政级别显著影响政策实施效果，经济规模较大和行政级别较高的城市减排效果更明显。 参考价值：对论文1（京津冀区域协调发展政策的碳减排效应）有参考价值，特别是在研究方法（DID模型）和政策效果评估方面提供了借鉴。"
+      "summary_zh": "主要发现：绿色产业园区试点政策有效降低了研究区域的碳排放总量和强度，且在经济规模较大和行政级别较高的城市中效果更为显著。 参考价值：对论文1（京津冀区域协调发展政策的碳减排效应）有参考价值，特别是在研究方法（DID模型）和政策效果评估方面。"
     },
     {
       "title": "Worsening Carbon Inequality Embodied in Trade within China",
@@ -341,12 +341,12 @@
       "fulltext_fetch_error": "403 Client Error: Forbidden for url: https://pubs.acs.org/doi/pdf/10.1021/acs.est.2c05990",
       "fulltext_chars": 0,
       "manual_fulltext_recommended": true,
-      "finding_zh": "研究发现，2007-2017年间中国国内的碳不平等持续恶化，碳基尼系数在生产和消费基础上均有所上升；东部省份成为经济和碳排放的双重受益者，而西北省份则陷入经济和碳排放的双重损失。",
-      "reference_value_zh": "对于论文2（京津冀与全国隐含碳责任分担）在分析区域间碳排放责任分配时，可以参考本研究中使用的环境扩展多区域投入产出模型（MRIO）来量化碳不平等，以及探讨不同区域在碳排放和经济收益上的不匹配。",
-      "method_zh": "研究方法为环境扩展多区域投入产出模型（MRIO），用于追踪贸易隐含的经济利益与CO2排放之间的不匹配，并量化碳不平等；数据覆盖2007-2017年中国各省份的经济活动和碳排放情况。",
-      "limitations_zh": "摘要中未提及具体的数据来源和模型参数设置，这些信息对于复现研究结果和进一步分析至关重要，需要查阅全文获取。此外，研究的时间范围为2007-2017年，对于最新情况的分析可能需要更新数据。",
+      "finding_zh": "研究发现中国国内的碳不平等在过去十年中持续恶化，东部省份成为经济和碳排放的双重受益者，而西北省份则陷入经济和碳排放的双重损失。",
+      "reference_value_zh": "对论文2（京津冀与全国隐含碳责任分担）提供参考，特别是在分析区域间碳排放责任分配和经济利益不匹配方面。",
+      "method_zh": "研究采用了环境扩展的多区域投入产出模型（MRIO）来追踪和量化2007-2017年间中国国内的碳不平等。",
+      "limitations_zh": "摘要中未提及具体的数据来源和模型参数设置，需要进一步查阅全文以了解研究的详细方法和数据处理过程。此外，研究结果是否适用于京津冀区域的具体情况，需要结合区域特点进行分析验证。",
       "analysis_provider": "SiliconFlow/Qwen/Qwen2.5-72B-Instruct",
-      "summary_zh": "主要发现：研究发现，2007-2017年间中国国内的碳不平等持续恶化，碳基尼系数在生产和消费基础上均有所上升；东部省份成为经济和碳排放的双重受益者，而西北省份则陷入经济和碳排放的双重损失。 参考价值：对于论文2（京津冀与全国隐含碳责任分担）在分析区域间碳排放责任分配时，可以参考本研究中使用的环境扩展多区域投入产出模型（MRIO）来量化碳不平等，以及探讨不同区域在碳排放和经济收益上的不匹配。"
+      "summary_zh": "主要发现：研究发现中国国内的碳不平等在过去十年中持续恶化，东部省份成为经济和碳排放的双重受益者，而西北省份则陷入经济和碳排放的双重损失。 参考价值：对论文2（京津冀与全国隐含碳责任分担）提供参考，特别是在分析区域间碳排放责任分配和经济利益不匹配方面。"
     }
   ],
   "candidates": [
@@ -393,12 +393,12 @@
       "fulltext_fetch_error": "403 Client Error: Forbidden for url: https://www.sciencedirect.com/science/article/pii/S2095809922001333/pdf",
       "fulltext_chars": 0,
       "manual_fulltext_recommended": true,
-      "finding_zh": "该文献综述系统地整理了1105篇关于碳达峰和碳中和的研究，从时空角度量化分析了该领域的发展原则，并明确了关键管理科学议题下的科学关切和战略需求。",
-      "reference_value_zh": "对论文1和论文3有参考价值，特别是在识别碳减排政策的效果评估和林业碳汇在实现碳中和目标中的作用方面提供了研究方向和优先任务的理论见解。",
-      "method_zh": "研究方法为文献综述，通过系统整理和分析1105篇已发表的研究文献，从时空角度量化分析发展原则，并追踪研究热点的变化。",
-      "limitations_zh": "摘要未提供具体的研究成果细节，因此无法直接评估其对特定研究方法（如DID和MRIO）的适用性。此外，摘要中未提及具体数据来源和分析方法，需要进一步阅读全文以获取更多信息。",
+      "finding_zh": "该文献综述系统地整理了1105篇关于碳达峰和碳中和的研究，从时空角度量化分析了该领域的发展原则，并明确了五个关键管理科学议题的科学关注点和战略需求。",
+      "reference_value_zh": "对于论文1，该文献综述提供了京津冀区域协调发展政策可能影响碳减排的背景和理论基础，有助于理解政策制定的科学依据。对于论文3，文献综述中关于碳中和的管理科学议题可以为林业碳汇CCER价值实现与生态保护激励机制的研究提供理论框架和研究方向。",
+      "method_zh": "研究方法为文献综述，综合整理和分析了1105篇已发表的研究论文，从时空角度量化分析了碳达峰和碳中和的发展原则。",
+      "limitations_zh": "摘要未提供具体的研究热点转移细节，也未详细说明五个关键管理科学议题的具体内容，需要进一步阅读全文以获取更详细的信息。",
       "analysis_provider": "SiliconFlow/Qwen/Qwen2.5-72B-Instruct",
-      "summary_zh": "主要发现：该文献综述系统地整理了1105篇关于碳达峰和碳中和的研究，从时空角度量化分析了该领域的发展原则，并明确了关键管理科学议题下的科学关切和战略需求。 参考价值：对论文1和论文3有参考价值，特别是在识别碳减排政策的效果评估和林业碳汇在实现碳中和目标中的作用方面提供了研究方向和优先任务的理论见解。"
+      "summary_zh": "主要发现：该文献综述系统地整理了1105篇关于碳达峰和碳中和的研究，从时空角度量化分析了该领域的发展原则，并明确了五个关键管理科学议题的科学关注点和战略需求。 参考价值：对于论文1，该文献综述提供了京津冀区域协调发展政策可能影响碳减排的背景和理论基础，有助于理解政策制定的科学依据。对于论文3，文献综述中关于碳中和的管理科学议题可以为林业碳汇CCER价值实现与生态保护激励机制的研究提供理论框架和研究方向。"
     },
     {
       "title": "Heterogeneity in carbon footprint trends and trade-induced emissions in China’s urban agglomerations",
@@ -448,12 +448,12 @@
       "fulltext_fetch_error": "",
       "fulltext_chars": 12000,
       "manual_fulltext_recommended": false,
-      "finding_zh": "研究发现，2012年至2017年间，中国16个城市群中，5个城市群的碳足迹减少，6个增加，5个持平。减少的主要驱动因素包括消费下降、低碳消费和科技进步，而增加则主要由于人均消费上升。城市间贸易导致外部排放增加801.7 Mt，表明贸易对减排的贡献减弱。",
-      "reference_value_zh": "对于论文1（京津冀区域协调发展政策的碳减排效应），本文提供了城市群碳足迹变化的具体数据和驱动因素分析，有助于理解京津冀区域政策对碳排放的影响。对于论文2（京津冀与全国隐含碳责任分担），本文的贸易诱导排放分析可以为京津冀与其他区域的碳责任分担提供参考。",
-      "method_zh": "研究使用了城市层面的投入产出模型（IO）来分析2012年至2017年间中国16个城市群的碳足迹变化及其驱动因素。",
-      "limitations_zh": "本文数据截止至2017年，需要进一步核验2017年后的数据以了解最新趋势。此外，研究未深入探讨具体政策对碳足迹变化的影响，这在分析区域协调发展政策时是一个重要的考虑点。",
+      "finding_zh": "研究发现2012至2017年间，中国16个城市群的碳足迹变化呈现异质性，其中5个城市群减少排放，6个增加，5个持平。减少的主要驱动力包括消费下降、低碳消费和科技进步，而增加则主要由于人均消费上升。",
+      "reference_value_zh": "对论文1（京津冀区域协调发展政策的碳减排效应）有参考价值，特别是在分析区域间贸易对碳排放的影响以及区域特定策略的制定方面。",
+      "method_zh": "研究采用了城市层面的投入产出模型，分析了2012年至2017年间中国16个城市群的碳足迹变化及其驱动因素。",
+      "limitations_zh": "已阅读全文。需要进一步核验的是，研究是否考虑了政策因素对碳足迹变化的影响，以及未来趋势预测的准确性。",
       "analysis_provider": "SiliconFlow/Qwen/Qwen2.5-72B-Instruct",
-      "summary_zh": "主要发现：研究发现，2012年至2017年间，中国16个城市群中，5个城市群的碳足迹减少，6个增加，5个持平。减少的主要驱动因素包括消费下降、低碳消费和科技进步，而增加则主要由于人均消费上升。城市间贸易导致外部排放增加801.7 Mt，表明贸易对减排的贡献减弱。 参考价值：对于论文1（京津冀区域协调发展政策的碳减排效应），本文提供了城市群碳足迹变化的具体数据和驱动因素分析，有助于理解京津冀区域政策对碳排放的影响。对于论文2（京津冀与全国隐含碳责任分担），本文的贸易诱导排放分析可以为京津冀与其他区域的碳责任分担提供参考。"
+      "summary_zh": "主要发现：研究发现2012至2017年间，中国16个城市群的碳足迹变化呈现异质性，其中5个城市群减少排放，6个增加，5个持平。减少的主要驱动力包括消费下降、低碳消费和科技进步，而增加则主要由于人均消费上升。 参考价值：对论文1（京津冀区域协调发展政策的碳减排效应）有参考价值，特别是在分析区域间贸易对碳排放的影响以及区域特定策略的制定方面。"
     },
     {
       "title": "The Impact of Green Development of Industrial Parks on the Reduction of Carbon Emissions in Urban Areas—Empirical Research on Green Industrial Parks in China",
@@ -478,7 +478,7 @@
       "oa_evidence": "OpenAlex:gold",
       "auto_fulltext_eligible": true,
       "token_required": true,
-      "citation": 14,
+      "citation": 15,
       "abstract": "Abstract China has over 2,500 national and provincial industrial parks, stimulating the economics growth, meanwhile being the primary sources of carbon dioxide emissions and other pollutants. Assessing the mechanisms and impacts of the policies of pilot programs of green industrial parks on urban carbon emissions offers critical insights into the efficacy and application of green and low‐carbon development. This study utilizes a staggered difference‐in‐differences model to examine the impact of green industrial park pilot policies. The results demonstrate that green industrial parks have effectively reduced carbon emissions of the studied counties in terms of total and intensity. The economic scales and the administrative levels of any given city significantly influence the implementation effect of green industrial park policy. In applying the green industrial park policy, reducing the carbon emissions is more pronounced in cities with larger economic scales and higher administrative levels. Environmental regulation policies and green industrial park pilot policies exhibit a certain degree of substitution effect. The green industrial parks drive urban carbon emission reduction through three main channels: enhancing green technologies, optimizing industrial structures, and elevating economic agglomeration levels. Overall, this study provides a new perspective, a methodological reference, and empirical evidence for promoting green and low‐carbon development for industrial parks in the different regions and developing countries.",
       "language_group": "international",
       "query_group": "international",
@@ -487,19 +487,19 @@
       ],
       "implementability_score": 0.5,
       "relevance_score": 0.2585,
-      "total_score": 0.4626,
+      "total_score": 0.4629,
       "access_mode": "oa_without_machine_readable_fulltext",
       "analysis_basis": "abstract",
       "analysis_basis_label": "公开摘要",
       "fulltext_fetch_error": "403 Client Error: Forbidden for url: https://onlinelibrary.wiley.com/doi/pdfdirect/10.1029/2024EF005161",
       "fulltext_chars": 0,
       "manual_fulltext_recommended": true,
-      "finding_zh": "绿色产业园区政策有效降低了研究县的碳排放总量和强度，且城市经济规模和行政级别显著影响政策实施效果，经济规模较大和行政级别较高的城市减排效果更明显。",
-      "reference_value_zh": "对论文1（京津冀区域协调发展政策的碳减排效应）有参考价值，特别是在研究方法（DID模型）和政策效果评估方面提供了借鉴。",
+      "finding_zh": "绿色产业园区试点政策有效降低了研究区域的碳排放总量和强度，且在经济规模较大和行政级别较高的城市中效果更为显著。",
+      "reference_value_zh": "对论文1（京津冀区域协调发展政策的碳减排效应）有参考价值，特别是在研究方法（DID模型）和政策效果评估方面。",
       "method_zh": "研究采用了交错差异-差异模型（staggered difference-in-differences model）来评估绿色产业园区试点政策的影响。",
-      "limitations_zh": "摘要未提供具体的数据来源和样本选择标准，需要进一步核验这些信息以确保研究的可比性和适用性。此外，研究的结论是否适用于京津冀区域需要具体分析。",
+      "limitations_zh": "摘要中未提及具体的研究区域是否包括京津冀地区，需要进一步核验以确定其结果对京津冀区域的适用性。此外，未详细说明数据来源和时间范围，这些信息对于评估研究的可靠性和外部有效性至关重要。",
       "analysis_provider": "SiliconFlow/Qwen/Qwen2.5-72B-Instruct",
-      "summary_zh": "主要发现：绿色产业园区政策有效降低了研究县的碳排放总量和强度，且城市经济规模和行政级别显著影响政策实施效果，经济规模较大和行政级别较高的城市减排效果更明显。 参考价值：对论文1（京津冀区域协调发展政策的碳减排效应）有参考价值，特别是在研究方法（DID模型）和政策效果评估方面提供了借鉴。"
+      "summary_zh": "主要发现：绿色产业园区试点政策有效降低了研究区域的碳排放总量和强度，且在经济规模较大和行政级别较高的城市中效果更为显著。 参考价值：对论文1（京津冀区域协调发展政策的碳减排效应）有参考价值，特别是在研究方法（DID模型）和政策效果评估方面。"
     },
     {
       "title": "Worsening Carbon Inequality Embodied in Trade within China",
@@ -550,12 +550,12 @@
       "fulltext_fetch_error": "403 Client Error: Forbidden for url: https://pubs.acs.org/doi/pdf/10.1021/acs.est.2c05990",
       "fulltext_chars": 0,
       "manual_fulltext_recommended": true,
-      "finding_zh": "研究发现，2007-2017年间中国国内的碳不平等持续恶化，碳基尼系数在生产和消费基础上均有所上升；东部省份成为经济和碳排放的双重受益者，而西北省份则陷入经济和碳排放的双重损失。",
-      "reference_value_zh": "对于论文2（京津冀与全国隐含碳责任分担）在分析区域间碳排放责任分配时，可以参考本研究中使用的环境扩展多区域投入产出模型（MRIO）来量化碳不平等，以及探讨不同区域在碳排放和经济收益上的不匹配。",
-      "method_zh": "研究方法为环境扩展多区域投入产出模型（MRIO），用于追踪贸易隐含的经济利益与CO2排放之间的不匹配，并量化碳不平等；数据覆盖2007-2017年中国各省份的经济活动和碳排放情况。",
-      "limitations_zh": "摘要中未提及具体的数据来源和模型参数设置，这些信息对于复现研究结果和进一步分析至关重要，需要查阅全文获取。此外，研究的时间范围为2007-2017年，对于最新情况的分析可能需要更新数据。",
+      "finding_zh": "研究发现中国国内的碳不平等在过去十年中持续恶化，东部省份成为经济和碳排放的双重受益者，而西北省份则陷入经济和碳排放的双重损失。",
+      "reference_value_zh": "对论文2（京津冀与全国隐含碳责任分担）提供参考，特别是在分析区域间碳排放责任分配和经济利益不匹配方面。",
+      "method_zh": "研究采用了环境扩展的多区域投入产出模型（MRIO）来追踪和量化2007-2017年间中国国内的碳不平等。",
+      "limitations_zh": "摘要中未提及具体的数据来源和模型参数设置，需要进一步查阅全文以了解研究的详细方法和数据处理过程。此外，研究结果是否适用于京津冀区域的具体情况，需要结合区域特点进行分析验证。",
       "analysis_provider": "SiliconFlow/Qwen/Qwen2.5-72B-Instruct",
-      "summary_zh": "主要发现：研究发现，2007-2017年间中国国内的碳不平等持续恶化，碳基尼系数在生产和消费基础上均有所上升；东部省份成为经济和碳排放的双重受益者，而西北省份则陷入经济和碳排放的双重损失。 参考价值：对于论文2（京津冀与全国隐含碳责任分担）在分析区域间碳排放责任分配时，可以参考本研究中使用的环境扩展多区域投入产出模型（MRIO）来量化碳不平等，以及探讨不同区域在碳排放和经济收益上的不匹配。"
+      "summary_zh": "主要发现：研究发现中国国内的碳不平等在过去十年中持续恶化，东部省份成为经济和碳排放的双重受益者，而西北省份则陷入经济和碳排放的双重损失。 参考价值：对论文2（京津冀与全国隐含碳责任分担）提供参考，特别是在分析区域间碳排放责任分配和经济利益不匹配方面。"
     },
     {
       "title": "Afforestation as a mitigation strategy: countering climate-induced risk of forest carbon sink in China",
@@ -602,12 +602,12 @@
       "fulltext_fetch_error": "无已核验的公开PDF链接",
       "fulltext_chars": 0,
       "manual_fulltext_recommended": true,
-      "finding_zh": "研究发现，中国森林的地上生物量在2020年为11.59±4.06 PgC；在自然情景下，预计到2070年代，森林地上生物量将增加6.35-8.11 PgC，但碳汇速率将下降至122.98-137.80 TgC/yr，11.79-39.60%的森林面临土地损失和组成变化的风险。",
-      "reference_value_zh": "对论文3（林业碳汇CCER价值实现与生态保护激励机制）提供参考，特别是在评估林业碳汇的未来潜力和风险方面，以及如何通过植树造林增强碳汇能力。",
-      "method_zh": "研究方法包括森林生长模型与最大熵（MaxEnt）模型的结合，用于预测基于森林栖息地适宜性变化的未来碳动态。研究数据未详细说明，但涉及2020年的森林地上生物量估计值及未来预测。",
-      "limitations_zh": "摘要中提到的研究结果基于自然情景和植树造林情景，但未详细说明具体的数据来源、模型参数设定及情景假设条件，这些内容需要进一步查阅全文以获得更准确的理解。此外，研究假设未来无干扰情景，这在实际中可能难以实现，需要考虑更多变量的影响。",
+      "finding_zh": "研究发现，中国森林的地上生物量在2020年为11.59±4.06 PgC。在自然情景下，预计到2070年代，森林的地上生物量将增加6.35-8.11 PgC，但碳汇速率将下降至122.98-137.80 TgC/yr。同时，2070年代有11.79-39.60%的森林面临土地丧失和组成变化的风险。",
+      "reference_value_zh": "对论文3（林业碳汇CCER价值实现与生态保护激励机制）的碳汇动态预测和风险评估环节有参考价值，提供了森林碳汇变化的具体数据和风险预测方法。",
+      "method_zh": "研究方法包括森林生长模型与最大熵（MaxEnt）模型的结合，用于预测未来森林碳动态。数据来源未详细说明，但涉及中国森林的地上生物量和碳汇速率。",
+      "limitations_zh": "摘要中未提供具体的数据来源和收集方法，以及模型参数的详细信息。此外，研究假设未来没有新的干扰因素，这在实际情况中可能难以成立，需要进一步核验。",
       "analysis_provider": "SiliconFlow/Qwen/Qwen2.5-72B-Instruct",
-      "summary_zh": "主要发现：研究发现，中国森林的地上生物量在2020年为11.59±4.06 PgC；在自然情景下，预计到2070年代，森林地上生物量将增加6.35-8.11 PgC，但碳汇速率将下降至122.98-137.80 TgC/yr，11.79-39.60%的森林面临土地损失和组成变化的风险。 参考价值：对论文3（林业碳汇CCER价值实现与生态保护激励机制）提供参考，特别是在评估林业碳汇的未来潜力和风险方面，以及如何通过植树造林增强碳汇能力。"
+      "summary_zh": "主要发现：研究发现，中国森林的地上生物量在2020年为11.59±4.06 PgC。在自然情景下，预计到2070年代，森林的地上生物量将增加6.35-8.11 PgC，但碳汇速率将下降至122.98-137.80 TgC/yr。同时，2070年代有11.79-39.60%的森林面临土地丧失和组成变化的风险。 参考价值：对论文3（林业碳汇CCER价值实现与生态保护激励机制）的碳汇动态预测和风险评估环节有参考价值，提供了森林碳汇变化的具体数据和风险预测方法。"
     },
     {
       "title": "Discussion on the Economic Coordinated Development Mechanism of Energy Transformation and Ecological Environment Protection",
@@ -647,59 +647,12 @@
       "fulltext_fetch_error": "",
       "fulltext_chars": 10781,
       "manual_fulltext_recommended": false,
-      "finding_zh": "能源结构转型与生态治理通过技术创新、制度优化与市场调节形成动态耦合，推动经济高质量发展；提出构建GEP核算考核、绿色技术银行与区域协同治理的多维政策体系。",
-      "reference_value_zh": "对第3篇论文《林业碳汇CCER价值实现与生态保护激励机制》的理论框架构建有参考价值，特别是关于绿色技术银行与生态产品价值实现路径的探讨。",
-      "method_zh": "研究方法包括理论分析与案例研究，整合了3E系统理论、绿色增长与生态经济学理论，分析了长三角示范区与欧洲的案例。",
-      "limitations_zh": "阅读依据为论文摘要，未阅读全文，因此对具体数据与实证分析部分的细节无法提供准确评估。",
+      "finding_zh": "能源结构转型通过可再生能源替代与‘光伏 + 治沙’等模式，形成生态保护的源头减排与空间优化效应；生态约束通过碳价机制倒逼CCUS、绿氢等技术突破，推动能源体系向负外部性内化转型。",
+      "reference_value_zh": "对论文1（京津冀区域协调发展政策的碳减排效应）的政策协调机制部分有参考价值，提供了跨部门治理工具组合的具体建议。",
+      "method_zh": "研究方法主要基于理论分析和案例研究，整合了3E系统理论、绿色增长与生态经济学理论，探讨了能源转型与生态环境保护的经济协同发展机制。",
+      "limitations_zh": "阅读依据为摘要，未阅读全文，因此无法全面评估研究的具体方法和数据来源。需要进一步核验全文以确认研究的深度和广度。",
       "analysis_provider": "SiliconFlow/Qwen/Qwen2.5-72B-Instruct",
-      "summary_zh": "主要发现：能源结构转型与生态治理通过技术创新、制度优化与市场调节形成动态耦合，推动经济高质量发展；提出构建GEP核算考核、绿色技术银行与区域协同治理的多维政策体系。 参考价值：对第3篇论文《林业碳汇CCER价值实现与生态保护激励机制》的理论框架构建有参考价值，特别是关于绿色技术银行与生态产品价值实现路径的探讨。"
-    },
-    {
-      "title": "The impact of industrial digital transformation on green development efficiency considering the threshold effect of regional collaborative innovation: Evidence from the Beijing-Tianjin-Hebei urban agglomeration in China",
-      "authors": [
-        "Runde Gu",
-        "Chunfa Li",
-        "Yangyang Yang",
-        "Jun Zhang"
-      ],
-      "year": 2023,
-      "journal": "Journal of Cleaner Production",
-      "partition": "Top",
-      "partition_match": "normalized_name",
-      "partition_subject": "环境科学与生态学",
-      "doi": "10.1016/j.jclepro.2023.138345",
-      "issn": [
-        "0959-6526"
-      ],
-      "official_url": "https://doi.org/10.1016/j.jclepro.2023.138345",
-      "fulltext_url": "",
-      "oa_verified": false,
-      "oa_status": "需机构权限或OA待核验",
-      "oa_evidence": "",
-      "auto_fulltext_eligible": false,
-      "token_required": false,
-      "citation": 94,
-      "abstract": "",
-      "language_group": "international",
-      "query_group": "international",
-      "sources": [
-        "Crossref"
-      ],
-      "implementability_score": 0.5,
-      "relevance_score": 0.1633,
-      "total_score": 0.4385,
-      "access_mode": "institutional_or_unknown",
-      "analysis_basis": "metadata_only",
-      "analysis_basis_label": "仅元数据",
-      "fulltext_fetch_error": "无已核验的公开PDF链接",
-      "fulltext_chars": 0,
-      "manual_fulltext_recommended": true,
-      "finding_zh": "研究发现，区域协同创新的门槛效应对工业数字化转型促进绿色发展效率具有显著影响，且在京津冀城市群中表现尤为明显。",
-      "reference_value_zh": "对论文1的DID分析方法有可操作参考，特别是在考虑区域协同创新的门槛效应时，可以借鉴本文的方法论框架。",
-      "method_zh": "采用门槛回归模型分析工业数字化转型对绿色发展效率的影响，数据来源于中国京津冀城市群的面板数据。",
-      "limitations_zh": "仅元数据，未提供具体DID分析的实施细节，需进一步阅读全文以了解其具体操作方法和数据处理过程。",
-      "analysis_provider": "SiliconFlow/Qwen/Qwen2.5-72B-Instruct",
-      "summary_zh": "主要发现：研究发现，区域协同创新的门槛效应对工业数字化转型促进绿色发展效率具有显著影响，且在京津冀城市群中表现尤为明显。 参考价值：对论文1的DID分析方法有可操作参考，特别是在考虑区域协同创新的门槛效应时，可以借鉴本文的方法论框架。"
+      "summary_zh": "主要发现：能源结构转型通过可再生能源替代与‘光伏 + 治沙’等模式，形成生态保护的源头减排与空间优化效应；生态约束通过碳价机制倒逼CCUS、绿氢等技术突破，推动能源体系向负外部性内化转型。 参考价值：对论文1（京津冀区域协调发展政策的碳减排效应）的政策协调机制部分有参考价值，提供了跨部门治理工具组合的具体建议。"
     },
     {
       "title": "The role of the Voluntary Carbon Market in addressing global social challenges: ecological (in)justice in Africa’s largest REDD+ project?",
@@ -738,12 +691,12 @@
       "fulltext_fetch_error": "无已核验的公开PDF链接",
       "fulltext_chars": 0,
       "manual_fulltext_recommended": true,
-      "finding_zh": "研究揭示了非洲最大的REDD+项目中，资本追求财务效率而非发展效果的现象，以及政策环境碎片化和地方治理薄弱对森林保护的负面影响。",
-      "reference_value_zh": "对论文3（林业碳汇CCER价值实现与生态保护激励机制）提供关于市场机制在实现碳汇价值和生态保护激励中的潜在问题和挑战的参考。",
-      "method_zh": "采用案例研究方法，以赞比亚的卢安瓜谷地为研究对象，分析了REDD+项目中的资本流动、政策环境和地方治理情况。",
-      "limitations_zh": "摘要中未提供具体的数据分析方法和结果，需要进一步阅读全文以了解研究的具体实施细节和结论的可靠性。此外，研究结果可能受到特定地区背景的影响，其普遍性需进一步探讨。",
+      "finding_zh": "研究表明，尽管自愿碳市场可以为REDD+项目提供包括碳以外的社会和环境效益在内的价格，但交易的不透明性和地方治理的薄弱导致了对社区是否公平受益的怀疑。此外，政策环境的碎片化是导致森林砍伐的关键因素。",
+      "reference_value_zh": "对第三篇论文‘林业碳汇CCER价值实现与生态保护激励机制’中的市场机制与社区受益问题提供了可操作的参考，特别是在探讨如何确保碳汇项目中的公平性和透明度方面。",
+      "method_zh": "研究采用了案例研究方法，特别是在赞比亚的卢安瓜谷进行了实地研究，分析了REDD+项目的实施效果。数据来源未详细说明。",
+      "limitations_zh": "摘要中未提供具体的研究方法细节和数据来源，需要进一步阅读原文以了解研究的深度和广度。此外，研究结果可能受特定地区情况的影响，其普遍性需要进一步验证。",
       "analysis_provider": "SiliconFlow/Qwen/Qwen2.5-72B-Instruct",
-      "summary_zh": "主要发现：研究揭示了非洲最大的REDD+项目中，资本追求财务效率而非发展效果的现象，以及政策环境碎片化和地方治理薄弱对森林保护的负面影响。 参考价值：对论文3（林业碳汇CCER价值实现与生态保护激励机制）提供关于市场机制在实现碳汇价值和生态保护激励中的潜在问题和挑战的参考。"
+      "summary_zh": "主要发现：研究表明，尽管自愿碳市场可以为REDD+项目提供包括碳以外的社会和环境效益在内的价格，但交易的不透明性和地方治理的薄弱导致了对社区是否公平受益的怀疑。此外，政策环境的碎片化是导致森林砍伐的关键因素。 参考价值：对第三篇论文‘林业碳汇CCER价值实现与生态保护激励机制’中的市场机制与社区受益问题提供了可操作的参考，特别是在探讨如何确保碳汇项目中的公平性和透明度方面。"
     },
     {
       "title": "Assessing embodied carbon emission and its drivers in China's ICT sector: Multi-regional input-output and structural decomposition analysis",
@@ -785,12 +738,12 @@
       "fulltext_fetch_error": "无已核验的公开PDF链接",
       "fulltext_chars": 0,
       "manual_fulltext_recommended": true,
-      "finding_zh": "研究揭示了中国ICT部门隐含碳排放的主要驱动因素，并通过多区域投入产出分析（MRIO）和结构分解分析（SDA）量化了各因素的影响。",
-      "reference_value_zh": "对论文2的隐含碳责任分担环节有可操作参考，特别是多区域投入产出分析方法的应用。",
-      "method_zh": "采用多区域投入产出分析（MRIO）和结构分解分析（SDA）方法，数据来源于中国统计年鉴和相关行业报告。",
-      "limitations_zh": "仅元数据，未提供具体分析结果和政策建议，需进一步阅读全文以了解ICT部门隐含碳排放的具体分担情况及其对京津冀区域的影响。",
+      "finding_zh": "研究揭示了中国ICT部门隐含碳排放的主要驱动因素，并通过多区域投入产出分析（MRIO）和结构分解分析（SDA）量化了这些因素的影响。",
+      "reference_value_zh": "对论文2（京津冀与全国隐含碳责任分担）的MRIO分析环节有可操作参考，提供了隐含碳排放分析的具体方法和数据处理思路。",
+      "method_zh": "采用多区域投入产出（MRIO）模型和结构分解分析（SDA）方法，数据来源未具体说明。",
+      "limitations_zh": "仅元数据，具体数据来源和处理细节需进一步查阅原文；研究对象为中国ICT部门，与京津冀区域或林业碳汇的具体关联性需评估。",
       "analysis_provider": "SiliconFlow/Qwen/Qwen2.5-72B-Instruct",
-      "summary_zh": "主要发现：研究揭示了中国ICT部门隐含碳排放的主要驱动因素，并通过多区域投入产出分析（MRIO）和结构分解分析（SDA）量化了各因素的影响。 参考价值：对论文2的隐含碳责任分担环节有可操作参考，特别是多区域投入产出分析方法的应用。"
+      "summary_zh": "主要发现：研究揭示了中国ICT部门隐含碳排放的主要驱动因素，并通过多区域投入产出分析（MRIO）和结构分解分析（SDA）量化了这些因素的影响。 参考价值：对论文2（京津冀与全国隐含碳责任分担）的MRIO分析环节有可操作参考，提供了隐含碳排放分析的具体方法和数据处理思路。"
     },
     {
       "title": "Quantifying embedded carbon emissions in China's light industry exports using a global multi-regional input-output analytical approach",
@@ -833,11 +786,11 @@
       "fulltext_chars": 0,
       "manual_fulltext_recommended": true,
       "finding_zh": "通过全球多区域投入产出分析方法，量化了中国轻工业出口中的隐含碳排放，揭示了轻工业出口对全球碳排放的影响。",
-      "reference_value_zh": "对论文2提供MRIO方法的具体应用案例，特别是在量化区域间隐含碳责任分担方面的数据处理和分析流程。",
-      "method_zh": "使用全球多区域投入产出（MRIO）分析方法，结合中国轻工业出口数据进行隐含碳排放的量化研究。",
-      "limitations_zh": "仅元数据无法确定研究的具体数据来源和处理细节，需进一步阅读原文以了解其模型构建和参数选择的具体过程。",
+      "reference_value_zh": "对论文2（京津冀与全国隐含碳责任分担）在MRIO分析方法和隐含碳排放数据处理方面具有参考价值。",
+      "method_zh": "研究采用了全球多区域投入产出（MRIO）分析方法，具体数据来源和处理方法未在元数据中提供。",
+      "limitations_zh": "元数据中未提供具体的研究区域、时间范围和数据来源，需要进一步阅读全文以确认这些信息。此外，研究可能未专门针对京津冀区域，需评估其结果对中国其他区域的适用性。",
       "analysis_provider": "SiliconFlow/Qwen/Qwen2.5-72B-Instruct",
-      "summary_zh": "主要发现：通过全球多区域投入产出分析方法，量化了中国轻工业出口中的隐含碳排放，揭示了轻工业出口对全球碳排放的影响。 参考价值：对论文2提供MRIO方法的具体应用案例，特别是在量化区域间隐含碳责任分担方面的数据处理和分析流程。"
+      "summary_zh": "主要发现：通过全球多区域投入产出分析方法，量化了中国轻工业出口中的隐含碳排放，揭示了轻工业出口对全球碳排放的影响。 参考价值：对论文2（京津冀与全国隐含碳责任分担）在MRIO分析方法和隐含碳排放数据处理方面具有参考价值。"
     },
     {
       "title": "Gift or gamble? Evaluating the impact of urban low-carbon governance on high-quality development in China",
@@ -878,12 +831,58 @@
       "fulltext_fetch_error": "",
       "fulltext_chars": 12000,
       "manual_fulltext_recommended": false,
-      "finding_zh": "研究发现，中国低碳城市试点政策（LCCP）显著提升了高质量发展（HQD），且这一效果主要通过技术创新、产业升级、基础设施建设和能源系统转型等机制实现。",
-      "reference_value_zh": "对论文1（京津冀区域协调发展政策的碳减排效应）的政策效果评估环节有可操作参考，特别是DID方法的应用和机制分析。",
-      "method_zh": "研究采用熵权法测量高质量发展（HQD），并使用2000-2021年间351个中国城市的面板数据，通过差异-差异（DID）方法评估LCCP政策的影响。分析包括基线测试、稳健性测试、机制测试和异质性分析。",
-      "limitations_zh": "研究基于中国城市数据，可能不完全适用于其他地区；异质性分析中仅考虑了城市分类和民族多样性，未涉及其他可能影响政策效果的因素。",
+      "finding_zh": "低排放城市试点政策（LCCP）显著提升了高质量发展（HQD），主要通过技术创新、产业升级、基础设施建设和能源系统转型等机制实现。政策效果在普通城市和汉族省份更为明显。",
+      "reference_value_zh": "对论文1（京津冀区域协调发展政策的碳减排效应）有参考价值，特别是在研究方法（DID）和机制分析方面。该论文提供了详细的HQD评估框架，有助于更全面地理解政策影响。",
+      "method_zh": "研究方法采用差分-差分法（DID），使用2000-2021年351个中国城市的面板数据，将LCCP视为准自然实验。评估指标体系包括产业结构、包容性全要素生产率（TFP）、技术创新、生态环境条件和居民生活水平五个二级指标。",
+      "limitations_zh": "阅读依据为论文摘要和部分正文，未核验全文。需要进一步核验的点包括：具体的数据处理方法、DID模型的设定细节、机制分析的具体路径和异质性分析的详细结果。",
       "analysis_provider": "SiliconFlow/Qwen/Qwen2.5-72B-Instruct",
-      "summary_zh": "主要发现：研究发现，中国低碳城市试点政策（LCCP）显著提升了高质量发展（HQD），且这一效果主要通过技术创新、产业升级、基础设施建设和能源系统转型等机制实现。 参考价值：对论文1（京津冀区域协调发展政策的碳减排效应）的政策效果评估环节有可操作参考，特别是DID方法的应用和机制分析。"
+      "summary_zh": "主要发现：低排放城市试点政策（LCCP）显著提升了高质量发展（HQD），主要通过技术创新、产业升级、基础设施建设和能源系统转型等机制实现。政策效果在普通城市和汉族省份更为明显。 参考价值：对论文1（京津冀区域协调发展政策的碳减排效应）有参考价值，特别是在研究方法（DID）和机制分析方面。该论文提供了详细的HQD评估框架，有助于更全面地理解政策影响。"
+    },
+    {
+      "title": "The Italian forest carbon sink: historical evolution and future projections under alternative harvest scenarios",
+      "authors": [
+        "Roberto Pilli",
+        "Emil Cienciala",
+        "Kevin Black"
+      ],
+      "year": 2026,
+      "journal": "Carbon Balance and Management",
+      "partition": "Top",
+      "partition_match": "normalized_name",
+      "partition_subject": "环境科学与生态学",
+      "doi": "10.1186/s13021-026-00486-6",
+      "issn": [
+        "1750-0680"
+      ],
+      "official_url": "https://doi.org/10.1186/s13021-026-00486-6",
+      "fulltext_url": "",
+      "oa_verified": true,
+      "oa_status": "OA已核验-Creative Commons许可",
+      "oa_evidence": "https://creativecommons.org/licenses/by/4.0",
+      "auto_fulltext_eligible": false,
+      "token_required": false,
+      "citation": 2,
+      "abstract": "Abstract\n                  \n                    Background\n                    In 2023, forests offset approximately 9% of total GHG emissions in the EU-27, with Italy accounting for about 20% of these offsets. Historical felling rates, in Italy, are highly uncertain, with a ± 50% confidence interval. In this study, we used a forest carbon inventory model, scaled at regional level, to assess the overall impact of the harvest uncertainty on the Italian forest carbon (C) sink. The analysis included most recent information from the literature and an ancillary assessment of the harvested wood product mitigation potential. Based on this assessment, we estimate the evolution of the forest C sink to 2070, under different harvest scenarios defined by an increasing felling rate relative to the net annual increment estimated by the model on forest area available for wood supply.\n                  \n                  \n                    Results\n                    \n                      Comparison of our results with the Italian GHGI data shows an overall good fit with the living biomass sink, but significantly higher removals by the dead organic matter pool. For the historical period, the modelled total C sink increases from -40 Tg CO\n                      2\n                      yr\n                      −1\n                      in 2005 to -55 Tg CO\n                      2\n                      yr\n                      −1\n                      in 2023.\n                    \n                    \n                      The future forest C sink varied between -76 Tg CO\n                   ",
+      "language_group": "international",
+      "query_group": "international",
+      "sources": [
+        "Crossref"
+      ],
+      "implementability_score": 0.5,
+      "relevance_score": 0.1293,
+      "total_score": 0.4273,
+      "access_mode": "oa_without_machine_readable_fulltext",
+      "analysis_basis": "abstract",
+      "analysis_basis_label": "公开摘要",
+      "fulltext_fetch_error": "无已核验的公开PDF链接",
+      "fulltext_chars": 0,
+      "manual_fulltext_recommended": true,
+      "finding_zh": "研究发现，意大利森林碳汇在2005年至2023年间显著增加，从-40 Tg CO2 yr−1增长到-55 Tg CO2 yr−1。未来不同采伐情景下，森林碳汇的潜力存在较大差异，最高可达-76 Tg CO2 yr−1。",
+      "reference_value_zh": "对论文3（林业碳汇CCER价值实现与生态保护激励机制）中的森林碳汇潜力评估和未来预测环节有参考价值，可以借鉴其使用森林碳库存模型评估不同情景下的碳汇变化。",
+      "method_zh": "研究采用了一个区域级别的森林碳库存模型，结合最新的文献信息和木材产品减排潜力的辅助评估，来分析采伐不确定性对意大利森林碳汇的影响，并预测至2070年的森林碳汇变化。",
+      "limitations_zh": "摘要中未详细说明模型的具体参数设置和数据来源，以及不同采伐情景的具体定义。此外，模型预测的未来森林碳汇变化需要进一步验证其假设条件的合理性。",
+      "analysis_provider": "SiliconFlow/Qwen/Qwen2.5-72B-Instruct",
+      "summary_zh": "主要发现：研究发现，意大利森林碳汇在2005年至2023年间显著增加，从-40 Tg CO2 yr−1增长到-55 Tg CO2 yr−1。未来不同采伐情景下，森林碳汇的潜力存在较大差异，最高可达-76 Tg CO2 yr−1。 参考价值：对论文3（林业碳汇CCER价值实现与生态保护激励机制）中的森林碳汇潜力评估和未来预测环节有参考价值，可以借鉴其使用森林碳库存模型评估不同情景下的碳汇变化。"
     },
     {
       "title": "Cost, market, and policy constraints on mitigating climate change through afforestation in China",
@@ -926,12 +925,12 @@
       "fulltext_fetch_error": "无已核验的公开PDF链接",
       "fulltext_chars": 0,
       "manual_fulltext_recommended": true,
-      "finding_zh": "研究发现，实施成本比机会成本更影响通过造林缓解气候变化的效果；中国现有的CCER市场对造林缓解气候变化的激励作用非常有限，仅为0.308%。",
-      "reference_value_zh": "对论文3（林业碳汇CCER价值实现与生态保护激励机制）的市场机制和政策约束分析环节有重要参考价值，尤其是关于CCER市场激励不足的问题。",
-      "method_zh": "研究基于生物物理可行性评估了造林缓解气候变化的成本、市场和政策约束。使用了经济模型和市场数据分析。",
-      "limitations_zh": "摘要中未提及具体的研究区域，但标题表明研究对象为中国，需进一步确认研究是否涵盖了京津冀地区；摘要中提到的‘增强CO2移除的激励价格’等建议的具体实施路径未详细说明，需阅读全文了解。",
+      "finding_zh": "研究发现，实施成本比机会成本对通过造林缓解气候变化的限制更大；中国认证减排市场目前仅提供0.308%的造林激励，远低于欧盟排放交易系统的碳价格情景。",
+      "reference_value_zh": "对论文3（林业碳汇CCER价值实现与生态保护激励机制）的市场机制和政策约束分析有重要参考价值，特别是关于中国认证减排市场的激励价格和市场准入障碍的讨论。",
+      "method_zh": "研究方法基于生物物理可行性评估成本、市场和政策对造林缓解气候变化的限制。具体数据来源和分析模型未在摘要中详细说明。",
+      "limitations_zh": "摘要中未提供具体的研究方法细节，如模型构建、数据收集等，需要进一步阅读全文以了解研究的具体操作过程。此外，研究结果可能受特定假设条件的影响，如碳价格情景、土地政策等，这些假设条件的合理性需要进一步核验。",
       "analysis_provider": "SiliconFlow/Qwen/Qwen2.5-72B-Instruct",
-      "summary_zh": "主要发现：研究发现，实施成本比机会成本更影响通过造林缓解气候变化的效果；中国现有的CCER市场对造林缓解气候变化的激励作用非常有限，仅为0.308%。 参考价值：对论文3（林业碳汇CCER价值实现与生态保护激励机制）的市场机制和政策约束分析环节有重要参考价值，尤其是关于CCER市场激励不足的问题。"
+      "summary_zh": "主要发现：研究发现，实施成本比机会成本对通过造林缓解气候变化的限制更大；中国认证减排市场目前仅提供0.308%的造林激励，远低于欧盟排放交易系统的碳价格情景。 参考价值：对论文3（林业碳汇CCER价值实现与生态保护激励机制）的市场机制和政策约束分析有重要参考价值，特别是关于中国认证减排市场的激励价格和市场准入障碍的讨论。"
     }
   ]
 }
